@@ -499,8 +499,17 @@ p {
   background-color: var(--gray-100);
 }
 
+/* Mobile only styles */
+.mobile-only {
+  display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+
   .nav-menu {
     position: fixed;
     top: var(--nav-height);
