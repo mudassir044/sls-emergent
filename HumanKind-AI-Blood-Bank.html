@@ -699,15 +699,37 @@
       const navMenu = document.getElementById("nav-menu");
 
       if (navToggle && navMenu) {
-        navToggle.addEventListener("click", () => {
-          navMenu.classList.toggle("active");
+        function toggleMenu(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isActive = navMenu.classList.contains("active");
+
+          if (isActive) {
+            navMenu.style.animation = "slideOutUp 0.3s ease-out";
+            setTimeout(() => {
+              navMenu.classList.remove("active");
+              navMenu.style.animation = "";
+            }, 300);
+          } else {
+            navMenu.classList.add("active");
+          }
+
+          navToggle.textContent = isActive ? "☰" : "✕";
+          document.body.style.overflow = isActive ? "auto" : "hidden";
+        }
+
+        navToggle.addEventListener("click", toggleMenu);
+        navToggle.addEventListener("touchstart", toggleMenu, {
+          passive: false,
         });
 
-        // Close menu when clicking on a link
         const navLinks = document.querySelectorAll(".nav-link");
         navLinks.forEach((link) => {
           link.addEventListener("click", () => {
             navMenu.classList.remove("active");
+            navToggle.textContent = "☰";
+            document.body.style.overflow = "auto";
           });
         });
       }
