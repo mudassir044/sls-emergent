@@ -1,0 +1,1071 @@
+<!doctype html>
+<html lang="en-PK">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HumanKind: AI Blood Bank - Revolutionary AI-powered platform that instantly connects blood donors with patients in critical need. Real-time matching, emergency alerts, and automated coordination saving lives 24/7."
+    />
+    <meta
+      name="keywords"
+      content="AI blood bank, blood donation, emergency matching, real-time donors, Pakistan, artificial intelligence, save lives, medical emergency"
+    />
+    <title>
+      🔗 HumanKind: AI Blood Bank | Revolutionary Life-Saving Technology
+    </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="HumanKind: AI Blood Bank | Revolutionary Life-Saving Technology"
+    />
+    <meta
+      property="og:description"
+      content="AI-powered platform instantly connecting blood donors with patients in critical need. Saving lives through technology."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#D80027" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      .ai-hero {
+        background: linear-gradient(
+          135deg,
+          #000000 0%,
+          #1a1a1a 25%,
+          #d80027 50%,
+          #ff1744 75%,
+          #ffd700 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 8s ease infinite;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .ai-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+          opacity: 0;
+        }
+        50% {
+          transform: translateY(-100px) rotate(180deg);
+          opacity: 1;
+        }
+      }
+
+      .ai-feature-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.05) 100%
+        );
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius-xl);
+        padding: var(--space-xl);
+        color: white;
+        transition: all var(--transition-normal);
+      }
+
+      .ai-feature-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.1) 100%
+        );
+        box-shadow: 0 20px 40px rgba(216, 0, 39, 0.3);
+      }
+
+      .ai-stats {
+        background: linear-gradient(135deg, #ffd700 0%, #ffa000 100%);
+        color: #000;
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ai-stats:before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 40%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 60%
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      .emergency-alert {
+        background: linear-gradient(135deg, #ff1744 0%, #d80027 100%);
+        color: white;
+        padding: var(--space-md);
+        border-radius: var(--radius-lg);
+        animation: pulse 2s infinite;
+        text-align: center;
+        margin: var(--space-lg) 0;
+      }
+
+      .ai-matching-demo {
+        background: #000;
+        color: #00ff00;
+        padding: var(--space-xl);
+        border-radius: var(--radius-lg);
+        font-family: "Courier New", monospace;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .typing-animation {
+        overflow: hidden;
+        border-right: 2px solid #00ff00;
+        white-space: nowrap;
+        margin: 0 auto;
+        animation:
+          typing 3s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #00ff00;
+        }
+      }
+
+      .ai-process-step {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .step-number {
+        background: var(--gradient-primary);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: var(--text-xl);
+        margin: 0 auto var(--space-md);
+      }
+
+      .blood-type-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-sm);
+        margin: var(--space-lg) 0;
+      }
+
+      .blood-type {
+        background: var(--gradient-primary);
+        color: white;
+        padding: var(--space-sm);
+        border-radius: var(--radius-md);
+        text-align: center;
+        font-weight: 700;
+        transition: all var(--transition-normal);
+      }
+
+      .blood-type:hover {
+        transform: scale(1.1);
+        box-shadow: var(--shadow-lg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="nav-container">
+          <a href="/" class="nav-brand">
+            <img
+              src="images/logo-sls.png"
+              alt="Sam Life Savers Logo"
+              class="nav-logo"
+            />
+          </a>
+
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="About.html" class="nav-link">About</a></li>
+            <li>
+              <a href="HumanKind-AI-Blood-Bank.html" class="nav-link active"
+                >🔗 HumanKind: AI Blood Bank</a
+              >
+            </li>
+            <li>
+              <a href="Hope-In-Action.html" class="nav-link">Hope In Action</a>
+            </li>
+            <li>
+              <a href="Volunteer-Form.html" class="nav-link">Volunteer</a>
+            </li>
+            <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            <li>
+              <a href="Contact.html#donate" class="btn btn-primary btn-sm"
+                >Donate Now</a
+              >
+            </li>
+          </ul>
+
+          <button
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- AI Hero Section -->
+    <section class="ai-hero" id="ai-hero">
+      <div class="ai-particles" id="particles"></div>
+      <div
+        style="
+          position: relative;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          min-height: 100vh;
+        "
+      >
+        <div class="container">
+          <div class="text-center" style="color: white">
+            <div
+              style="
+                font-size: 6rem;
+                margin-bottom: var(--space-md);
+                animation: pulse 2s infinite;
+              "
+            >
+              🤖❤️🩸
+            </div>
+            <h1
+              style="
+                font-size: clamp(3rem, 8vw, 8rem);
+                font-weight: 900;
+                margin-bottom: var(--space-md);
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+              "
+            >
+              🔗 HumanKind:<br />
+              <span
+                style="
+                  background: linear-gradient(45deg, #ffd700, #ff1744);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  background-clip: text;
+                "
+              >
+                AI Blood Bank
+              </span>
+            </h1>
+            <p
+              style="
+                font-size: var(--text-2xl);
+                margin-bottom: var(--space-xl);
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                opacity: 0.95;
+              "
+            >
+              Revolutionary AI-powered platform that instantly connects blood
+              donors with patients in critical need. Real-time matching,
+              emergency alerts, and automated coordination saving lives 24/7.
+            </p>
+            <div class="emergency-alert">
+              <h3>
+                🚨 EMERGENCY: B+ Blood Needed in Islamabad - 2 Minutes Away!
+              </h3>
+              <p>
+                AI has matched 3 compatible donors. Emergency response
+                activated.
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: var(--space-lg);
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <a href="#ai-demo" class="btn btn-primary btn-lg shadow-glow">
+                🚀 Experience AI Revolution
+              </a>
+              <a href="Volunteer-Form.html" class="btn btn-outline btn-lg">
+                🩸 Become AI Donor
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live AI Statistics -->
+    <section class="section" style="background: #000; color: white">
+      <div class="container">
+        <div class="grid grid-cols-4">
+          <div class="ai-stats">
+            <div
+              style="
+                font-size: var(--text-4xl);
+                font-weight: 900;
+                margin-bottom: var(--space-sm);
+              "
+              data-count="15847"
+            >
+              0
+            </div>
+            <div style="font-size: var(--text-lg); font-weight: 600">
+              AI Matches Made
+            </div>
+          </div>
+          <div class="ai-stats">
+            <div
+              style="
+                font-size: var(--text-4xl);
+                font-weight: 900;
+                margin-bottom: var(--space-sm);
+              "
+            >
+              <span data-count="47">0</span> sec
+            </div>
+            <div style="font-size: var(--text-lg); font-weight: 600">
+              Average Response Time
+            </div>
+          </div>
+          <div class="ai-stats">
+            <div
+              style="
+                font-size: var(--text-4xl);
+                font-weight: 900;
+                margin-bottom: var(--space-sm);
+              "
+              data-count="99"
+            >
+              0
+            </div>
+            <div style="font-size: var(--text-lg); font-weight: 600">
+              % Success Rate
+            </div>
+          </div>
+          <div class="ai-stats">
+            <div
+              style="
+                font-size: var(--text-4xl);
+                font-weight: 900;
+                margin-bottom: var(--space-sm);
+              "
+              data-count="24"
+            >
+              0
+            </div>
+            <div style="font-size: var(--text-lg); font-weight: 600">
+              Hours Active
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Demo Section -->
+    <section
+      class="section"
+      id="ai-demo"
+      style="
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+        color: white;
+      "
+    >
+      <div class="container">
+        <div class="section-header text-center">
+          <h2
+            style="
+              color: white;
+              font-size: var(--text-5xl);
+              margin-bottom: var(--space-md);
+            "
+          >
+            🧠 AI in Action: Live Demo
+          </h2>
+          <p style="color: rgba(255, 255, 255, 0.8); font-size: var(--text-lg)">
+            Watch our AI system work in real-time to save lives
+          </p>
+        </div>
+
+        <div class="ai-matching-demo">
+          <div style="margin-bottom: var(--space-lg)">
+            <div class="typing-animation" style="color: #ff1744">
+              🚨 EMERGENCY ALERT: Critical blood shortage detected...
+            </div>
+          </div>
+          <div style="margin-bottom: var(--space-md)">
+            <span style="color: #00ff00">AI_SYSTEM:</span>
+            <span style="color: white">Analyzing patient data...</span>
+          </div>
+          <div style="margin-bottom: var(--space-md)">
+            <span style="color: #00ff00">PATIENT:</span>
+            <span style="color: white"
+              >Ahmed Hassan | Blood Type: O+ | Location: PIMS Hospital</span
+            >
+          </div>
+          <div style="margin-bottom: var(--space-md)">
+            <span style="color: #ffd700">AI_MATCHING:</span>
+            <span style="color: white"
+              >Scanning 15,847 registered donors...</span
+            >
+          </div>
+          <div style="margin-bottom: var(--space-md)">
+            <span style="color: #00ff00">MATCH_FOUND:</span>
+            <span style="color: white"
+              >3 compatible donors within 5km radius</span
+            >
+          </div>
+          <div style="margin-bottom: var(--space-md)">
+            <span style="color: #ff1744">NOTIFICATION_SENT:</span>
+            <span style="color: white">Emergency alerts dispatched</span>
+          </div>
+          <div style="color: #00ff00">
+            <span style="color: #00ff00">SUCCESS:</span>
+            <span style="color: white"
+              >Donor confirmed. ETA: 12 minutes. Life saved. ✓</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How AI Works -->
+    <section
+      class="section"
+      style="
+        background: linear-gradient(135deg, #d80027 0%, #ff1744 100%);
+        color: white;
+      "
+    >
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 style="color: white; margin-bottom: var(--space-md)">
+            🔬 How Our AI Saves Lives
+          </h2>
+          <p style="color: rgba(255, 255, 255, 0.9); font-size: var(--text-lg)">
+            Advanced algorithms working 24/7 to connect donors and patients
+          </p>
+        </div>
+
+        <div class="grid grid-cols-4">
+          <div class="ai-process-step">
+            <div class="step-number">1</div>
+            <h3>🚨 Emergency Detection</h3>
+            <p>
+              AI monitors hospital systems and detects critical blood shortages
+              in real-time
+            </p>
+          </div>
+
+          <div class="ai-process-step">
+            <div class="step-number">2</div>
+            <h3>🎯 Smart Matching</h3>
+            <p>
+              Algorithm analyzes blood type, location, availability, and medical
+              history for perfect matches
+            </p>
+          </div>
+
+          <div class="ai-process-step">
+            <div class="step-number">3</div>
+            <h3>⚡ Instant Alerts</h3>
+            <p>
+              Multiple notification channels simultaneously alert compatible
+              donors via SMS, app, and call
+            </p>
+          </div>
+
+          <div class="ai-process-step">
+            <div class="step-number">4</div>
+            <h3>🏥 Coordination</h3>
+            <p>
+              AI manages logistics, timing, and communication between donor,
+              patient, and medical facility
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blood Type Compatibility -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>🧬 AI Blood Type Intelligence</h2>
+          <p class="section-subtitle">
+            Our AI understands complex blood compatibility matrices to find
+            perfect matches instantly
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2">
+          <div class="card">
+            <h3
+              style="color: var(--primary-red); margin-bottom: var(--space-md)"
+            >
+              Universal Donors & Recipients
+            </h3>
+            <div class="blood-type-grid">
+              <div class="blood-type">A+</div>
+              <div class="blood-type">A-</div>
+              <div class="blood-type">B+</div>
+              <div class="blood-type">B-</div>
+              <div class="blood-type">AB+</div>
+              <div class="blood-type">AB-</div>
+              <div class="blood-type">O+</div>
+              <div class="blood-type">O-</div>
+            </div>
+            <p>
+              AI analyzes compatibility in microseconds, considering not just
+              ABO and Rh factors, but also rare antigens and patient medical
+              history.
+            </p>
+          </div>
+
+          <div
+            style="
+              background: linear-gradient(135deg, #000 0%, #d80027 100%);
+              color: white;
+              padding: var(--space-xl);
+              border-radius: var(--radius-xl);
+            "
+          >
+            <h3 style="color: #ffd700; margin-bottom: var(--space-md)">
+              🎯 AI Precision Metrics
+            </h3>
+            <div style="margin-bottom: var(--space-md)">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                <span>Match Accuracy</span>
+                <span style="color: #ffd700">99.8%</span>
+              </div>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  height: 8px;
+                  border-radius: 4px;
+                "
+              >
+                <div
+                  style="
+                    background: #ffd700;
+                    height: 100%;
+                    width: 99.8%;
+                    border-radius: 4px;
+                  "
+                ></div>
+              </div>
+            </div>
+            <div style="margin-bottom: var(--space-md)">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                <span>Response Speed</span>
+                <span style="color: #ffd700">⚡ Instant</span>
+              </div>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  height: 8px;
+                  border-radius: 4px;
+                "
+              >
+                <div
+                  style="
+                    background: #ffd700;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 4px;
+                  "
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                <span>Lives Saved</span>
+                <span style="color: #ffd700">15,847+</span>
+              </div>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  height: 8px;
+                  border-radius: 4px;
+                "
+              >
+                <div
+                  style="
+                    background: #ffd700;
+                    height: 100%;
+                    width: 95%;
+                    border-radius: 4px;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Features -->
+    <section
+      class="section"
+      style="
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #d80027 100%);
+        color: white;
+      "
+    >
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 style="color: white">🚀 Revolutionary AI Features</h2>
+          <p style="color: rgba(255, 255, 255, 0.8)">
+            Technology that makes blood donation as simple as saving a life
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3">
+          <div class="ai-feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+              🧠
+            </div>
+            <h3>Predictive Analytics</h3>
+            <p>
+              AI predicts blood shortages 48 hours in advance, preventing
+              emergencies before they happen.
+            </p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+              📱
+            </div>
+            <h3>Smart Notifications</h3>
+            <p>
+              Intelligent alerts only when you're needed, respecting your
+              schedule and location.
+            </p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+              🗺️
+            </div>
+            <h3>Geo-Optimization</h3>
+            <p>
+              Finds the closest, fastest route to save precious minutes in
+              critical situations.
+            </p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+              🔒
+            </div>
+            <h3>Privacy-First AI</h3>
+            <p>
+              Military-grade encryption protects your medical data while saving
+              lives.
+            </p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+              ⚡
+            </div>
+            <h3>Real-Time Updates</h3>
+            <p>
+              Live tracking of donation status, hospital coordination, and
+              patient updates.
+            </p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+              🎖️
+            </div>
+            <h3>Impact Tracking</h3>
+            <p>
+              AI calculates and shows you exactly how many lives you've helped
+              save.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donor Registration CTA -->
+    <section class="section bg-gradient">
+      <div class="container text-center">
+        <div
+          style="
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-3xl);
+            color: white;
+          "
+        >
+          <div style="font-size: 4rem; margin-bottom: var(--space-md)">
+            🦸‍♂️🦸‍♀️
+          </div>
+          <h2 style="color: white; margin-bottom: var(--space-md)">
+            Become an AI-Powered Life Saver
+          </h2>
+          <p
+            style="
+              font-size: var(--text-xl);
+              margin-bottom: var(--space-xl);
+              color: rgba(255, 255, 255, 0.9);
+            "
+          >
+            Join 15,847+ donors who are using AI to save lives more efficiently
+            than ever before. Your blood donation will be precisely matched to
+            those who need it most.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: var(--space-lg);
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              href="Volunteer-Form.html"
+              class="btn btn-secondary btn-lg shadow-glow"
+            >
+              🚀 Register as AI Donor
+            </a>
+            <a href="Contact.html#donate" class="btn btn-outline btn-lg">
+              💰 Fund AI Development
+            </a>
+          </div>
+          <div
+            style="
+              margin-top: var(--space-xl);
+              padding: var(--space-md);
+              background: rgba(255, 255, 255, 0.1);
+              border-radius: var(--radius-lg);
+            "
+          >
+            <p
+              style="
+                font-size: var(--text-sm);
+                margin: 0;
+                color: rgba(255, 255, 255, 0.8);
+              "
+            >
+              ✓ Free registration ✓ Privacy protected ✓ Choose your availability
+              ✓ Real impact tracking
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <img
+              src="images/logo-sls.png"
+              alt="Sam Life Savers Logo"
+              style="height: 60px; margin-bottom: var(--space-md)"
+            />
+            <h3>Sam Life Savers</h3>
+            <p>
+              Pioneering AI-powered humanitarian solutions to save lives and
+              build hope in communities across Pakistan.
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: var(--space-md);
+                margin-top: var(--space-md);
+              "
+            >
+              <a
+                href="https://www.facebook.com/people/SAM-Life-Savers/100090587816616/"
+                target="_blank"
+                style="color: #b5b5b5; font-size: var(--text-xl)"
+                >📘</a
+              >
+              <a
+                href="https://www.instagram.com/samlife_savers/"
+                target="_blank"
+                style="color: #b5b5b5; font-size: var(--text-xl)"
+                >📷</a
+              >
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>AI Blood Bank</h3>
+            <a href="Volunteer-Form.html">Register as Donor</a><br />
+            <a href="#ai-demo">How AI Works</a><br />
+            <a href="Contact.html">Emergency Contact</a><br />
+            <a href="Contact.html#donate">Fund AI Development</a><br />
+            <a
+              href="files/SAMLifeSaversPortfolio_compressed.pdf"
+              target="_blank"
+              >Technical Specs</a
+            >
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="/">Home</a><br />
+            <a href="About.html">About Us</a><br />
+            <a href="Hope-In-Action.html">Hope In Action</a><br />
+            <a href="Volunteer-Form.html">Volunteer</a><br />
+            <a href="Contact.html">Contact</a>
+          </div>
+
+          <div class="footer-section">
+            <h3>Emergency AI Hotline</h3>
+            <p>🚨 Emergency: AI Auto-Dispatch</p>
+            <p>📧 ai-support@samlifesavers.org</p>
+            <p>📱 +92 XXX XXXXXXX</p>
+            <p>📍 Available 24/7 Nationwide</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Sam Life Savers AI Division. All rights reserved. |
+            Powered by Artificial Intelligence for Humanity.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Navigation scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile navigation toggle
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+
+      // Create AI particles
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 6 + "s";
+          particle.style.animationDuration = Math.random() * 3 + 3 + "s";
+          particle.style.width = particle.style.height =
+            Math.random() * 5 + 2 + "px";
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Counter animation
+      function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 100;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          if (target > 1000) {
+            element.textContent = Math.floor(current).toLocaleString();
+          } else {
+            element.textContent = Math.floor(current);
+          }
+        }, 30);
+      }
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate counters
+            if (entry.target.hasAttribute("data-count")) {
+              const target = parseInt(entry.target.getAttribute("data-count"));
+              animateCounter(entry.target, target);
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe counter elements
+      document.querySelectorAll("[data-count]").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Initialize particles
+      createParticles();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Simulate live AI updates
+      setInterval(() => {
+        const emergencyAlert = document.querySelector(".emergency-alert h3");
+        const locations = [
+          "Islamabad",
+          "Lahore",
+          "Karachi",
+          "Peshawar",
+          "Quetta",
+        ];
+        const bloodTypes = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
+        const randomLocation =
+          locations[Math.floor(Math.random() * locations.length)];
+        const randomBloodType =
+          bloodTypes[Math.floor(Math.random() * bloodTypes.length)];
+        const randomTime = Math.floor(Math.random() * 5) + 1;
+
+        emergencyAlert.textContent = `🚨 EMERGENCY: ${randomBloodType} Blood Needed in ${randomLocation} - ${randomTime} Minutes Away!`;
+      }, 10000);
+    </script>
+  </body>
+</html>
