@@ -1,597 +1,361 @@
 <!doctype html>
-<html lang="en-PK">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Contact Sam Life Savers - Get in touch, donate to save lives, support our humanitarian mission. Multiple ways to donate and make a real impact."
+      content="Contact Sam Life Savers - Get in touch and donate to support our life-saving humanitarian work across Pakistan."
     />
-    <meta
-      name="keywords"
-      content="contact sam life savers, donate, donation, charity, humanitarian, support, contact information"
-    />
-    <title>
-      Contact & Donate | Sam Life Savers - Make a Life-Saving Impact
-    </title>
+    <title>Contact & Donate — Sam Life Savers</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Contact & Donate | Sam Life Savers" />
-    <meta
-      property="og:description"
-      content="Get in touch and donate to save lives. Multiple ways to support our humanitarian mission."
-    />
-    <meta property="og:type" content="website" />
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#D80027" />
-
-    <!-- Styles -->
     <link rel="stylesheet" href="global.css" />
-
-    <style>
-      .donation-card {
-        background: linear-gradient(
-          135deg,
-          var(--primary-red) 0%,
-          #ff1744 100%
-        );
-        color: white;
-        border-radius: var(--radius-xl);
-        padding: var(--space-xl);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        transition: all var(--transition-normal);
-      }
-
-      .donation-card:before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent 40%,
-          rgba(255, 255, 255, 0.1) 50%,
-          transparent 60%
-        );
-        animation: shimmer 3s infinite;
-      }
-
-      @keyframes shimmer {
-        0% {
-          transform: translateX(-100%) translateY(-100%) rotate(45deg);
-        }
-        100% {
-          transform: translateX(100%) translateY(100%) rotate(45deg);
-        }
-      }
-
-      .donation-card:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(216, 0, 39, 0.4);
-      }
-
-      .qr-code-container {
-        background: white;
-        padding: var(--space-md);
-        border-radius: var(--radius-lg);
-        margin: var(--space-md) 0;
-        display: inline-block;
-      }
-
-      .qr-code {
-        width: 150px;
-        height: 150px;
-        object-fit: contain;
-      }
-
-      .contact-method {
-        background: var(--background-secondary);
-        padding: var(--space-lg);
-        border-radius: var(--radius-lg);
-        text-align: center;
-        transition: all var(--transition-normal);
-        border: 2px solid transparent;
-      }
-
-      .contact-method:hover {
-        border-color: var(--primary-red);
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .contact-icon {
-        background: var(--gradient-primary);
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto var(--space-md);
-        font-size: var(--text-2xl);
-      }
-
-      .form-group {
-        margin-bottom: var(--space-lg);
-      }
-
-      .form-label {
-        display: block;
-        margin-bottom: var(--space-xs);
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-
-      .form-input {
-        width: 100%;
-        padding: var(--space-sm) var(--space-md);
-        border: 2px solid #e5e7eb;
-        border-radius: var(--radius-md);
-        font-size: var(--text-base);
-        transition: all var(--transition-normal);
-        background: white;
-      }
-
-      .form-input:focus {
-        outline: none;
-        border-color: var(--primary-red);
-        box-shadow: 0 0 0 3px rgba(216, 0, 39, 0.1);
-      }
-
-      .form-textarea {
-        min-height: 120px;
-        resize: vertical;
-      }
-
-      .emergency-contact {
-        background: linear-gradient(135deg, #ff1744 0%, #d80027 100%);
-        color: white;
-        padding: var(--space-xl);
-        border-radius: var(--radius-xl);
-        text-align: center;
-        animation: pulse 2s infinite;
-        margin: var(--space-lg) 0;
-      }
-
-      .impact-badge {
-        background: var(--gradient-primary);
-        color: white;
-        padding: var(--space-sm) var(--space-md);
-        border-radius: var(--radius-full);
-        font-size: var(--text-sm);
-        font-weight: 600;
-        display: inline-block;
-        margin: var(--space-xs);
-      }
-    </style>
   </head>
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="container">
-        <div class="nav-container">
-          <a href="/" class="nav-brand">
-            <img
-              src="images/logo-sls.png"
-              alt="Sam Life Savers Logo"
-              class="nav-logo"
-            />
-          </a>
+    <nav class="nav" id="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">
+          <img src="images/logo-sls.png" alt="Sam Life Savers" />
+          <span>Sam Life Savers</span>
+        </a>
 
-          <ul class="nav-menu" id="nav-menu">
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="About.html" class="nav-link">About</a></li>
-            <li>
-              <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
-                >🔗 HumanKind: AI Blood Bank</a
-              >
-            </li>
-            <li>
-              <a href="Hope-In-Action.html" class="nav-link">Hope In Action</a>
-            </li>
-            <li>
-              <a href="Volunteer-Form.html" class="nav-link">Volunteer</a>
-            </li>
-            <li><a href="Contact.html" class="nav-link active">Contact</a></li>
-            <li>
-              <a href="Contact.html#donate" class="btn btn-primary btn-sm"
-                >Donate Now</a
-              >
-            </li>
-          </ul>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li>
+            <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
+              >AI Blood Bank</a
+            >
+          </li>
+          <li><a href="Hope-In-Action.html" class="nav-link">Impact</a></li>
+          <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
+          <li><a href="Contact.html" class="nav-link active">Contact</a></li>
+          <li>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.eblood"
+              target="_blank"
+              class="nav-cta"
+              >E Blood App</a
+            >
+          </li>
+        </ul>
 
-          <button
-            class="nav-toggle"
-            id="nav-toggle"
-            aria-label="Toggle navigation"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" style="min-height: 70vh">
-      <img
-        src="images/diverse-people-refugee-camps-5.jpg"
-        alt="Making contact and connections"
-        class="hero-background"
-      />
-      <div class="hero-overlay"></div>
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #dc2626 0%, #000 100%);
+          z-index: -1;
+        "
+      ></div>
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title animate-fade-in-up">
-            Contact & <span class="text-gradient">Donate</span>
-          </h1>
-          <p class="hero-subtitle animate-fade-in-up">
-            Get in touch with us to learn more, volunteer, or make a life-saving
-            donation. Every contribution directly impacts lives and builds hope
-            in communities across Pakistan.
+          <h1 class="hero-title">Get in touch</h1>
+          <p class="hero-subtitle text-large">
+            Ready to save lives? Contact us or make a donation that directly
+            impacts communities across Pakistan.
           </p>
-          <div class="hero-actions animate-fade-in-up">
-            <a href="#donate" class="btn btn-primary btn-lg animate-pulse">
-              Donate Now
-            </a>
-            <a href="#contact-form" class="btn btn-outline btn-lg">
-              Send Message
-            </a>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Emergency Contact Alert -->
-    <section class="section-sm">
+    <!-- Emergency Alert -->
+    <section
+      class="section-small"
+      style="background: var(--red); color: var(--white); text-align: center"
+    >
       <div class="container">
-        <div class="emergency-contact">
-          <h3>🚨 Emergency Blood Donation Hotline</h3>
-          <p style="margin-bottom: var(--space-sm); font-size: var(--text-lg)">
-            Need blood urgently? Our AI system can find compatible donors in
-            minutes!
-          </p>
-          <div
+        <h3 style="color: var(--white); margin-bottom: var(--space-4)">
+          🚨 Emergency Blood Donation Hotline
+        </h3>
+        <p
+          style="color: rgba(255, 255, 255, 0.9); margin-bottom: var(--space-8)"
+        >
+          Need blood urgently? Our AI system can find compatible donors in
+          minutes.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="tel:+92XXXXXXXXX" class="btn btn-secondary">
+            📞 Emergency Line
+          </a>
+          <a
+            href="HumanKind-AI-Blood-Bank.html"
+            class="btn"
             style="
-              display: flex;
-              gap: var(--space-md);
-              justify-content: center;
-              flex-wrap: wrap;
+              background: rgba(255, 255, 255, 0.2);
+              color: white;
+              border: 1px solid rgba(255, 255, 255, 0.3);
             "
           >
-            <a href="tel:+92XXXXXXXXX" class="btn btn-secondary btn-lg">
-              📞 Call Emergency Line
-            </a>
-            <a
-              href="HumanKind-AI-Blood-Bank.html"
-              class="btn btn-outline btn-lg"
-            >
-              🤖 Use AI Blood Bank
-            </a>
-          </div>
+            🤖 AI Blood Bank
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Donation Section -->
-    <section class="section" id="donate">
+    <section class="content-block" id="donate">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">💰 Make a Life-Saving Donation</h2>
-          <p class="section-subtitle">
+        <div style="text-align: center; margin-bottom: var(--space-20)">
+          <h2>Make a life-saving donation</h2>
+          <p class="text-large" style="margin-top: var(--space-4)">
             Your donation directly saves lives. Choose from multiple convenient
-            methods to support our humanitarian mission.
+            methods to support our mission.
           </p>
         </div>
 
         <!-- Impact Statement -->
-        <div style="text-align: center; margin-bottom: var(--space-3xl)">
-          <p
-            style="
-              font-size: var(--text-lg);
-              margin-bottom: var(--space-md);
-              color: var(--text-secondary);
-            "
-          >
-            <strong>Your Impact:</strong>
-          </p>
+        <div
+          style="
+            text-align: center;
+            margin-bottom: var(--space-16);
+            background: var(--gray-50);
+            padding: var(--space-8);
+            border-radius: 12px;
+          "
+        >
+          <h3 style="margin-bottom: var(--space-4)">Your impact</h3>
           <div
             style="
               display: flex;
               justify-content: center;
+              gap: var(--space-8);
               flex-wrap: wrap;
-              gap: var(--space-sm);
             "
           >
-            <span class="impact-badge">Rs. 500 = 1 Iftar Meal</span>
-            <span class="impact-badge">Rs. 2,000 = Emergency Medical Aid</span>
-            <span class="impact-badge"
-              >Rs. 10,000 = Water Pump Maintenance</span
-            >
-            <span class="impact-badge"
-              >Rs. 25,000 = Orphan Monthly Support</span
-            >
+            <div style="text-align: center">
+              <div
+                style="font-weight: 800; color: var(--red); font-size: 1.25rem"
+              >
+                Rs. 500
+              </div>
+              <div style="font-size: 0.875rem; color: var(--gray-600)">
+                1 Emergency meal
+              </div>
+            </div>
+            <div style="text-align: center">
+              <div
+                style="font-weight: 800; color: var(--red); font-size: 1.25rem"
+              >
+                Rs. 2,000
+              </div>
+              <div style="font-size: 0.875rem; color: var(--gray-600)">
+                Medical aid package
+              </div>
+            </div>
+            <div style="text-align: center">
+              <div
+                style="font-weight: 800; color: var(--red); font-size: 1.25rem"
+              >
+                Rs. 10,000
+              </div>
+              <div style="font-size: 0.875rem; color: var(--gray-600)">
+                Water pump maintenance
+              </div>
+            </div>
+            <div style="text-align: center">
+              <div
+                style="font-weight: 800; color: var(--red); font-size: 1.25rem"
+              >
+                Rs. 25,000
+              </div>
+              <div style="font-size: 0.875rem; color: var(--gray-600)">
+                Monthly orphan support
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Donation Methods -->
-        <div class="grid grid-cols-3">
-          <!-- Bank Transfer -->
-          <div class="donation-card animate-fade-in-up">
-            <div style="position: relative; z-index: 2">
-              <div style="font-size: 3rem; margin-bottom: var(--space-md)">
-                🏦
-              </div>
-              <h3 style="color: white; margin-bottom: var(--space-md)">
-                Bank Transfer
-              </h3>
-              <div class="qr-code-container">
-                <img
-                  src="images/bank-qr.jpeg"
-                  alt="Bank QR Code"
-                  class="qr-code"
-                />
-              </div>
-              <div
+        <div class="grid grid-3">
+          <div class="feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-8)">🏦</div>
+            <h3 class="feature-title">Bank Transfer</h3>
+            <div style="text-align: center; margin: var(--space-8) 0">
+              <img
+                src="images/bank-qr.jpeg"
+                alt="Bank QR Code"
                 style="
-                  background: rgba(255, 255, 255, 0.1);
-                  padding: var(--space-md);
-                  border-radius: var(--radius-md);
-                  margin-top: var(--space-md);
+                  width: 150px;
+                  height: 150px;
+                  object-fit: contain;
+                  border-radius: 8px;
                 "
-              >
-                <p style="margin: var(--space-xs) 0; font-size: var(--text-sm)">
-                  <strong>Account Title:</strong> Sam Life Savers<br />
-                  <strong>Account No:</strong> 1234567890<br />
-                  <strong>Bank:</strong> HBL Pakistan
-                </p>
-              </div>
+              />
             </div>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: var(--space-4);
+                border-radius: 8px;
+                margin-bottom: var(--space-8);
+                font-size: 0.875rem;
+              "
+            >
+              <strong>Account:</strong> Sam Life Savers<br />
+              <strong>Number:</strong> 1234567890<br />
+              <strong>Bank:</strong> HBL Pakistan
+            </div>
+            <a href="#" class="btn btn-primary" style="width: 100%"
+              >Bank Details</a
+            >
           </div>
 
-          <!-- JazzCash -->
-          <div class="donation-card animate-fade-in-up">
-            <div style="position: relative; z-index: 2">
-              <div style="font-size: 3rem; margin-bottom: var(--space-md)">
-                📱
-              </div>
-              <h3 style="color: white; margin-bottom: var(--space-md)">
-                JazzCash
-              </h3>
-              <div class="qr-code-container">
-                <img
-                  src="images/jazzcash-qr.jpeg"
-                  alt="JazzCash QR Code"
-                  class="qr-code"
-                />
-              </div>
-              <div
+          <div class="feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-8)">📱</div>
+            <h3 class="feature-title">JazzCash</h3>
+            <div style="text-align: center; margin: var(--space-8) 0">
+              <img
+                src="images/jazzcash-qr.jpeg"
+                alt="JazzCash QR Code"
                 style="
-                  background: rgba(255, 255, 255, 0.1);
-                  padding: var(--space-md);
-                  border-radius: var(--radius-md);
-                  margin-top: var(--space-md);
+                  width: 150px;
+                  height: 150px;
+                  object-fit: contain;
+                  border-radius: 8px;
                 "
-              >
-                <p style="margin: var(--space-xs) 0; font-size: var(--text-sm)">
-                  <strong>Mobile Account:</strong><br />
-                  03XX-XXXXXXX<br />
-                  <strong>Scan QR or Send Money</strong>
-                </p>
-              </div>
+              />
             </div>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: var(--space-4);
+                border-radius: 8px;
+                margin-bottom: var(--space-8);
+                font-size: 0.875rem;
+              "
+            >
+              <strong>Mobile Account:</strong><br />
+              03XX-XXXXXXX<br />
+              <strong>Scan QR or Send Money</strong>
+            </div>
+            <a href="#" class="btn btn-primary" style="width: 100%"
+              >JazzCash Transfer</a
+            >
           </div>
 
-          <!-- EasyPaisa -->
-          <div class="donation-card animate-fade-in-up">
-            <div style="position: relative; z-index: 2">
-              <div style="font-size: 3rem; margin-bottom: var(--space-md)">
-                💳
-              </div>
-              <h3 style="color: white; margin-bottom: var(--space-md)">
-                EasyPaisa
-              </h3>
-              <div class="qr-code-container">
-                <img
-                  src="images/easypaisa-qr.jpeg"
-                  alt="EasyPaisa QR Code"
-                  class="qr-code"
-                />
-              </div>
-              <div
+          <div class="feature-card">
+            <div style="font-size: 3rem; margin-bottom: var(--space-8)">💳</div>
+            <h3 class="feature-title">EasyPaisa</h3>
+            <div style="text-align: center; margin: var(--space-8) 0">
+              <img
+                src="images/easypaisa-qr.jpeg"
+                alt="EasyPaisa QR Code"
                 style="
-                  background: rgba(255, 255, 255, 0.1);
-                  padding: var(--space-md);
-                  border-radius: var(--radius-md);
-                  margin-top: var(--space-md);
+                  width: 150px;
+                  height: 150px;
+                  object-fit: contain;
+                  border-radius: 8px;
                 "
-              >
-                <p style="margin: var(--space-xs) 0; font-size: var(--text-sm)">
-                  <strong>Mobile Account:</strong><br />
-                  03XX-XXXXXXX<br />
-                  <strong>Scan QR or Send Money</strong>
-                </p>
-              </div>
+              />
             </div>
-          </div>
-        </div>
-
-        <!-- Donation Instructions -->
-        <div
-          style="
-            background: var(--background-secondary);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            margin-top: var(--space-3xl);
-            text-align: center;
-          "
-        >
-          <h3 style="color: var(--primary-red); margin-bottom: var(--space-md)">
-            📋 How to Donate
-          </h3>
-          <div class="grid grid-cols-3">
-            <div style="text-align: center">
-              <div
-                style="
-                  background: var(--gradient-primary);
-                  color: white;
-                  width: 50px;
-                  height: 50px;
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin: 0 auto var(--space-md);
-                  font-weight: 900;
-                "
-              >
-                1
-              </div>
-              <h4>Choose Method</h4>
-              <p>Select your preferred payment method from the options above</p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: var(--space-4);
+                border-radius: 8px;
+                margin-bottom: var(--space-8);
+                font-size: 0.875rem;
+              "
+            >
+              <strong>Mobile Account:</strong><br />
+              03XX-XXXXXXX<br />
+              <strong>Scan QR or Send Money</strong>
             </div>
-            <div style="text-align: center">
-              <div
-                style="
-                  background: var(--gradient-primary);
-                  color: white;
-                  width: 50px;
-                  height: 50px;
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin: 0 auto var(--space-md);
-                  font-weight: 900;
-                "
-              >
-                2
-              </div>
-              <h4>Make Payment</h4>
-              <p>Scan QR code or use account details to send your donation</p>
-            </div>
-            <div style="text-align: center">
-              <div
-                style="
-                  background: var(--gradient-primary);
-                  color: white;
-                  width: 50px;
-                  height: 50px;
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  margin: 0 auto var(--space-md);
-                  font-weight: 900;
-                "
-              >
-                3
-              </div>
-              <h4>Confirm Impact</h4>
-              <p>
-                Send us a screenshot to receive confirmation and impact report
-              </p>
-            </div>
+            <a href="#" class="btn btn-primary" style="width: 100%"
+              >EasyPaisa Transfer</a
+            >
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Methods -->
-    <section class="section" style="background: var(--background-secondary)">
+    <section class="section" style="background: var(--gray-50)">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">📞 Get in Touch</h2>
-          <p class="section-subtitle">
+        <div style="text-align: center; margin-bottom: var(--space-20)">
+          <h2>Get in touch</h2>
+          <p class="text-large" style="margin-top: var(--space-4)">
             Multiple ways to reach us for support, questions, or collaboration
-            opportunities
           </p>
         </div>
 
-        <div class="grid grid-cols-4">
-          <div class="contact-method animate-fade-in-up">
-            <div class="contact-icon">📧</div>
-            <h4
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              Email
-            </h4>
-            <p style="margin-bottom: var(--space-md)">
-              Send us a detailed message
-            </p>
+        <div class="grid grid-4">
+          <div class="feature-card">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
+              📧
+            </div>
+            <h4>Email</h4>
+            <p style="margin-bottom: var(--space-4)">Send us a message</p>
             <a
               href="mailto:info@samlifesavers.org"
-              style="color: var(--primary-red); font-weight: 600"
+              style="font-weight: 600; color: var(--red)"
             >
               info@samlifesavers.org
             </a>
           </div>
 
-          <div class="contact-method animate-fade-in-up">
-            <div class="contact-icon">📱</div>
-            <h4
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              Phone
-            </h4>
-            <p style="margin-bottom: var(--space-md)">Call us directly</p>
+          <div class="feature-card">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
+              📱
+            </div>
+            <h4>Phone</h4>
+            <p style="margin-bottom: var(--space-4)">Call us directly</p>
             <a
               href="tel:+92XXXXXXXXX"
-              style="color: var(--primary-red); font-weight: 600"
+              style="font-weight: 600; color: var(--red)"
             >
               +92 XXX XXXXXXX
             </a>
           </div>
 
-          <div class="contact-method animate-fade-in-up">
-            <div class="contact-icon">📍</div>
-            <h4
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              Location
-            </h4>
-            <p style="margin-bottom: var(--space-md)">Visit our office</p>
-            <p style="color: var(--primary-red); font-weight: 600">
+          <div class="feature-card">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
+              📍
+            </div>
+            <h4>Location</h4>
+            <p style="margin-bottom: var(--space-4)">Visit our office</p>
+            <p style="font-weight: 600; color: var(--red)">
               Islamabad, Pakistan
             </p>
           </div>
 
-          <div class="contact-method animate-fade-in-up">
-            <div class="contact-icon">🌐</div>
-            <h4
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              Social Media
-            </h4>
-            <p style="margin-bottom: var(--space-md)">Follow our updates</p>
-            <div
-              style="
-                display: flex;
-                gap: var(--space-sm);
-                justify-content: center;
-              "
-            >
+          <div class="feature-card">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
+              🌐
+            </div>
+            <h4>Social Media</h4>
+            <p style="margin-bottom: var(--space-4)">Follow our updates</p>
+            <div style="display: flex; gap: 1rem; justify-content: center">
               <a
                 href="https://www.facebook.com/people/SAM-Life-Savers/100090587816616/"
                 target="_blank"
-                style="color: var(--primary-red); font-size: var(--text-xl)"
+                style="color: var(--red); font-size: 1.5rem"
                 >📘</a
               >
               <a
                 href="https://www.instagram.com/samlife_savers/"
                 target="_blank"
-                style="color: var(--primary-red); font-size: var(--text-xl)"
+                style="color: var(--red); font-size: 1.5rem"
                 >📷</a
               >
             </div>
@@ -601,158 +365,175 @@
     </section>
 
     <!-- Contact Form -->
-    <section class="section" id="contact-form">
+    <section class="content-block">
       <div class="container">
-        <div class="grid grid-cols-2">
-          <div class="animate-slide-in-left">
-            <h2 style="margin-bottom: var(--space-md)">Send Us a Message</h2>
-            <p
-              style="
-                font-size: var(--text-lg);
-                margin-bottom: var(--space-xl);
-                color: var(--text-secondary);
-              "
-            >
+        <div class="content-two-column">
+          <div>
+            <h2>Send us a message</h2>
+            <p class="text-large" style="margin-bottom: var(--space-8)">
               Have questions about our work? Want to volunteer? Need emergency
-              assistance? We're here to help and respond quickly to all
-              inquiries.
+              assistance? We respond to all inquiries within 24 hours.
             </p>
 
             <div
               style="
-                background: var(--gradient-primary);
-                color: white;
-                padding: var(--space-lg);
-                border-radius: var(--radius-lg);
-                margin-bottom: var(--space-lg);
+                background: var(--gray-50);
+                padding: var(--space-8);
+                border-radius: 12px;
+                margin-bottom: var(--space-8);
               "
             >
-              <h4 style="color: white; margin-bottom: var(--space-md)">
-                ⚡ Quick Response Promise
-              </h4>
-              <ul style="list-style: none; padding: 0; margin: 0">
-                <li
+              <h4 style="margin-bottom: var(--space-4)">⚡ Response times</h4>
+              <div style="margin-bottom: var(--space-4)">
+                <div
                   style="
-                    margin-bottom: var(--space-sm);
                     display: flex;
-                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
                   "
                 >
-                  <span style="margin-right: var(--space-sm)">🚨</span>
-                  Emergency requests: Within 30 minutes
-                </li>
-                <li
+                  <span>🚨 Emergency requests</span>
+                  <span style="font-weight: 600">30 minutes</span>
+                </div>
+              </div>
+              <div style="margin-bottom: var(--space-4)">
+                <div
                   style="
-                    margin-bottom: var(--space-sm);
                     display: flex;
-                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
                   "
                 >
-                  <span style="margin-right: var(--space-sm)">💼</span>
-                  General inquiries: Within 24 hours
-                </li>
-                <li style="display: flex; align-items: center">
-                  <span style="margin-right: var(--space-sm)">🤝</span>
-                  Partnership proposals: Within 48 hours
-                </li>
-              </ul>
-            </div>
-
-            <div
-              style="
-                background: var(--background-secondary);
-                padding: var(--space-lg);
-                border-radius: var(--radius-lg);
-              "
-            >
-              <h4
-                style="
-                  color: var(--primary-red);
-                  margin-bottom: var(--space-md);
-                "
-              >
-                📋 What to Include
-              </h4>
-              <ul style="margin: 0; padding-left: var(--space-md)">
-                <li>Purpose of your message</li>
-                <li>Your location (if relevant)</li>
-                <li>Best time to contact you</li>
-                <li>Any urgent requirements</li>
-              </ul>
+                  <span>💼 General inquiries</span>
+                  <span style="font-weight: 600">24 hours</span>
+                </div>
+              </div>
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  <span>🤝 Partnership proposals</span>
+                  <span style="font-weight: 600">48 hours</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="animate-slide-in-right">
-            <form class="card">
-              <div class="form-group">
-                <label for="name" class="form-label">Full Name *</label>
+          <div>
+            <form class="feature-card" style="text-align: left">
+              <div style="margin-bottom: var(--space-4)">
+                <label
+                  style="
+                    display: block;
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                  "
+                  >Full Name *</label
+                >
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  class="form-input"
                   required
+                  style="
+                    width: 100%;
+                    padding: 0.75rem;
+                    border: 1px solid var(--gray-300);
+                    border-radius: 6px;
+                    font-size: 1rem;
+                  "
                 />
               </div>
 
-              <div class="form-group">
-                <label for="email" class="form-label">Email Address *</label>
+              <div style="margin-bottom: var(--space-4)">
+                <label
+                  style="
+                    display: block;
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                  "
+                  >Email Address *</label
+                >
                 <input
                   type="email"
-                  id="email"
-                  name="email"
-                  class="form-input"
                   required
+                  style="
+                    width: 100%;
+                    padding: 0.75rem;
+                    border: 1px solid var(--gray-300);
+                    border-radius: 6px;
+                    font-size: 1rem;
+                  "
                 />
               </div>
 
-              <div class="form-group">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-input" />
-              </div>
-
-              <div class="form-group">
-                <label for="subject" class="form-label">Subject *</label>
-                <select id="subject" name="subject" class="form-input" required>
+              <div style="margin-bottom: var(--space-4)">
+                <label
+                  style="
+                    display: block;
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                  "
+                  >Subject *</label
+                >
+                <select
+                  required
+                  style="
+                    width: 100%;
+                    padding: 0.75rem;
+                    border: 1px solid var(--gray-300);
+                    border-radius: 6px;
+                    font-size: 1rem;
+                  "
+                >
                   <option value="">Select a subject</option>
-                  <option value="emergency">🚨 Emergency Blood Request</option>
-                  <option value="volunteer">🤝 Volunteer Application</option>
-                  <option value="donation">💰 Donation Inquiry</option>
-                  <option value="partnership">🤝 Partnership Proposal</option>
-                  <option value="media">📺 Media & Press</option>
-                  <option value="general">📋 General Inquiry</option>
+                  <option value="emergency">🚨 Emergency blood request</option>
+                  <option value="volunteer">🤝 Volunteer application</option>
+                  <option value="donation">💰 Donation inquiry</option>
+                  <option value="partnership">🤝 Partnership proposal</option>
+                  <option value="general">📋 General inquiry</option>
                 </select>
               </div>
 
-              <div class="form-group">
-                <label for="message" class="form-label">Message *</label>
+              <div style="margin-bottom: var(--space-8)">
+                <label
+                  style="
+                    display: block;
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                  "
+                  >Message *</label
+                >
                 <textarea
-                  id="message"
-                  name="message"
-                  class="form-input form-textarea"
-                  placeholder="Tell us how we can help you..."
                   required
+                  rows="5"
+                  placeholder="Tell us how we can help you..."
+                  style="
+                    width: 100%;
+                    padding: 0.75rem;
+                    border: 1px solid var(--gray-300);
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    resize: vertical;
+                  "
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                class="btn btn-primary btn-lg"
-                style="width: 100%"
-              >
+              <button type="submit" class="btn btn-primary" style="width: 100%">
                 Send Message
               </button>
 
               <p
                 style="
-                  margin-top: var(--space-md);
-                  font-size: var(--text-sm);
-                  color: var(--text-muted);
+                  margin-top: var(--space-4);
+                  font-size: 0.875rem;
+                  color: var(--gray-600);
                   text-align: center;
                 "
               >
-                By submitting this form, you agree to our privacy policy and
-                terms of service.
+                By submitting this form, you agree to our privacy policy.
               </p>
             </form>
           </div>
@@ -760,43 +541,46 @@
       </div>
     </section>
 
-    <!-- Additional Resources -->
-    <section class="section bg-gradient">
-      <div class="container text-center">
-        <h2 style="color: white; margin-bottom: var(--space-md)">
-          Additional Resources
-        </h2>
-        <p
-          style="
-            font-size: var(--text-xl);
-            margin-bottom: var(--space-xl);
-            color: rgba(255, 255, 255, 0.9);
-          "
-        >
-          Explore more ways to connect with our mission and stay updated on our
-          life-saving work.
-        </p>
-        <div
-          style="
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
-            flex-wrap: wrap;
-          "
-        >
-          <a
-            href="files/SAMLifeSaversPortfolio_compressed.pdf"
-            target="_blank"
-            class="btn btn-secondary btn-lg"
+    <!-- Final CTA -->
+    <section
+      class="section"
+      style="background: var(--black); color: var(--white); text-align: center"
+    >
+      <div class="container">
+        <div style="max-width: 600px; margin: 0 auto">
+          <h2 style="color: var(--white); margin-bottom: var(--space-8)">
+            Ready to make an impact?
+          </h2>
+          <p
+            class="text-large"
+            style="
+              color: rgba(255, 255, 255, 0.9);
+              margin-bottom: var(--space-12);
+            "
           >
-            📄 Download Portfolio
-          </a>
-          <a href="Volunteer-Form.html" class="btn btn-outline btn-lg">
-            🤝 Volunteer Application
-          </a>
-          <a href="HumanKind-AI-Blood-Bank.html" class="btn btn-outline btn-lg">
-            🤖 AI Blood Bank
-          </a>
+            Every donation, every volunteer hour, every download makes a
+            difference. Join the movement revolutionizing humanitarian aid.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="#donate" class="btn btn-primary btn-large"> Donate now </a>
+            <a href="Volunteer-Form.html" class="btn btn-secondary btn-large">
+              Volunteer today
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.eblood"
+              target="_blank"
+              class="btn btn-secondary btn-large"
+            >
+              E Blood App
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -806,92 +590,62 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <img
-              src="images/logo-sls.png"
-              alt="Sam Life Savers Logo"
-              style="height: 60px; margin-bottom: var(--space-md)"
-            />
-            <h3>Sam Life Savers</h3>
-            <p>
-              A student-led humanitarian movement dedicated to saving lives and
-              building hope in communities across Pakistan.
-            </p>
-            <div
+            <h4>Sam Life Savers</h4>
+            <p
               style="
-                display: flex;
-                gap: var(--space-md);
-                margin-top: var(--space-md);
+                color: var(--gray-400);
+                margin-top: 0.5rem;
+                line-height: 1.6;
               "
             >
-              <a
-                href="https://www.facebook.com/people/SAM-Life-Savers/100090587816616/"
-                target="_blank"
-                style="color: #b5b5b5; font-size: var(--text-xl)"
-                >📘</a
-              >
-              <a
-                href="https://www.instagram.com/samlife_savers/"
-                target="_blank"
-                style="color: #b5b5b5; font-size: var(--text-xl)"
-                >📷</a
-              >
-            </div>
+              A student-led movement revolutionizing humanitarian aid through
+              technology and compassion.
+            </p>
           </div>
 
           <div class="footer-section">
-            <h3>Quick Links</h3>
-            <a href="/">Home</a><br />
-            <a href="About.html">About Us</a><br />
-            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Bank</a><br />
-            <a href="Hope-In-Action.html">Hope In Action</a><br />
-            <a href="Volunteer-Form.html">Volunteer</a><br />
+            <h4>Navigation</h4>
+            <a href="/">Home</a>
+            <a href="About.html">About</a>
+            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Bank</a>
+            <a href="Hope-In-Action.html">Impact</a>
+            <a href="Volunteer-Form.html">Volunteer</a>
             <a href="Contact.html">Contact</a>
           </div>
 
           <div class="footer-section">
-            <h3>Donate</h3>
-            <a href="#donate">Bank Transfer</a><br />
-            <a href="#donate">JazzCash</a><br />
-            <a href="#donate">EasyPaisa</a><br />
-            <a href="Contact.html">Contact for Help</a><br />
-            <a
-              href="files/SAMLifeSaversPortfolio_compressed.pdf"
-              target="_blank"
-              >Impact Report</a
-            >
+            <h4>Donate</h4>
+            <a href="#donate">Bank Transfer</a>
+            <a href="#donate">JazzCash</a>
+            <a href="#donate">EasyPaisa</a>
+            <a href="Contact.html">Contact for Help</a>
           </div>
 
           <div class="footer-section">
-            <h3>Emergency Contact</h3>
-            <p>🚨 Emergency: +92 XXX XXXXXXX</p>
-            <p>📧 info@samlifesavers.org</p>
-            <p>📱 WhatsApp: +92 XXX XXXXXXX</p>
-            <p>📍 Islamabad, Pakistan</p>
+            <h4>Emergency Contact</h4>
+            <p style="color: var(--gray-400)">🚨 Emergency: +92 XXX XXXXXXX</p>
+            <p style="color: var(--gray-400)">📧 info@samlifesavers.org</p>
+            <p style="color: var(--gray-400)">📍 Islamabad, Pakistan</p>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>
-            &copy; 2024 Sam Life Savers. All rights reserved. | Your donations
-            save lives.
-          </p>
+          <p>&copy; 2024 Sam Life Savers. Your donations save lives.</p>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-      // Navigation scroll effect
+      // Navigation and form handling
       window.addEventListener("scroll", () => {
-        const navbar = document.getElementById("navbar");
+        const nav = document.getElementById("nav");
         if (window.scrollY > 100) {
-          navbar.classList.add("scrolled");
+          nav.classList.add("scrolled");
         } else {
-          navbar.classList.remove("scrolled");
+          nav.classList.remove("scrolled");
         }
       });
 
-      // Mobile navigation toggle
       const navToggle = document.getElementById("nav-toggle");
       const navMenu = document.getElementById("nav-menu");
 
@@ -899,99 +653,11 @@
         navMenu.classList.toggle("active");
       });
 
-      // Close mobile menu when clicking on a link
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", () => {
-          navMenu.classList.remove("active");
-        });
-      });
-
-      // Form handling
+      // Form submission
       document.querySelector("form").addEventListener("submit", function (e) {
         e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-
-        // Show success message
-        alert(
-          "Thank you for your message! We will respond within 24 hours (emergency requests within 30 minutes).",
-        );
-
-        // Reset form
+        alert("Thank you for your message! We will respond within 24 hours.");
         this.reset();
-      });
-
-      // Subject-based form behavior
-      document
-        .getElementById("subject")
-        .addEventListener("change", function () {
-          const messageField = document.getElementById("message");
-          const subject = this.value;
-
-          let placeholder = "Tell us how we can help you...";
-
-          switch (subject) {
-            case "emergency":
-              placeholder =
-                "EMERGENCY: Please provide blood type needed, location, hospital name, and urgency level...";
-              break;
-            case "volunteer":
-              placeholder =
-                "Tell us about your skills, availability, and areas of interest...";
-              break;
-            case "donation":
-              placeholder =
-                "Let us know about your donation amount, preferred method, or any questions about giving...";
-              break;
-            case "partnership":
-              placeholder =
-                "Describe your organization and how we can collaborate to save more lives...";
-              break;
-          }
-
-          messageField.placeholder = placeholder;
-        });
-
-      // Intersection Observer for animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, observerOptions);
-
-      // Observe all animated elements
-      document
-        .querySelectorAll(
-          ".animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right",
-        )
-        .forEach((el) => {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(30px)";
-          observer.observe(el);
-        });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
       });
     </script>
   </body>
