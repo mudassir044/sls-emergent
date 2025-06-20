@@ -1,390 +1,998 @@
-<!DOCTYPE html>
-<html style="font-size: 16px;" lang="en-PK"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Contact Us">
-    <meta name="description" content="">
-    <title>Contact</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Contact.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="referrer" content="origin">
-    <link rel="icon" href="images/favicon.png">
-    
-    
-    
-    
-    
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i">
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "Sam Life Savers Project",
-		"logo": "images/logo-sls.png",
-		"sameAs": [
-				"https://www.facebook.com/people/SAM-Life-Savers/100090587816616/",
-				"https://www.instagram.com/samlife_savers/"
-		]
-}</script>
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Contact">
-    <meta property="og:description" content="">
-    <meta property="og:type" content="website">
-  <script>
-    function gdprConfirmed() {
-        return true;
-    }
-    function dynamicLoadScript() {
-        var script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js?render=6LeuLSUrAAAAAOvq13aBoNkBetJezZcfyZRzNmXk';
-        script.async = true;
-        document.body.appendChild(script);
-        script.onload = function() {
-            let event = new CustomEvent("recaptchaLoaded");
-            document.dispatchEvent(event);
-        };
-    }
-    function showRecaptchaError(error) {
-        error = error || '';
-        var formError = document.querySelector('.u-form-send-error');
+<!doctype html>
+<html lang="en-PK">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact Sam Life Savers - Get in touch, donate to save lives, support our humanitarian mission. Multiple ways to donate and make a real impact."
+    />
+    <meta
+      name="keywords"
+      content="contact sam life savers, donate, donation, charity, humanitarian, support, contact information"
+    />
+    <title>
+      Contact & Donate | Sam Life Savers - Make a Life-Saving Impact
+    </title>
 
-        if (formError) {
-            formError.innerText = 'Site Owner Error: ' + error.replace(/:[\s\S]*/, '');
-            formError.style.display = 'block';
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact & Donate | Sam Life Savers" />
+    <meta
+      property="og:description"
+      content="Get in touch and donate to save lives. Multiple ways to support our humanitarian mission."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#D80027" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      .donation-card {
+        background: linear-gradient(
+          135deg,
+          var(--primary-red) 0%,
+          #ff1744 100%
+        );
+        color: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-xl);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: all var(--transition-normal);
+      }
+
+      .donation-card:before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 40%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 60%
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
         }
-
-        console.error('Error in grecaptcha: ', error);
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-        var confirmButton = document.querySelector('.u-cookies-consent .u-button-confirm');
-        if (confirmButton) {
-            confirmButton.onclick = dynamicLoadScript;
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
         }
-    });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            if (!gdprConfirmed()) {
-                return;
-            }
-            dynamicLoadScript();
-        });
-    </script>
-    <script>
-        document.addEventListener("recaptchaLoaded", function() {
-            if (!gdprConfirmed()) {
-                return;
-            }
+      }
 
-            (function (grecaptcha, sitekey, actions) {
-                var recaptcha = {
-                    execute: function (action, submitFormCb) {
-                        if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') {
-                            showRecaptchaError('reCAPTCHA script failed to load.');
-                            return;
-                        }
+      .donation-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(216, 0, 39, 0.4);
+      }
 
-                        grecaptcha.execute(sitekey, {action: action}).then((token) => {
-                            if (!token) {
-                                throw new Error('Empty token received from reCAPTCHA');
-                            }
+      .qr-code-container {
+        background: white;
+        padding: var(--space-md);
+        border-radius: var(--radius-lg);
+        margin: var(--space-md) 0;
+        display: inline-block;
+      }
 
-                            var forms = document.getElementsByTagName('form');
+      .qr-code {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+      }
 
-                            for (var i = 0; i < forms.length; i++) {
-                                var response = forms[i].querySelector('[name="recaptchaResponse"]');
+      .contact-method {
+        background: var(--background-secondary);
+        padding: var(--space-lg);
+        border-radius: var(--radius-lg);
+        text-align: center;
+        transition: all var(--transition-normal);
+        border: 2px solid transparent;
+      }
 
-                                if (!response) {
-                                    response = document.createElement('input');
-                                    response.setAttribute('type', 'hidden');
-                                    response.setAttribute('name', 'recaptchaResponse');
-                                    forms[i].appendChild(response);
-                                }
+      .contact-method:hover {
+        border-color: var(--primary-red);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
 
-                                response.value = token;
-                            }
+      .contact-icon {
+        background: var(--gradient-primary);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--space-md);
+        font-size: var(--text-2xl);
+      }
 
-                            submitFormCb();
-                        }).catch((e) => {
-                            showRecaptchaError(e.message);
-                        });
-                    },
+      .form-group {
+        margin-bottom: var(--space-lg);
+      }
 
-                    executeContact: function (submitFormCb) {
-                        recaptcha.execute(actions['contact'], submitFormCb);
-                    }
-                };
+      .form-label {
+        display: block;
+        margin-bottom: var(--space-xs);
+        font-weight: 600;
+        color: var(--text-primary);
+      }
 
-                window.recaptchaObject = recaptcha;
-            })(
-                grecaptcha,
-                
-                '6LeuLSUrAAAAAOvq13aBoNkBetJezZcfyZRzNmXk',
-                {'contact': 'contact'}
-            );
-        });
-    </script>
-<meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-path-to-root="./" data-include-products="false" class="u-body u-overlap u-overlap-contrast u-xl-mode" data-lang="en"><header class="u-box-shadow u-clearfix u-gradient u-header u-sticky u-header" id="header"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="./" data-page-id="765531018" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500" title="Home">
-          <img src="images/logo-sls.png" class="u-logo-image u-logo-image-1" alt="">
-        </a>
-        <nav class="u-dropdown-icon u-menu u-menu-dropdown u-menu-1" role="navigation" data-responsive-from="MD">
-          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
-            <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-color u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-decoration u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-text-white u-hamburger-link-1" href="#" tabindex="-1" aria-label="Open menu" aria-controls="2588">
-              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
-              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</g></svg>
+      .form-input {
+        width: 100%;
+        padding: var(--space-sm) var(--space-md);
+        border: 2px solid #e5e7eb;
+        border-radius: var(--radius-md);
+        font-size: var(--text-base);
+        transition: all var(--transition-normal);
+        background: white;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--primary-red);
+        box-shadow: 0 0 0 3px rgba(216, 0, 39, 0.1);
+      }
+
+      .form-textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .emergency-contact {
+        background: linear-gradient(135deg, #ff1744 0%, #d80027 100%);
+        color: white;
+        padding: var(--space-xl);
+        border-radius: var(--radius-xl);
+        text-align: center;
+        animation: pulse 2s infinite;
+        margin: var(--space-lg) 0;
+      }
+
+      .impact-badge {
+        background: var(--gradient-primary);
+        color: white;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        display: inline-block;
+        margin: var(--space-xs);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="nav-container">
+          <a href="/" class="nav-brand">
+            <img
+              src="images/logo-sls.png"
+              alt="Sam Life Savers Logo"
+              class="nav-logo"
+            />
+          </a>
+
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="About.html" class="nav-link">About</a></li>
+            <li>
+              <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
+                >🔗 HumanKind: AI Blood Bank</a
+              >
+            </li>
+            <li>
+              <a href="Hope-In-Action.html" class="nav-link">Hope In Action</a>
+            </li>
+            <li>
+              <a href="Volunteer-Form.html" class="nav-link">Volunteer</a>
+            </li>
+            <li><a href="Contact.html" class="nav-link active">Contact</a></li>
+            <li>
+              <a href="Contact.html#donate" class="btn btn-primary btn-sm"
+                >Donate Now</a
+              >
+            </li>
+          </ul>
+
+          <button
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 70vh">
+      <img
+        src="images/diverse-people-refugee-camps-5.jpg"
+        alt="Making contact and connections"
+        class="hero-background"
+      />
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title animate-fade-in-up">
+            Contact & <span class="text-gradient">Donate</span>
+          </h1>
+          <p class="hero-subtitle animate-fade-in-up">
+            Get in touch with us to learn more, volunteer, or make a life-saving
+            donation. Every contribution directly impacts lives and builds hope
+            in communities across Pakistan.
+          </p>
+          <div class="hero-actions animate-fade-in-up">
+            <a href="#donate" class="btn btn-primary btn-lg animate-pulse">
+              Donate Now
+            </a>
+            <a href="#contact-form" class="btn btn-outline btn-lg">
+              Send Message
             </a>
           </div>
-          <div class="u-custom-menu u-nav-container">
-            <ul role="menubar" class="u-nav u-spacing-2 u-unstyled u-nav-1"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-black u-border-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-black u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" href="./" style="padding: 10px 20px;">Home</a><div class="u-nav-popup"><ul role="menu" class="u-border-2 u-h-spacing-20 u-nav u-unstyled u-v-spacing-10" aria-label="Home menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link u-text-hover-white u-text-white" href="Hope-In-Action.html">Hope In Action</a>
-</li></ul>
-</div>
-</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-black u-border-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-file-link u-hover-black u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" href="files/SAMLifeSaversPortfolio_compressed.pdf" target="_blank" style="padding: 10px 20px;">Portfolio</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-black u-border-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-black u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" href="Volunteer-Form.html" style="padding: 10px 20px;">Volunteer</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-black u-border-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-black u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" href="About.html" style="padding: 10px 20px;">About Us</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-black u-border-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-black u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" href="Contact.html" style="padding: 10px 20px;">Contact Us</a><div class="u-nav-popup"><ul role="menu" class="u-border-2 u-h-spacing-20 u-nav u-unstyled u-v-spacing-10" aria-label="Contact Us menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link u-text-hover-white u-text-white" href="Contact.html">Contact Us</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link u-text-hover-white u-text-white" href="Volunteer-Form.html">Volunteer Form</a>
-</li></ul>
-</div>
-</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-black u-border-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-black u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" href="Contact.html#carousel_ce6e" data-page-id="171253595" style="padding: 10px 20px;">Donate</a>
-</li></ul>
-          </div>
-          <div class="u-custom-menu u-nav-container-collapse" id="2588" role="region" aria-label="Menu panel">
-            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-inner-container-layout u-sidenav-overflow">
-                <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4" role="menubar"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="./">Home</a><div class="u-nav-popup"><ul role="menu" class="u-border-2 u-h-spacing-20 u-nav u-unstyled u-v-spacing-10" aria-label="Home menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Hope-In-Action.html">Hope In Action</a>
-</li></ul>
-</div>
-</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-file-link u-nav-link" href="files/SAMLifeSaversPortfolio_compressed.pdf" target="_blank">Portfolio</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Volunteer-Form.html">Volunteer</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="About.html">About Us</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Contact.html">Contact Us</a><div class="u-nav-popup"><ul role="menu" class="u-border-2 u-h-spacing-20 u-nav u-unstyled u-v-spacing-10" aria-label="Contact Us menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Contact.html">Contact Us</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="Volunteer-Form.html">Volunteer Form</a>
-</li></ul>
-</div>
-</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="Contact.html#carousel_ce6e" data-page-id="171253595">Donate</a>
-</li></ul>
-              </div>
-            </div>
-            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-          </div>
-          <style class="menu-style">@media (max-width: 939px) {
-                    [data-responsive-from="MD"] .u-nav-container {
-                        display: none;
-                    }
-                    [data-responsive-from="MD"] .menu-collapse {
-                        display: block;
-                    }
-                }</style>
-        </nav>
-        <h1 class="u-custom-font u-font-merriweather u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-white u-text-1">SAM Life Savers</h1>
-      </div><style class="u-sticky-style" data-style-id="c36b">.u-sticky-fixed.u-sticky-c36b, .u-body.u-sticky-fixed .u-sticky-c36b {
-box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4) !important
-}.u-sticky-fixed.u-sticky-c36b:before, .u-body.u-sticky-fixed .u-sticky-c36b:before {
-borders: top right bottom left !important; border-color: #ff141e !important; border-width: 2px !important
-}</style></header>
-    <section class="u-clearfix u-container-align-center u-image u-shading u-section-1" id="carousel_2c9f" data-image-width="2000" data-image-height="1333" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="0">Contact Us</h1>
+        </div>
       </div>
     </section>
-    <section class="u-clearfix u-image u-parallax u-shading u-section-2" id="sec-815b" data-image-width="2000" data-image-height="1333">
-      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
-        <div class="data-layout-selected u-align-left u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                <div class="u-container-layout u-valign-bottom u-container-layout-1">
-                  <h2 class="u-custom-font u-font-merriweather u-text u-text-black u-text-default u-text-1">Contact Information<br>
-                  </h2>
-                  <p class="u-text u-text-default u-text-white u-text-2">Hi, thank you for visiting our website. If you are looking to donate, volunteer or sponsor, please call us at our given phone or simply fill the given form and our team will reach out to you!</p>
-                  <h6 class="u-text u-text-body-color u-text-default u-text-3">Phone</h6>
-                  <p class="u-text u-text-white u-text-4">+92 336 0863545<br>
-                  </p>
-                  <h6 class="u-text u-text-body-color u-text-default u-text-5">Location</h6>
-                  <p class="u-text u-text-default u-text-white u-text-6"> D999- Al Basit Arcade, Fifth Road, Satellite Town, Rawalpindi</p>
-                  <h6 class="u-text u-text-body-color u-text-default u-text-7">Email</h6>
-                  <p class="u-text u-text-default u-text-white u-text-8">info@samlifesavers.org</p>
-                </div>
-              </div>
-              <div class="u-container-style u-layout-cell u-radius u-shape-round u-size-30 u-white u-layout-cell-2">
-                <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <h5 class="u-custom-font u-font-merriweather u-text u-text-default u-text-9">Get In Touch<span style="font-weight: 700;"></span>
-                    <br>
-                  </h5>
-                  <div class="custom-expanded u-form u-form-1">
-                    <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" source="email" name="contact1" style="padding: 0px;">
-                      <div class="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                        <label for="name-5251" class="u-label">First Name</label>
-                        <input type="text" placeholder="Enter your First Name" id="name-5251" name="name-1" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
-                      </div>
-                      <div class="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-2">
-                        <label for="name-5251" class="u-label">Last Name</label>
-                        <input type="text" placeholder="Enter your Last Name" id="name-5251" name="name-2" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
-                      </div>
-                      <div class="u-form-email u-form-group u-label-none">
-                        <label for="email-8a4b" class="u-label">Email</label>
-                        <input type="email" placeholder="Enter a valid email address" id="email-8a4b" name="email" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
-                      </div>
-                      <div class="u-form-group u-form-phone u-label-none u-form-group-4">
-                        <label for="phone-ac89" class="u-label">Phone</label>
-                        <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Enter your phone (e.g. +14155552675)" id="phone-ac89" name="phone" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
-                      </div>
-                      <div class="u-form-group u-form-message u-label-none">
-                        <label for="message-8a4b" class="u-label">Message</label>
-                        <textarea placeholder="Enter your message" rows="4" cols="50" id="message-8a4b" name="message" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required=""></textarea>
-                      </div>
-                      <div class="u-form-group u-form-select u-label-none u-form-group-6">
-                        <label for="select-bb27" class="u-label">Dropdown</label>
-                        <div class="u-form-select-wrapper">
-                          <select id="select-bb27" name="select[][]" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" size="3" multiple="multiple">
-                            <option value="I am a Volunteer" data-calc="" selected="selected">I am a Volunteer</option>
-                            <option value="I want to donate" data-calc="">I want to donate</option>
-                            <option value="I am a sponsor" data-calc="">I am a sponsor</option>
-                            <option value="I want collaborate" data-calc="">I want collaborate</option>
-                          </select>
-                          <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
-                        </div>
-                      </div>
-                      <div class="u-align-left u-form-group u-form-submit u-label-none">
-                        <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-2-base u-btn-1">Submit</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden">
-                      </div>
-                      <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
-                      <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
-                      <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="f290c439-4beb-70a0-1d3e-6ff97be67422">
-                      <input type="hidden" name="siteKey" value="6LeuLSUrAAAAAOvq13aBoNkBetJezZcfyZRzNmXk">
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <blockquote class="u-align-center u-custom-font u-font-merriweather u-text u-text-10"><span style="font-weight: 700;">Note</span>: If you wish to apply as a volunteer, we recommend filling out the Volunteer Form.<br> Click the button below to get started.<br>
-        </blockquote>
-        <a href="Volunteer-Form.html" data-page-id="1695819583" class="u-border-none u-btn u-button-style u-hover-palette-2-dark-1 u-palette-2-base u-btn-2" title="Volunteer Form">Volunteer Form</a>
-      </div>
-    </section>
-    
-    
-    
-    
-    <footer class="u-clearfix u-footer u-grey-80" id="footer"><div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-align-left u-social-icons u-social-icons-1">
-          <a class="u-social-url" title="facebook" target="_blank" href="https://www.facebook.com/people/SAM-Life-Savers/100090587816616/"><span class="u-icon u-social-facebook u-social-icon u-text-palette-2-base"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-12e7"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-12e7"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
-      c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
-          </a>
-          <a class="u-social-url" title="instagram" target="_blank" href="https://www.instagram.com/samlife_savers/"><span class="u-icon u-social-icon u-social-instagram u-text-palette-2-base"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-b36e"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-b36e"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M55.9,38.2c-9.9,0-17.9,8-17.9,17.9C38,66,46,74,55.9,74c9.9,0,17.9-8,17.9-17.9C73.8,46.2,65.8,38.2,55.9,38.2
-      z M55.9,66.4c-5.7,0-10.3-4.6-10.3-10.3c-0.1-5.7,4.6-10.3,10.3-10.3c5.7,0,10.3,4.6,10.3,10.3C66.2,61.8,61.6,66.4,55.9,66.4z"></path><path fill="#FFFFFF" d="M74.3,33.5c-2.3,0-4.2,1.9-4.2,4.2s1.9,4.2,4.2,4.2s4.2-1.9,4.2-4.2S76.6,33.5,74.3,33.5z"></path><path fill="#FFFFFF" d="M73.1,21.3H38.6c-9.7,0-17.5,7.9-17.5,17.5v34.5c0,9.7,7.9,17.6,17.5,17.6h34.5c9.7,0,17.5-7.9,17.5-17.5V38.8
-      C90.6,29.1,82.7,21.3,73.1,21.3z M83,73.3c0,5.5-4.5,9.9-9.9,9.9H38.6c-5.5,0-9.9-4.5-9.9-9.9V38.8c0-5.5,4.5-9.9,9.9-9.9h34.5
-      c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
-          </a>
-          <a class="u-social-url" title="pinterest" target="_blank" href=""><span class="u-icon u-social-icon u-social-pinterest u-text-palette-2-base"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-aa2e"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-aa2e"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M61.1,76.9c-4.7-0.3-6.7-2.7-10.3-5c-2,10.7-4.6,20.9-11.9,26.2c-2.2-16.1,3.3-28.2,5.9-41
-      c-4.4-7.5,0.6-22.5,9.9-18.8c11.6,4.6-10,27.8,4.4,30.7C74.2,72,80.3,42.8,71,33.4C57.5,19.6,31.7,33,34.9,52.6
-      c0.8,4.8,5.8,6.2,2,12.9c-8.7-1.9-11.2-8.8-10.9-17.8C26.5,32.8,39.3,22.5,52.2,21c16.3-1.9,31.6,5.9,33.7,21.2
-      C88.2,59.5,78.6,78.2,61.1,76.9z"></path></svg></span>
-          </a>
-        </div>
-        <a href="#popup-8ec2" class="u-border-none u-btn u-button-style u-dialog-link u-hidden-md u-hidden-sm u-hidden-xs u-palette-2-base u-btn-1">Hope In Action!</a>
-      </div></footer>
-  <section class="u-align-center u-black u-clearfix u-container-align-center u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-dialog-section-6" id="popup-8ec2" data-dialog-show-on="timer" data-dialog-show-on-list="96421476,765531018" data-dialog-show-interval="8000">
-      <div class="u-container-style u-dialog u-shape-rectangle u-white u-dialog-1">
-        <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
-          <h2 class="u-align-center u-custom-font u-font-merriweather u-text u-text-default u-text-palette-2-base u-text-1"> Hope in Action!</h2>
-          <p class="u-align-center u-custom-font u-font-arial u-text u-text-2"> Every small step creates a ripple of change.<br>Join our mission to bring hope, help, and happiness to those who need it most.
+
+    <!-- Emergency Contact Alert -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="emergency-contact">
+          <h3>🚨 Emergency Blood Donation Hotline</h3>
+          <p style="margin-bottom: var(--space-sm); font-size: var(--text-lg)">
+            Need blood urgently? Our AI system can find compatible donors in
+            minutes!
           </p>
-          <a href="Hope-In-Action.html" data-page-id="236806067" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-dark-1 u-palette-2-base u-radius-50 u-text-body-alt-color u-text-hover-white u-btn-1" title="Hope In Action">Join The Movement</a>
+          <div
+            style="
+              display: flex;
+              gap: var(--space-md);
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="tel:+92XXXXXXXXX" class="btn btn-secondary btn-lg">
+              📞 Call Emergency Line
+            </a>
+            <a
+              href="HumanKind-AI-Blood-Bank.html"
+              class="btn btn-outline btn-lg"
+            >
+              🤖 Use AI Blood Bank
+            </a>
+          </div>
         </div>
-        <button class="u-dialog-close-button u-icon u-text-grey-50 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 413.348 413.348" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5801"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 413.348 413.348" id="svg-5801"><path d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"></path></svg></button>
       </div>
-    </section><style>.u-dialog-section-6 .u-dialog-1 {
-  width: 566px;
-  min-height: 367px;
-  height: auto;
-  box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.4);
-  margin: 60px auto;
-}
+    </section>
 
-.u-dialog-section-6 .u-container-layout-1 {
-  padding: 40px 30px;
-}
+    <!-- Donation Section -->
+    <section class="section" id="donate">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">💰 Make a Life-Saving Donation</h2>
+          <p class="section-subtitle">
+            Your donation directly saves lives. Choose from multiple convenient
+            methods to support our humanitarian mission.
+          </p>
+        </div>
 
-.u-dialog-section-6 .u-text-1 {
-  font-size: 2.5rem;
-  letter-spacing: 3px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 38px auto 0;
-}
+        <!-- Impact Statement -->
+        <div style="text-align: center; margin-bottom: var(--space-3xl)">
+          <p
+            style="
+              font-size: var(--text-lg);
+              margin-bottom: var(--space-md);
+              color: var(--text-secondary);
+            "
+          >
+            <strong>Your Impact:</strong>
+          </p>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+              gap: var(--space-sm);
+            "
+          >
+            <span class="impact-badge">Rs. 500 = 1 Iftar Meal</span>
+            <span class="impact-badge">Rs. 2,000 = Emergency Medical Aid</span>
+            <span class="impact-badge"
+              >Rs. 10,000 = Water Pump Maintenance</span
+            >
+            <span class="impact-badge"
+              >Rs. 25,000 = Orphan Monthly Support</span
+            >
+          </div>
+        </div>
 
-.u-dialog-section-6 .u-text-2 {
-  margin: 19px 9px 0;
-}
+        <!-- Donation Methods -->
+        <div class="grid grid-cols-3">
+          <!-- Bank Transfer -->
+          <div class="donation-card animate-fade-in-up">
+            <div style="position: relative; z-index: 2">
+              <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+                🏦
+              </div>
+              <h3 style="color: white; margin-bottom: var(--space-md)">
+                Bank Transfer
+              </h3>
+              <div class="qr-code-container">
+                <img
+                  src="images/bank-qr.jpeg"
+                  alt="Bank QR Code"
+                  class="qr-code"
+                />
+              </div>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  padding: var(--space-md);
+                  border-radius: var(--radius-md);
+                  margin-top: var(--space-md);
+                "
+              >
+                <p style="margin: var(--space-xs) 0; font-size: var(--text-sm)">
+                  <strong>Account Title:</strong> Sam Life Savers<br />
+                  <strong>Account No:</strong> 1234567890<br />
+                  <strong>Bank:</strong> HBL Pakistan
+                </p>
+              </div>
+            </div>
+          </div>
 
-.u-dialog-section-6 .u-btn-1 {
-  border-style: none;
-  font-size: 1rem;
-  background-image: none;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin: 40px auto 0;
-  padding: 9px 47px 10px 46px;
-}
+          <!-- JazzCash -->
+          <div class="donation-card animate-fade-in-up">
+            <div style="position: relative; z-index: 2">
+              <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+                📱
+              </div>
+              <h3 style="color: white; margin-bottom: var(--space-md)">
+                JazzCash
+              </h3>
+              <div class="qr-code-container">
+                <img
+                  src="images/jazzcash-qr.jpeg"
+                  alt="JazzCash QR Code"
+                  class="qr-code"
+                />
+              </div>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  padding: var(--space-md);
+                  border-radius: var(--radius-md);
+                  margin-top: var(--space-md);
+                "
+              >
+                <p style="margin: var(--space-xs) 0; font-size: var(--text-sm)">
+                  <strong>Mobile Account:</strong><br />
+                  03XX-XXXXXXX<br />
+                  <strong>Scan QR or Send Money</strong>
+                </p>
+              </div>
+            </div>
+          </div>
 
-.u-dialog-section-6 .u-icon-1 {
-  width: 15px;
-  height: 15px;
-  left: auto;
-  top: 17px;
-  position: absolute;
-  right: 16px;
-}
+          <!-- EasyPaisa -->
+          <div class="donation-card animate-fade-in-up">
+            <div style="position: relative; z-index: 2">
+              <div style="font-size: 3rem; margin-bottom: var(--space-md)">
+                💳
+              </div>
+              <h3 style="color: white; margin-bottom: var(--space-md)">
+                EasyPaisa
+              </h3>
+              <div class="qr-code-container">
+                <img
+                  src="images/easypaisa-qr.jpeg"
+                  alt="EasyPaisa QR Code"
+                  class="qr-code"
+                />
+              </div>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  padding: var(--space-md);
+                  border-radius: var(--radius-md);
+                  margin-top: var(--space-md);
+                "
+              >
+                <p style="margin: var(--space-xs) 0; font-size: var(--text-sm)">
+                  <strong>Mobile Account:</strong><br />
+                  03XX-XXXXXXX<br />
+                  <strong>Scan QR or Send Money</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-@media (max-width: 1199px) {
-  .u-dialog-section-6 .u-text-2 {
-    margin-left: 9px;
-    margin-right: 9px;
-  }
-}
+        <!-- Donation Instructions -->
+        <div
+          style="
+            background: var(--background-secondary);
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            margin-top: var(--space-3xl);
+            text-align: center;
+          "
+        >
+          <h3 style="color: var(--primary-red); margin-bottom: var(--space-md)">
+            📋 How to Donate
+          </h3>
+          <div class="grid grid-cols-3">
+            <div style="text-align: center">
+              <div
+                style="
+                  background: var(--gradient-primary);
+                  color: white;
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto var(--space-md);
+                  font-weight: 900;
+                "
+              >
+                1
+              </div>
+              <h4>Choose Method</h4>
+              <p>Select your preferred payment method from the options above</p>
+            </div>
+            <div style="text-align: center">
+              <div
+                style="
+                  background: var(--gradient-primary);
+                  color: white;
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto var(--space-md);
+                  font-weight: 900;
+                "
+              >
+                2
+              </div>
+              <h4>Make Payment</h4>
+              <p>Scan QR code or use account details to send your donation</p>
+            </div>
+            <div style="text-align: center">
+              <div
+                style="
+                  background: var(--gradient-primary);
+                  color: white;
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto var(--space-md);
+                  font-weight: 900;
+                "
+              >
+                3
+              </div>
+              <h4>Confirm Impact</h4>
+              <p>
+                Send us a screenshot to receive confirmation and impact report
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-@media (max-width: 991px) {
-  .u-dialog-section-6 .u-container-layout-1 {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-}
+    <!-- Contact Methods -->
+    <section class="section" style="background: var(--background-secondary)">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">📞 Get in Touch</h2>
+          <p class="section-subtitle">
+            Multiple ways to reach us for support, questions, or collaboration
+            opportunities
+          </p>
+        </div>
 
-@media (max-width: 767px) {
-  .u-dialog-section-6 .u-dialog-1 {
-    width: 540px;
-  }
-}
+        <div class="grid grid-cols-4">
+          <div class="contact-method animate-fade-in-up">
+            <div class="contact-icon">📧</div>
+            <h4
+              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
+            >
+              Email
+            </h4>
+            <p style="margin-bottom: var(--space-md)">
+              Send us a detailed message
+            </p>
+            <a
+              href="mailto:info@samlifesavers.org"
+              style="color: var(--primary-red); font-weight: 600"
+            >
+              info@samlifesavers.org
+            </a>
+          </div>
 
-@media (max-width: 575px) {
-  .u-dialog-section-6 .u-dialog-1 {
-    width: 340px;
-  }
+          <div class="contact-method animate-fade-in-up">
+            <div class="contact-icon">📱</div>
+            <h4
+              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
+            >
+              Phone
+            </h4>
+            <p style="margin-bottom: var(--space-md)">Call us directly</p>
+            <a
+              href="tel:+92XXXXXXXXX"
+              style="color: var(--primary-red); font-weight: 600"
+            >
+              +92 XXX XXXXXXX
+            </a>
+          </div>
 
-  .u-dialog-section-6 .u-container-layout-1 {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+          <div class="contact-method animate-fade-in-up">
+            <div class="contact-icon">📍</div>
+            <h4
+              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
+            >
+              Location
+            </h4>
+            <p style="margin-bottom: var(--space-md)">Visit our office</p>
+            <p style="color: var(--primary-red); font-weight: 600">
+              Islamabad, Pakistan
+            </p>
+          </div>
 
-  .u-dialog-section-6 .u-text-1 {
-    font-size: 2.25rem;
-  }
+          <div class="contact-method animate-fade-in-up">
+            <div class="contact-icon">🌐</div>
+            <h4
+              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
+            >
+              Social Media
+            </h4>
+            <p style="margin-bottom: var(--space-md)">Follow our updates</p>
+            <div
+              style="
+                display: flex;
+                gap: var(--space-sm);
+                justify-content: center;
+              "
+            >
+              <a
+                href="https://www.facebook.com/people/SAM-Life-Savers/100090587816616/"
+                target="_blank"
+                style="color: var(--primary-red); font-size: var(--text-xl)"
+                >📘</a
+              >
+              <a
+                href="https://www.instagram.com/samlife_savers/"
+                target="_blank"
+                style="color: var(--primary-red); font-size: var(--text-xl)"
+                >📷</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  .u-dialog-section-6 .u-text-2 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}</style>
-</body></html>
+    <!-- Contact Form -->
+    <section class="section" id="contact-form">
+      <div class="container">
+        <div class="grid grid-cols-2">
+          <div class="animate-slide-in-left">
+            <h2 style="margin-bottom: var(--space-md)">Send Us a Message</h2>
+            <p
+              style="
+                font-size: var(--text-lg);
+                margin-bottom: var(--space-xl);
+                color: var(--text-secondary);
+              "
+            >
+              Have questions about our work? Want to volunteer? Need emergency
+              assistance? We're here to help and respond quickly to all
+              inquiries.
+            </p>
+
+            <div
+              style="
+                background: var(--gradient-primary);
+                color: white;
+                padding: var(--space-lg);
+                border-radius: var(--radius-lg);
+                margin-bottom: var(--space-lg);
+              "
+            >
+              <h4 style="color: white; margin-bottom: var(--space-md)">
+                ⚡ Quick Response Promise
+              </h4>
+              <ul style="list-style: none; padding: 0; margin: 0">
+                <li
+                  style="
+                    margin-bottom: var(--space-sm);
+                    display: flex;
+                    align-items: center;
+                  "
+                >
+                  <span style="margin-right: var(--space-sm)">🚨</span>
+                  Emergency requests: Within 30 minutes
+                </li>
+                <li
+                  style="
+                    margin-bottom: var(--space-sm);
+                    display: flex;
+                    align-items: center;
+                  "
+                >
+                  <span style="margin-right: var(--space-sm)">💼</span>
+                  General inquiries: Within 24 hours
+                </li>
+                <li style="display: flex; align-items: center">
+                  <span style="margin-right: var(--space-sm)">🤝</span>
+                  Partnership proposals: Within 48 hours
+                </li>
+              </ul>
+            </div>
+
+            <div
+              style="
+                background: var(--background-secondary);
+                padding: var(--space-lg);
+                border-radius: var(--radius-lg);
+              "
+            >
+              <h4
+                style="
+                  color: var(--primary-red);
+                  margin-bottom: var(--space-md);
+                "
+              >
+                📋 What to Include
+              </h4>
+              <ul style="margin: 0; padding-left: var(--space-md)">
+                <li>Purpose of your message</li>
+                <li>Your location (if relevant)</li>
+                <li>Best time to contact you</li>
+                <li>Any urgent requirements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="animate-slide-in-right">
+            <form class="card">
+              <div class="form-group">
+                <label for="name" class="form-label">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-input" />
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject *</label>
+                <select id="subject" name="subject" class="form-input" required>
+                  <option value="">Select a subject</option>
+                  <option value="emergency">🚨 Emergency Blood Request</option>
+                  <option value="volunteer">🤝 Volunteer Application</option>
+                  <option value="donation">💰 Donation Inquiry</option>
+                  <option value="partnership">🤝 Partnership Proposal</option>
+                  <option value="media">📺 Media & Press</option>
+                  <option value="general">📋 General Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-input form-textarea"
+                  placeholder="Tell us how we can help you..."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                style="width: 100%"
+              >
+                Send Message
+              </button>
+
+              <p
+                style="
+                  margin-top: var(--space-md);
+                  font-size: var(--text-sm);
+                  color: var(--text-muted);
+                  text-align: center;
+                "
+              >
+                By submitting this form, you agree to our privacy policy and
+                terms of service.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Resources -->
+    <section class="section bg-gradient">
+      <div class="container text-center">
+        <h2 style="color: white; margin-bottom: var(--space-md)">
+          Additional Resources
+        </h2>
+        <p
+          style="
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-xl);
+            color: rgba(255, 255, 255, 0.9);
+          "
+        >
+          Explore more ways to connect with our mission and stay updated on our
+          life-saving work.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a
+            href="files/SAMLifeSaversPortfolio_compressed.pdf"
+            target="_blank"
+            class="btn btn-secondary btn-lg"
+          >
+            📄 Download Portfolio
+          </a>
+          <a href="Volunteer-Form.html" class="btn btn-outline btn-lg">
+            🤝 Volunteer Application
+          </a>
+          <a href="HumanKind-AI-Blood-Bank.html" class="btn btn-outline btn-lg">
+            🤖 AI Blood Bank
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <img
+              src="images/logo-sls.png"
+              alt="Sam Life Savers Logo"
+              style="height: 60px; margin-bottom: var(--space-md)"
+            />
+            <h3>Sam Life Savers</h3>
+            <p>
+              A student-led humanitarian movement dedicated to saving lives and
+              building hope in communities across Pakistan.
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: var(--space-md);
+                margin-top: var(--space-md);
+              "
+            >
+              <a
+                href="https://www.facebook.com/people/SAM-Life-Savers/100090587816616/"
+                target="_blank"
+                style="color: #b5b5b5; font-size: var(--text-xl)"
+                >📘</a
+              >
+              <a
+                href="https://www.instagram.com/samlife_savers/"
+                target="_blank"
+                style="color: #b5b5b5; font-size: var(--text-xl)"
+                >📷</a
+              >
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="/">Home</a><br />
+            <a href="About.html">About Us</a><br />
+            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Bank</a><br />
+            <a href="Hope-In-Action.html">Hope In Action</a><br />
+            <a href="Volunteer-Form.html">Volunteer</a><br />
+            <a href="Contact.html">Contact</a>
+          </div>
+
+          <div class="footer-section">
+            <h3>Donate</h3>
+            <a href="#donate">Bank Transfer</a><br />
+            <a href="#donate">JazzCash</a><br />
+            <a href="#donate">EasyPaisa</a><br />
+            <a href="Contact.html">Contact for Help</a><br />
+            <a
+              href="files/SAMLifeSaversPortfolio_compressed.pdf"
+              target="_blank"
+              >Impact Report</a
+            >
+          </div>
+
+          <div class="footer-section">
+            <h3>Emergency Contact</h3>
+            <p>🚨 Emergency: +92 XXX XXXXXXX</p>
+            <p>📧 info@samlifesavers.org</p>
+            <p>📱 WhatsApp: +92 XXX XXXXXXX</p>
+            <p>📍 Islamabad, Pakistan</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Sam Life Savers. All rights reserved. | Your donations
+            save lives.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Navigation scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile navigation toggle
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+
+      // Form handling
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+
+        // Show success message
+        alert(
+          "Thank you for your message! We will respond within 24 hours (emergency requests within 30 minutes).",
+        );
+
+        // Reset form
+        this.reset();
+      });
+
+      // Subject-based form behavior
+      document
+        .getElementById("subject")
+        .addEventListener("change", function () {
+          const messageField = document.getElementById("message");
+          const subject = this.value;
+
+          let placeholder = "Tell us how we can help you...";
+
+          switch (subject) {
+            case "emergency":
+              placeholder =
+                "EMERGENCY: Please provide blood type needed, location, hospital name, and urgency level...";
+              break;
+            case "volunteer":
+              placeholder =
+                "Tell us about your skills, availability, and areas of interest...";
+              break;
+            case "donation":
+              placeholder =
+                "Let us know about your donation amount, preferred method, or any questions about giving...";
+              break;
+            case "partnership":
+              placeholder =
+                "Describe your organization and how we can collaborate to save more lives...";
+              break;
+          }
+
+          messageField.placeholder = placeholder;
+        });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document
+        .querySelectorAll(
+          ".animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right",
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          observer.observe(el);
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
