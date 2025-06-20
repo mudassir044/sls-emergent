@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gallery - Visual stories from our humanitarian work across Pakistan."
+    />
+    <title>Gallery — Sam Life Savers</title>
+
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      .gallery-container {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #000 0%, #dc2626 50%, #000 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        position: relative;
+        aspect-ratio: 1;
+        border-radius: 20px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transform-style: preserve-3d;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+        border-color: var(--red);
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .gallery-item:hover .gallery-image {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+        color: white;
+        padding: 2rem 1.5rem 1.5rem;
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+      }
+
+      .gallery-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--white);
+      }
+
+      .gallery-description {
+        font-size: 0.875rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      .hero-gallery {
+        padding: var(--space-32) 0 var(--space-16);
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-gallery h1 {
+        color: var(--white);
+        margin-bottom: var(--space-8);
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-gallery p {
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.25rem;
+      }
+
+      .floating-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(220, 38, 38, 0.6);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .lightbox-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .lightbox-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .lightbox-close:hover {
+        background: var(--red);
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        .hero-gallery {
+          padding: var(--space-24) 0 var(--space-12);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">
+          <img src="images/logo-sls.png" alt="Sam Life Savers" />
+          <span>Sam Life Savers</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li>
+            <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
+              >AI Blood Bank</a
+            >
+          </li>
+          <li><a href="Hope-In-Action.html" class="nav-link">Impact</a></li>
+          <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+          <li class="mobile-only">
+            <a href="Gallery.html" class="nav-link active">Gallery</a>
+          </li>
+          <li>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.eblood"
+              target="_blank"
+              class="nav-cta"
+              >E Blood App</a
+            >
+          </li>
+        </ul>
+
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Futuristic Gallery Container -->
+    <div class="gallery-container">
+      <!-- Floating Particles -->
+      <div class="floating-particles" id="particles"></div>
+
+      <!-- Hero Section -->
+      <section class="hero-gallery">
+        <div class="container">
+          <h1>Visual Impact Stories</h1>
+          <p>
+            Witness the transformation happening across Pakistan through our
+            humanitarian missions. Every image tells a story of hope,
+            innovation, and lives changed.
+          </p>
+        </div>
+      </section>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        <!-- Blood Donation -->
+        <div class="gallery-item" onclick="openLightbox('images/1.jpeg')">
+          <img
+            src="images/1.jpeg"
+            alt="Blood donation drive"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Blood Donation Drive</div>
+            <div class="gallery-description">
+              Volunteers organizing life-saving blood donations with our
+              AI-powered matching system.
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Coordination -->
+        <div class="gallery-item" onclick="openLightbox('images/5.jpeg')">
+          <img
+            src="images/5.jpeg"
+            alt="Team coordination"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Team Coordination</div>
+            <div class="gallery-description">
+              Student leaders coordinating emergency response and humanitarian
+              aid distribution.
+            </div>
+          </div>
+        </div>
+
+        <!-- Tharparkar Water Project -->
+        <div
+          class="gallery-item"
+          onclick="openLightbox('images/tharparker.jpeg')"
+        >
+          <img
+            src="images/tharparker.jpeg"
+            alt="Tharparkar water project"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Clean Water Access</div>
+            <div class="gallery-description">
+              Installing smart water pumps in Tharparkar, serving 890+ people
+              daily.
+            </div>
+          </div>
+        </div>
+
+        <!-- Community Work -->
+        <div class="gallery-item" onclick="openLightbox('images/6.jpeg')">
+          <img
+            src="images/6.jpeg"
+            alt="Community outreach"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Community Outreach</div>
+            <div class="gallery-description">
+              Building relationships with local communities and understanding
+              their needs.
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Programs -->
+        <div class="gallery-item" onclick="openLightbox('images/7.jpeg')">
+          <img
+            src="images/7.jpeg"
+            alt="Educational programs"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Educational Support</div>
+            <div class="gallery-description">
+              Providing educational resources and mentorship to underprivileged
+              students.
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency Response -->
+        <div class="gallery-item" onclick="openLightbox('images/8.jpeg')">
+          <img
+            src="images/8.jpeg"
+            alt="Emergency response"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Emergency Response</div>
+            <div class="gallery-description">
+              24/7 emergency response team providing critical aid when needed
+              most.
+            </div>
+          </div>
+        </div>
+
+        <!-- Medical Aid -->
+        <div class="gallery-item" onclick="openLightbox('images/9.jpeg')">
+          <img src="images/9.jpeg" alt="Medical aid" class="gallery-image" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Medical Aid</div>
+            <div class="gallery-description">
+              Providing essential medical supplies and healthcare support to
+              remote areas.
+            </div>
+          </div>
+        </div>
+
+        <!-- Volunteer Training -->
+        <div class="gallery-item" onclick="openLightbox('images/10.jpeg')">
+          <img
+            src="images/10.jpeg"
+            alt="Volunteer training"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Volunteer Training</div>
+            <div class="gallery-description">
+              Training sessions for new volunteers joining our humanitarian
+              mission.
+            </div>
+          </div>
+        </div>
+
+        <!-- Tree Planting -->
+        <div class="gallery-item" onclick="openLightbox('images/11.jpeg')">
+          <img src="images/11.jpeg" alt="Tree planting" class="gallery-image" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Plant a Tree Initiative</div>
+            <div class="gallery-description">
+              Environmental conservation through community tree planting drives.
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology Innovation -->
+        <div class="gallery-item" onclick="openLightbox('images/12.jpeg')">
+          <img
+            src="images/12.jpeg"
+            alt="Technology innovation"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Tech Innovation</div>
+            <div class="gallery-description">
+              Developing cutting-edge solutions for humanitarian challenges.
+            </div>
+          </div>
+        </div>
+
+        <!-- Orphan Support -->
+        <div class="gallery-item" onclick="openLightbox('images/13.jpeg')">
+          <img
+            src="images/13.jpeg"
+            alt="Orphan support"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Orphan Support</div>
+            <div class="gallery-description">
+              Providing shelter, education, and care for orphaned children.
+            </div>
+          </div>
+        </div>
+
+        <!-- Iftar Distribution -->
+        <div class="gallery-item" onclick="openLightbox('images/3.jpeg')">
+          <img
+            src="images/3.jpeg"
+            alt="Iftar distribution"
+            class="gallery-image"
+          />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Iftar Distribution</div>
+            <div class="gallery-description">
+              Distributing iftar meals during Ramadan to families in need.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <div class="lightbox-content" onclick="event.stopPropagation()">
+        <img src="" alt="" class="lightbox-image" id="lightbox-image" />
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Sam Life Savers</h4>
+            <p
+              style="
+                color: var(--gray-400);
+                margin-top: 0.5rem;
+                line-height: 1.6;
+              "
+            >
+              A student-led movement revolutionizing humanitarian aid through
+              technology and compassion.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <a href="/">Home</a>
+            <a href="About.html">About</a>
+            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Bank</a>
+            <a href="Hope-In-Action.html">Impact</a>
+            <a href="Volunteer-Form.html">Volunteer</a>
+            <a href="Contact.html">Contact</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>Visual Stories</h4>
+            <a href="Gallery.html" class="mobile-only">Gallery</a>
+            <a href="Hope-In-Action.html">Impact Stories</a>
+            <a href="HumanKind-AI-Blood-Bank.html">AI Technology</a>
+            <a href="Contact.html#donate">Support Our Work</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>Get Involved</h4>
+            <p
+              style="
+                color: var(--gray-400);
+                margin-bottom: 1rem;
+                line-height: 1.6;
+              "
+            >
+              Join our mission to save lives through technology and compassion.
+            </p>
+            <a
+              href="Volunteer-Form.html"
+              class="btn btn-primary"
+              style="padding: 0.5rem 1rem; font-size: 0.875rem"
+            >
+              Volunteer Now
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Sam Life Savers. Visual stories of impact and change.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Navigation
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("nav");
+        if (window.scrollY > 100) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+        });
+
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+          });
+        });
+      }
+
+      // Create floating particles
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 6 + "s";
+          particle.style.animationDuration = Math.random() * 3 + 3 + "s";
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Lightbox functionality
+      function openLightbox(src) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightbox-image");
+        lightboxImage.src = src;
+        lightbox.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      // Initialize
+      createParticles();
+
+      // Handle escape key for lightbox
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>
