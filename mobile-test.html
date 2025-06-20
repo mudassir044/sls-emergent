@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Navigation Test — Sam Life Savers</title>
+    <link rel="stylesheet" href="global.css" />
+    <style>
+      body {
+        background: linear-gradient(135deg, #dc2626, #000);
+        color: white;
+        min-height: 100vh;
+      }
+
+      .test-content {
+        padding: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .test-status {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 12px;
+        margin: 2rem 0;
+        backdrop-filter: blur(10px);
+      }
+
+      .success {
+        background: rgba(34, 197, 94, 0.2);
+        border: 2px solid #22c55e;
+      }
+
+      .debug-info {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        font-family: monospace;
+        font-size: 0.875rem;
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">
+          <img src="images/logo-sls.png" alt="Sam Life Savers" />
+          <span>Sam Life Savers</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li>
+            <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
+              >AI Blood Bank</a
+            >
+          </li>
+          <li><a href="Hope-In-Action.html" class="nav-link">Impact</a></li>
+          <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+          <li class="mobile-only">
+            <a href="Gallery.html" class="nav-link">Gallery</a>
+          </li>
+          <li>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.eblood"
+              target="_blank"
+              class="nav-cta"
+              >E Blood App</a
+            >
+          </li>
+        </ul>
+
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+      </div>
+    </nav>
+
+    <div class="test-content">
+      <h1>🔥 Mobile Navigation Test</h1>
+
+      <div class="test-status" id="test-status">
+        <h2>Testing Mobile Navigation...</h2>
+        <p>Click the hamburger menu (☰) to test the mobile navigation.</p>
+      </div>
+
+      <div class="debug-info" id="debug-info">
+        <strong>Debug Information:</strong><br />
+        <span id="debug-content">Initializing...</span>
+      </div>
+
+      <div style="margin-top: 2rem">
+        <button onclick="runTests()" class="btn btn-primary">
+          Run Automated Tests
+        </button>
+        <button
+          onclick="clearDebug()"
+          class="btn btn-secondary"
+          style="margin-left: 1rem"
+        >
+          Clear Debug
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let debugLog = [];
+
+      function addDebug(message) {
+        const timestamp = new Date().toLocaleTimeString();
+        debugLog.push(`[${timestamp}] ${message}`);
+        document.getElementById("debug-content").innerHTML =
+          debugLog.join("<br>");
+        console.log(message);
+      }
+
+      function clearDebug() {
+        debugLog = [];
+        document.getElementById("debug-content").innerHTML = "Debug cleared...";
+      }
+
+      function updateTestStatus(success, message) {
+        const status = document.getElementById("test-status");
+        status.className = `test-status ${success ? "success" : ""}`;
+        status.innerHTML = `<h2>${success ? "✅ SUCCESS" : "❌ TESTING"}</h2><p>${message}</p>`;
+      }
+
+      function runTests() {
+        addDebug("🧪 Starting automated tests...");
+
+        // Test 1: Check if elements exist
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+
+        if (!navToggle || !navMenu) {
+          addDebug("❌ CRITICAL: Navigation elements not found!");
+          updateTestStatus(false, "Navigation elements missing!");
+          return;
+        }
+
+        addDebug("✅ Navigation elements found");
+
+        // Test 2: Check initial state
+        const isMenuVisible = navMenu.classList.contains("active");
+        addDebug(`Initial menu state: ${isMenuVisible ? "visible" : "hidden"}`);
+
+        // Test 3: Simulate click
+        addDebug("Simulating hamburger click...");
+        navToggle.click();
+
+        setTimeout(() => {
+          const isMenuVisibleAfterClick = navMenu.classList.contains("active");
+          addDebug(
+            `Menu state after click: ${isMenuVisibleAfterClick ? "visible" : "hidden"}`,
+          );
+
+          if (isMenuVisibleAfterClick !== isMenuVisible) {
+            addDebug("✅ Menu toggle working!");
+            updateTestStatus(
+              true,
+              "Mobile navigation is working correctly! The hamburger menu toggles properly.",
+            );
+          } else {
+            addDebug("❌ Menu toggle failed!");
+            updateTestStatus(
+              false,
+              "Menu toggle is not working. Check JavaScript implementation.",
+            );
+          }
+        }, 100);
+      }
+
+      // Initialize navigation
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("nav");
+        if (window.scrollY > 100) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // 🔥 CRITICAL FIX: Enhanced Mobile Navigation
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      addDebug("🔥 Initializing mobile navigation...");
+      addDebug(`Nav toggle found: ${!!navToggle}`);
+      addDebug(`Nav menu found: ${!!navMenu}`);
+
+      if (navToggle && navMenu) {
+        function toggleMenu(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isActive = navMenu.classList.contains("active");
+          addDebug(
+            `Toggle clicked. Current state: ${isActive ? "active" : "inactive"}`,
+          );
+
+          if (isActive) {
+            navMenu.style.animation = "slideOutUp 0.3s ease-out";
+            setTimeout(() => {
+              navMenu.classList.remove("active");
+              navMenu.style.animation = "";
+              addDebug("Menu closed");
+            }, 300);
+          } else {
+            navMenu.classList.add("active");
+            addDebug("Menu opened");
+          }
+
+          navToggle.textContent = isActive ? "☰" : "✕";
+          document.body.style.overflow = isActive ? "auto" : "hidden";
+        }
+
+        navToggle.addEventListener("click", toggleMenu);
+        navToggle.addEventListener("touchstart", toggleMenu, {
+          passive: false,
+        });
+        addDebug("✅ Event listeners attached");
+
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            navToggle.textContent = "☰";
+            document.body.style.overflow = "auto";
+            addDebug("Menu closed via nav link click");
+          });
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            if (navMenu.classList.contains("active")) {
+              navMenu.classList.remove("active");
+              navToggle.textContent = "☰";
+              document.body.style.overflow = "auto";
+              addDebug("Menu closed via outside click");
+            }
+          }
+        });
+
+        updateTestStatus(
+          true,
+          "Mobile navigation initialized successfully! Click the hamburger menu to test.",
+        );
+      } else {
+        addDebug("❌ CRITICAL ERROR: Navigation elements not found!");
+        updateTestStatus(false, "Navigation elements not found in DOM!");
+      }
+
+      // Add viewport info
+      addDebug(`Viewport: ${window.innerWidth}x${window.innerHeight}`);
+      addDebug(`User agent: ${navigator.userAgent.substring(0, 50)}...`);
+    </script>
+  </body>
+</html>
