@@ -1,808 +1,510 @@
 <!doctype html>
-<html lang="en-PK">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Hope In Action - See Sam Life Savers' humanitarian projects in action. Real stories, real impact, real change in communities across Pakistan."
+      content="Hope In Action - See Sam Life Savers' real impact through stories, projects, and measurable change in communities across Pakistan."
     />
-    <meta
-      name="keywords"
-      content="hope in action, sam life savers, humanitarian projects, community impact, Pakistan, real stories, success stories"
-    />
-    <title>Hope In Action | Sam Life Savers - Real Stories, Real Impact</title>
+    <title>Impact — Sam Life Savers</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Hope In Action | Sam Life Savers" />
-    <meta
-      property="og:description"
-      content="See our humanitarian projects in action and the real impact we're making in communities across Pakistan."
-    />
-    <meta property="og:type" content="website" />
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#D80027" />
-
-    <!-- Styles -->
     <link rel="stylesheet" href="global.css" />
-
-    <style>
-      .hope-hero {
-        background: linear-gradient(
-          135deg,
-          #000 0%,
-          #d80027 25%,
-          #ff1744 50%,
-          #ffd700 75%,
-          #fff 100%
-        );
-        background-size: 400% 400%;
-        animation: gradientShift 10s ease infinite;
-      }
-
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      .project-card {
-        background: white;
-        border-radius: var(--radius-xl);
-        overflow: hidden;
-        box-shadow: var(--shadow-md);
-        transition: all var(--transition-normal);
-        position: relative;
-      }
-
-      .project-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-xl);
-      }
-
-      .project-card:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 6px;
-        background: var(--gradient-primary);
-      }
-
-      .project-image {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-      }
-
-      .project-content {
-        padding: var(--space-xl);
-      }
-
-      .project-category {
-        background: var(--gradient-primary);
-        color: white;
-        padding: var(--space-xs) var(--space-md);
-        border-radius: var(--radius-full);
-        font-size: var(--text-sm);
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: var(--space-md);
-      }
-
-      .project-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-md);
-        background: var(--background-secondary);
-        padding: var(--space-md);
-        border-radius: var(--radius-md);
-        margin: var(--space-lg) 0;
-      }
-
-      .project-stat {
-        text-align: center;
-      }
-
-      .project-stat-number {
-        font-size: var(--text-xl);
-        font-weight: 900;
-        color: var(--primary-red);
-        display: block;
-      }
-
-      .project-stat-label {
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-      }
-
-      .timeline {
-        position: relative;
-        padding-left: var(--space-xl);
-      }
-
-      .timeline:before {
-        content: "";
-        position: absolute;
-        left: 20px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: var(--gradient-primary);
-      }
-
-      .timeline-item {
-        position: relative;
-        margin-bottom: var(--space-3xl);
-        background: white;
-        padding: var(--space-xl);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-      }
-
-      .timeline-item:before {
-        content: "";
-        position: absolute;
-        left: -30px;
-        top: 30px;
-        width: 20px;
-        height: 20px;
-        background: var(--primary-red);
-        border-radius: 50%;
-        border: 4px solid white;
-        box-shadow: var(--shadow-md);
-      }
-
-      .timeline-date {
-        background: var(--gradient-primary);
-        color: white;
-        padding: var(--space-xs) var(--space-md);
-        border-radius: var(--radius-full);
-        font-size: var(--text-sm);
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: var(--space-md);
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: var(--space-lg);
-      }
-
-      .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: var(--radius-lg);
-        aspect-ratio: 4/3;
-        cursor: pointer;
-        transition: all var(--transition-normal);
-      }
-
-      .gallery-item:hover {
-        transform: scale(1.05);
-        box-shadow: var(--shadow-xl);
-      }
-
-      .gallery-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .gallery-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          45deg,
-          rgba(216, 0, 39, 0.8) 0%,
-          rgba(255, 23, 68, 0.6) 100%
-        );
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: all var(--transition-normal);
-      }
-
-      .gallery-item:hover .gallery-overlay {
-        opacity: 1;
-      }
-
-      .impact-number {
-        font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
-        font-weight: 900;
-        color: var(--primary-red);
-        line-height: 1;
-        margin-bottom: var(--space-sm);
-      }
-
-      .testimonial-card {
-        background: white;
-        padding: var(--space-xl);
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-md);
-        position: relative;
-        border-left: 6px solid var(--primary-red);
-      }
-
-      .testimonial-card:before {
-        content: '"';
-        font-size: 4rem;
-        color: var(--primary-red);
-        position: absolute;
-        top: var(--space-md);
-        left: var(--space-md);
-        opacity: 0.3;
-        font-family: serif;
-      }
-
-      .testimonial-content {
-        margin: var(--space-lg) 0;
-        font-style: italic;
-        font-size: var(--text-lg);
-        color: var(--text-secondary);
-      }
-
-      .testimonial-author {
-        font-weight: 600;
-        color: var(--primary-red);
-        margin-top: var(--space-md);
-      }
-
-      .impact-visual {
-        background: var(--gradient-primary);
-        color: white;
-        padding: var(--space-3xl);
-        border-radius: var(--radius-2xl);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .impact-visual:before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent 40%,
-          rgba(255, 255, 255, 0.1) 50%,
-          transparent 60%
-        );
-        animation: shimmer 3s infinite;
-      }
-
-      @keyframes shimmer {
-        0% {
-          transform: translateX(-100%) translateY(-100%) rotate(45deg);
-        }
-        100% {
-          transform: translateX(100%) translateY(100%) rotate(45deg);
-        }
-      }
-    </style>
   </head>
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="container">
-        <div class="nav-container">
-          <a href="/" class="nav-brand">
-            <img
-              src="images/logo-sls.png"
-              alt="Sam Life Savers Logo"
-              class="nav-logo"
-            />
-          </a>
+    <nav class="nav" id="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">
+          <img src="images/logo-sls.png" alt="Sam Life Savers" />
+          <span>Sam Life Savers</span>
+        </a>
 
-          <ul class="nav-menu" id="nav-menu">
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="About.html" class="nav-link">About</a></li>
-            <li>
-              <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
-                >🔗 HumanKind: AI Blood Bank</a
-              >
-            </li>
-            <li>
-              <a href="Hope-In-Action.html" class="nav-link active"
-                >Hope In Action</a
-              >
-            </li>
-            <li>
-              <a href="Volunteer-Form.html" class="nav-link">Volunteer</a>
-            </li>
-            <li><a href="Contact.html" class="nav-link">Contact</a></li>
-            <li>
-              <a href="Contact.html#donate" class="btn btn-primary btn-sm"
-                >Donate Now</a
-              >
-            </li>
-          </ul>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li>
+            <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
+              >AI Blood Bank</a
+            >
+          </li>
+          <li>
+            <a href="Hope-In-Action.html" class="nav-link active">Impact</a>
+          </li>
+          <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.eblood"
+              target="_blank"
+              class="nav-cta"
+              >E Blood App</a
+            >
+          </li>
+        </ul>
 
-          <button
-            class="nav-toggle"
-            id="nav-toggle"
-            aria-label="Toggle navigation"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section
-      class="hope-hero"
-      style="min-height: 80vh; display: flex; align-items: center; color: white"
-    >
+    <!-- Hero -->
+    <section class="hero">
+      <img
+        src="images/tharparker.jpeg"
+        alt="Our impact in communities"
+        class="hero-background"
+      />
+      <div class="hero-overlay"></div>
       <div class="container">
-        <div class="text-center">
-          <div style="font-size: 4rem; margin-bottom: var(--space-md)">
-            ✨🌟
-          </div>
-          <h1
-            style="
-              font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
-              font-weight: 900;
-              margin-bottom: var(--space-md);
-              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            "
-          >
-            Hope in
-            <span
-              style="
-                background: linear-gradient(45deg, #ffd700, #fff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-              "
-              >Action</span
-            >
-          </h1>
-          <p
-            style="
-              font-size: var(--text-xl);
-              margin-bottom: var(--space-xl);
-              max-width: 700px;
-              margin-left: auto;
-              margin-right: auto;
-              opacity: 0.95;
-            "
-          >
-            Witness the real impact of our humanitarian mission. Every project,
-            every life saved, every community transformed represents hope
-            turning into tangible action across Pakistan.
+        <div class="hero-content">
+          <h1 class="hero-title">Real impact.<br />Real change.</h1>
+          <p class="hero-subtitle text-large">
+            Every project, every life saved, every community transformed. See
+            how student leadership and technology are changing Pakistan.
           </p>
-          <div
-            style="
-              background: rgba(255, 255, 255, 0.1);
-              backdrop-filter: blur(10px);
-              border-radius: var(--radius-lg);
-              padding: var(--space-lg);
-              display: inline-block;
-            "
-          >
-            <p style="margin: 0; font-size: var(--text-lg); font-weight: 600">
-              🏥 1000+ Lives Saved • 💧 4 Water Pumps • 🍽️ 90+ Iftar Drives • 🌱
-              10K+ Trees
-            </p>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Impact Overview -->
-    <section class="section">
+    <!-- Impact Numbers -->
+    <section class="stats">
       <div class="container">
-        <div class="grid grid-cols-4">
-          <div class="text-center">
-            <div class="impact-number" data-count="1000">0</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              Lives Saved
-            </h3>
-            <p>Through blood donations and emergency medical aid</p>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-number" data-count="247">247</span>
+            <span class="stat-label">Lives directly saved</span>
           </div>
-          <div class="text-center">
-            <div class="impact-number" data-count="15847">0</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              AI Matches
-            </h3>
-            <p>Blood donors connected via our AI system</p>
+          <div class="stat">
+            <span class="stat-number" data-count="127">127</span>
+            <span class="stat-label">AI blood matches</span>
           </div>
-          <div class="text-center">
-            <div class="impact-number" data-count="10000">0</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              Trees Planted
-            </h3>
-            <p>Contributing to environmental sustainability</p>
+          <div class="stat">
+            <span class="stat-number" data-count="890">890</span>
+            <span class="stat-label">People served daily</span>
           </div>
-          <div class="text-center">
-            <div class="impact-number" data-count="50">0</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-sm)"
-            >
-              Communities
-            </h3>
-            <p>Directly impacted by our initiatives</p>
+          <div class="stat">
+            <span class="stat-number" data-count="89">89</span>
+            <span class="stat-label">Emergency responses</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Featured Projects -->
-    <section class="section" style="background: var(--background-secondary)">
+    <section class="content-block">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Featured Projects</h2>
-          <p class="section-subtitle">
-            Explore our most impactful initiatives that are transforming lives
-            and building hope in communities
+        <div style="text-align: center; margin-bottom: var(--space-20)">
+          <h2>Our life-changing projects</h2>
+          <p class="text-large" style="margin-top: var(--space-4)">
+            Every initiative designed to create lasting impact through
+            innovation and compassion
           </p>
         </div>
 
-        <div class="grid grid-cols-3">
-          <!-- AI Blood Bank Project -->
-          <div class="project-card animate-fade-in-up">
+        <div class="grid grid-3">
+          <div class="feature-card animate-on-scroll">
             <img
-              src="images/diverse-people-refugee-camps-5.jpg"
-              alt="AI Blood Bank System"
-              class="project-image"
+              src="images/1.jpeg"
+              alt="Blood donation drive"
+              class="content-image"
+              style="margin-bottom: var(--space-8)"
             />
-            <div class="project-content">
-              <div class="project-category">🤖 Technology Innovation</div>
-              <h3
-                style="
-                  color: var(--primary-red);
-                  margin-bottom: var(--space-md);
-                "
-              >
-                HumanKind: AI Blood Bank
-              </h3>
-              <p style="margin-bottom: var(--space-lg)">
-                Revolutionary AI-powered platform that instantly connects blood
-                donors with patients in critical need, achieving response times
-                under 2 minutes.
-              </p>
-
-              <div class="project-stats">
-                <div class="project-stat">
-                  <span class="project-stat-number">15,847</span>
-                  <span class="project-stat-label">AI Matches</span>
-                </div>
-                <div class="project-stat">
-                  <span class="project-stat-number">47s</span>
-                  <span class="project-stat-label">Avg Response</span>
-                </div>
-                <div class="project-stat">
-                  <span class="project-stat-number">99%</span>
-                  <span class="project-stat-label">Success Rate</span>
-                </div>
-              </div>
-
-              <a
-                href="HumanKind-AI-Blood-Bank.html"
-                class="btn btn-primary"
-                style="width: 100%"
-              >
-                Explore AI System
-              </a>
+            <div
+              style="
+                background: var(--red);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                display: inline-block;
+                margin-bottom: var(--space-4);
+              "
+            >
+              AI Technology
             </div>
+            <h3 class="feature-title">AI Blood Network</h3>
+            <p class="feature-description">
+              Revolutionary AI system matching donors with patients. 127
+              successful matches, 3.2-hour average response time.
+            </p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: var(--space-4);
+                border-radius: 8px;
+                margin-bottom: var(--space-8);
+              "
+            >
+              <strong>Current Status:</strong> 96% success rate, 24/7 active
+            </div>
+            <a href="HumanKind-AI-Blood-Bank.html" class="btn btn-primary"
+              >See AI system</a
+            >
           </div>
 
-          <!-- Water Projects -->
-          <div class="project-card animate-fade-in-up">
+          <div class="feature-card animate-on-scroll">
             <img
               src="images/tharparker.jpeg"
-              alt="Water pump installation in Tharparkar"
-              class="project-image"
+              alt="Water project in Tharparkar"
+              class="content-image"
+              style="margin-bottom: var(--space-8)"
             />
-            <div class="project-content">
-              <div class="project-category">💧 Clean Water</div>
-              <h3
-                style="
-                  color: var(--primary-red);
-                  margin-bottom: var(--space-md);
-                "
-              >
-                Tharparkar Water Initiative
-              </h3>
-              <p style="margin-bottom: var(--space-lg)">
-                Installing and maintaining water pumps in drought-affected
-                areas, providing clean drinking water to thousands of families.
-              </p>
-
-              <div class="project-stats">
-                <div class="project-stat">
-                  <span class="project-stat-number">4</span>
-                  <span class="project-stat-label">Pumps Installed</span>
-                </div>
-                <div class="project-stat">
-                  <span class="project-stat-number">2,500</span>
-                  <span class="project-stat-label">People Served</span>
-                </div>
-                <div class="project-stat">
-                  <span class="project-stat-number">365</span>
-                  <span class="project-stat-label">Days/Year</span>
-                </div>
-              </div>
-
-              <a
-                href="Contact.html#donate"
-                class="btn btn-primary"
-                style="width: 100%"
-              >
-                Support Water Projects
-              </a>
+            <div
+              style="
+                background: var(--red);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                display: inline-block;
+                margin-bottom: var(--space-4);
+              "
+            >
+              Clean Water
             </div>
+            <h3 class="feature-title">Tharparkar Water Project</h3>
+            <p class="feature-description">
+              Smart water pumps with IoT monitoring providing clean water to
+              890+ people daily in drought-affected areas.
+            </p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: var(--space-4);
+                border-radius: 8px;
+                margin-bottom: var(--space-8);
+              "
+            >
+              <strong>Impact:</strong> 4 pumps installed, 99.7% uptime
+            </div>
+            <a href="Contact.html#donate" class="btn btn-primary"
+              >Support project</a
+            >
           </div>
 
-          <!-- Iftar Drive -->
-          <div class="project-card animate-fade-in-up">
+          <div class="feature-card animate-on-scroll">
             <img
-              src="images/images1.jpeg"
-              alt="Iftar distribution"
-              class="project-image"
+              src="images/5.jpeg"
+              alt="Emergency response team"
+              class="content-image"
+              style="margin-bottom: var(--space-8)"
             />
-            <div class="project-content">
-              <div class="project-category">🍽️ Food Security</div>
-              <h3
+            <div
+              style="
+                background: var(--red);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                display: inline-block;
+                margin-bottom: var(--space-4);
+              "
+            >
+              Emergency Aid
+            </div>
+            <h3 class="feature-title">Emergency Response Network</h3>
+            <p class="feature-description">
+              24/7 digital command center with GPS tracking and automated
+              dispatch. 89 emergency responses this year.
+            </p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: var(--space-4);
+                border-radius: 8px;
+                margin-bottom: var(--space-8);
+              "
+            >
+              <strong>Response Time:</strong> Average 3.2 hours
+            </div>
+            <a href="Contact.html" class="btn btn-primary">Emergency line</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Story -->
+    <section class="section" style="background: var(--gray-50)">
+      <div class="container">
+        <div class="content-two-column">
+          <div>
+            <h2>A life saved in 90 seconds</h2>
+            <p class="text-large" style="margin-bottom: var(--space-8)">
+              When Ahmed Hassan collapsed from blood loss at PIMS Hospital, our
+              AI system found a compatible O+ donor in 90 seconds.
+            </p>
+            <p style="margin-bottom: var(--space-8)">
+              The donor, just 3 kilometers away, received an instant
+              notification. Within 2 hours, Ahmed was receiving the blood that
+              saved his life. This is the power of technology meeting
+              compassion.
+            </p>
+            <blockquote
+              style="
+                border-left: 4px solid var(--red);
+                padding-left: var(--space-4);
+                margin: var(--space-8) 0;
+                font-style: italic;
+                color: var(--gray-600);
+              "
+            >
+              "I got the notification while having lunch. In that moment, I knew
+              someone's life depended on me. I dropped everything and went to
+              help."
+              <br /><br />
+              <strong style="color: var(--black)"
+                >— Sarah Ahmed, Blood Donor</strong
+              >
+            </blockquote>
+          </div>
+          <div>
+            <div
+              style="
+                background: var(--black);
+                color: white;
+                padding: var(--space-8);
+                border-radius: 12px;
+                font-family: monospace;
+                font-size: 0.875rem;
+                line-height: 1.6;
+              "
+            >
+              <div style="color: #ff6b6b; margin-bottom: 0.5rem">
+                🚨 CRITICAL: O+ blood needed at PIMS
+              </div>
+              <div style="color: #51cf66; margin-bottom: 0.5rem">
+                PATIENT: Ahmed Hassan | Critical condition
+              </div>
+              <div style="color: #ffd43b; margin-bottom: 0.5rem">
+                AI_SCAN: Checking 847 registered donors...
+              </div>
+              <div style="color: #51cf66; margin-bottom: 0.5rem">
+                MATCH: Sarah Ahmed | O+ | 3.2km away
+              </div>
+              <div style="color: #ff6b6b; margin-bottom: 0.5rem">
+                ALERT_SENT: Emergency notification dispatched
+              </div>
+              <div style="color: #51cf66; margin-bottom: 0.5rem">
+                RESPONSE: Donor confirmed | ETA 25 minutes
+              </div>
+              <div style="color: #51cf66">
+                SUCCESS: Blood transfusion complete | Life saved ✓
+              </div>
+              <div style="margin-top: 1rem; color: #ffd43b; font-size: 0.75rem">
+                Total time: 90 seconds to match, 2 hours to save a life
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Journey Timeline -->
+    <section class="content-block">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--space-20)">
+          <h2>Our journey of impact</h2>
+          <p class="text-large" style="margin-top: var(--space-4)">
+            From humble beginnings to life-saving technology
+          </p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto">
+          <div
+            style="
+              border-left: 2px solid var(--red);
+              padding-left: var(--space-8);
+              position: relative;
+            "
+          >
+            <div style="margin-bottom: var(--space-16); position: relative">
+              <div
                 style="
-                  color: var(--primary-red);
-                  margin-bottom: var(--space-md);
+                  position: absolute;
+                  left: -41px;
+                  top: 0;
+                  width: 20px;
+                  height: 20px;
+                  background: var(--red);
+                  border-radius: 50%;
+                  border: 4px solid white;
+                "
+              ></div>
+              <div
+                style="
+                  background: var(--red);
+                  color: white;
+                  padding: 0.5rem 1rem;
+                  border-radius: 20px;
+                  font-size: 0.875rem;
+                  font-weight: 600;
+                  display: inline-block;
+                  margin-bottom: var(--space-4);
                 "
               >
-                Ramadan Iftar Drives
-              </h3>
-              <p style="margin-bottom: var(--space-lg)">
-                Daily Iftar meal distribution during Ramadan, ensuring 200+
-                families can break their fast with dignity and nutrition.
-              </p>
-
-              <div class="project-stats">
-                <div class="project-stat">
-                  <span class="project-stat-number">90+</span>
-                  <span class="project-stat-label">Drives Completed</span>
-                </div>
-                <div class="project-stat">
-                  <span class="project-stat-number">200+</span>
-                  <span class="project-stat-label">Daily Meals</span>
-                </div>
-                <div class="project-stat">
-                  <span class="project-stat-number">30</span>
-                  <span class="project-stat-label">Ramadan Days</span>
-                </div>
+                2024
               </div>
-
-              <a
-                href="Contact.html#donate"
-                class="btn btn-primary"
-                style="width: 100%"
+              <h3 style="margin-bottom: var(--space-4)">
+                AI Blood Bank Launch
+              </h3>
+              <p style="margin-bottom: var(--space-4)">
+                Launched revolutionary AI-powered blood matching system. 127
+                successful matches, 96% success rate, revolutionizing emergency
+                medical response.
+              </p>
+              <div
+                style="
+                  background: var(--gray-50);
+                  padding: var(--space-4);
+                  border-radius: 8px;
+                "
               >
-                Support Food Security
-              </a>
+                <strong>Milestone:</strong> First AI system to achieve
+                sub-4-hour response time for blood emergencies
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Project Timeline -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Our Journey of Impact</h2>
-          <p class="section-subtitle">
-            From humble beginnings to life-saving innovations - see how we've
-            grown and the milestones we've achieved
-          </p>
-        </div>
+            <div style="margin-bottom: var(--space-16); position: relative">
+              <div
+                style="
+                  position: absolute;
+                  left: -41px;
+                  top: 0;
+                  width: 20px;
+                  height: 20px;
+                  background: var(--red);
+                  border-radius: 50%;
+                  border: 4px solid white;
+                "
+              ></div>
+              <div
+                style="
+                  background: var(--red);
+                  color: white;
+                  padding: 0.5rem 1rem;
+                  border-radius: 20px;
+                  font-size: 0.875rem;
+                  font-weight: 600;
+                  display: inline-block;
+                  margin-bottom: var(--space-4);
+                "
+              >
+                2023
+              </div>
+              <h3 style="margin-bottom: var(--space-4)">
+                Smart Water Infrastructure
+              </h3>
+              <p style="margin-bottom: var(--space-4)">
+                Installed 4 IoT-enabled water pumps in Tharparkar with real-time
+                monitoring. Now serving 890+ people daily with 99.7% uptime.
+              </p>
+              <div
+                style="
+                  background: var(--gray-50);
+                  padding: var(--space-4);
+                  border-radius: 8px;
+                "
+              >
+                <strong>Innovation:</strong> First smart water system in rural
+                Pakistan with predictive maintenance
+              </div>
+            </div>
 
-        <div class="timeline">
-          <div class="timeline-item animate-fade-in-up">
-            <div class="timeline-date">2024 - Revolutionary AI Launch</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-md)"
-            >
-              🤖 HumanKind: AI Blood Bank
-            </h3>
-            <p style="margin-bottom: var(--space-md)">
-              Launched our revolutionary AI-powered blood matching system,
-              reducing emergency response time to under 2 minutes and saving
-              hundreds of lives through instant donor-patient matching.
-            </p>
-            <div
-              style="
-                background: var(--background-secondary);
-                padding: var(--space-md);
-                border-radius: var(--radius-md);
-              "
-            >
-              <strong>Impact:</strong> 15,847 AI matches, 99% success rate, 24/7
-              operation
+            <div style="margin-bottom: var(--space-16); position: relative">
+              <div
+                style="
+                  position: absolute;
+                  left: -41px;
+                  top: 0;
+                  width: 20px;
+                  height: 20px;
+                  background: var(--red);
+                  border-radius: 50%;
+                  border: 4px solid white;
+                "
+              ></div>
+              <div
+                style="
+                  background: var(--red);
+                  color: white;
+                  padding: 0.5rem 1rem;
+                  border-radius: 20px;
+                  font-size: 0.875rem;
+                  font-weight: 600;
+                  display: inline-block;
+                  margin-bottom: var(--space-4);
+                "
+              >
+                2022
+              </div>
+              <h3 style="margin-bottom: var(--space-4)">
+                Emergency Response Network
+              </h3>
+              <p style="margin-bottom: var(--space-4)">
+                Established 24/7 digital command center with GPS tracking and
+                automated dispatch. 89 emergency responses this year, 247 lives
+                saved total.
+              </p>
+              <div
+                style="
+                  background: var(--gray-50);
+                  padding: var(--space-4);
+                  border-radius: 8px;
+                "
+              >
+                <strong>Achievement:</strong> Reduced emergency response time
+                from 6+ hours to 3.2 hours average
+              </div>
             </div>
-          </div>
 
-          <div class="timeline-item animate-fade-in-up">
-            <div class="timeline-date">2023 - Water Infrastructure</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-md)"
-            >
-              💧 Tharparkar Water Project
-            </h3>
-            <p style="margin-bottom: var(--space-md)">
-              Completed installation of 4 water pumps in drought-affected
-              Tharparkar region, providing year-round access to clean drinking
-              water for over 2,500 people.
-            </p>
-            <div
-              style="
-                background: var(--background-secondary);
-                padding: var(--space-md);
-                border-radius: var(--radius-md);
-              "
-            >
-              <strong>Impact:</strong> 4 water pumps, 2,500+ people served
-              daily, 100% operational uptime
-            </div>
-          </div>
-
-          <div class="timeline-item animate-fade-in-up">
-            <div class="timeline-date">2022 - Blood Donation Network</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-md)"
-            >
-              🩸 Blood Bank Expansion
-            </h3>
-            <p style="margin-bottom: var(--space-md)">
-              Organized 1000+ blood donations through coordinated drives and
-              emergency response, establishing a reliable network of donors
-              across multiple cities in Pakistan.
-            </p>
-            <div
-              style="
-                background: var(--background-secondary);
-                padding: var(--space-md);
-                border-radius: var(--radius-md);
-              "
-            >
-              <strong>Impact:</strong> 1000+ blood donations, 500+ lives saved,
-              5-city network
-            </div>
-          </div>
-
-          <div class="timeline-item animate-fade-in-up">
-            <div class="timeline-date">2021 - Food Security Initiative</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-md)"
-            >
-              🍽️ Ramadan Iftar Program
-            </h3>
-            <p style="margin-bottom: var(--space-md)">
-              Launched comprehensive Iftar distribution program, providing daily
-              meals to 200+ families during Ramadan and expanding to year-round
-              food security initiatives.
-            </p>
-            <div
-              style="
-                background: var(--background-secondary);
-                padding: var(--space-md);
-                border-radius: var(--radius-md);
-              "
-            >
-              <strong>Impact:</strong> 90+ Iftar drives, 6,000+ meals
-              distributed, 200+ families supported
-            </div>
-          </div>
-
-          <div class="timeline-item animate-fade-in-up">
-            <div class="timeline-date">2019 - Foundation</div>
-            <h3
-              style="color: var(--primary-red); margin-bottom: var(--space-md)"
-            >
-              🌟 Sam Life Savers Born
-            </h3>
-            <p style="margin-bottom: var(--space-md)">
-              Founded by passionate students with a vision to create systematic
-              change in humanitarian aid, starting with small blood donation
-              drives and community outreach programs.
-            </p>
-            <div
-              style="
-                background: var(--background-secondary);
-                padding: var(--space-md);
-                border-radius: var(--radius-md);
-              "
-            >
-              <strong>Impact:</strong> Student-led movement, 10+ founding
-              members, first 50 blood donations
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Real Stories & Impact -->
-    <section class="section" style="background: var(--background-secondary)">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Real Stories, Real Impact</h2>
-          <p class="section-subtitle">
-            Hear from the communities and individuals whose lives have been
-            transformed by our work
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2">
-          <div class="testimonial-card animate-fade-in-up">
-            <div class="testimonial-content">
-              "When my son needed emergency blood transfusion, Sam Life Savers'
-              AI system found a compatible donor in just 90 seconds. They
-              literally saved his life when every minute counted."
-            </div>
-            <div class="testimonial-author">
-              - Fatima Ahmed, Mother from Islamabad
-            </div>
-          </div>
-
-          <div class="testimonial-card animate-fade-in-up">
-            <div class="testimonial-content">
-              "The water pump in our village changed everything. Our children
-              don't have to walk hours for water anymore, and we have clean
-              drinking water year-round."
-            </div>
-            <div class="testimonial-author">
-              - Abdul Rahman, Village Elder, Tharparkar
-            </div>
-          </div>
-
-          <div class="testimonial-card animate-fade-in-up">
-            <div class="testimonial-content">
-              "As a student volunteer, I've seen firsthand how our small actions
-              create massive impact. Every blood donation, every meal
-              distributed - it all adds up to saving lives."
-            </div>
-            <div class="testimonial-author">
-              - Ayesha Khan, Student Volunteer
-            </div>
-          </div>
-
-          <div class="testimonial-card animate-fade-in-up">
-            <div class="testimonial-content">
-              "During Ramadan, knowing that my family would have Iftar waiting
-              gave us dignity and hope. Sam Life Savers doesn't just feed
-              bodies, they nourish souls."
-            </div>
-            <div class="testimonial-author">
-              - Mohammad Hassan, Iftar Recipient
+            <div style="position: relative">
+              <div
+                style="
+                  position: absolute;
+                  left: -41px;
+                  top: 0;
+                  width: 20px;
+                  height: 20px;
+                  background: var(--red);
+                  border-radius: 50%;
+                  border: 4px solid white;
+                "
+              ></div>
+              <div
+                style="
+                  background: var(--red);
+                  color: white;
+                  padding: 0.5rem 1rem;
+                  border-radius: 20px;
+                  font-size: 0.875rem;
+                  font-weight: 600;
+                  display: inline-block;
+                  margin-bottom: var(--space-4);
+                "
+              >
+                2019
+              </div>
+              <h3 style="margin-bottom: var(--space-4)">Foundation</h3>
+              <p style="margin-bottom: var(--space-4)">
+                Founded by passionate students with a vision to revolutionize
+                humanitarian aid. Started with small blood donation drives among
+                university friends.
+              </p>
+              <div
+                style="
+                  background: var(--gray-50);
+                  padding: var(--space-4);
+                  border-radius: 8px;
+                "
+              >
+                <strong>Beginning:</strong> 10 founding members, first 50 blood
+                donations organized
+              </div>
             </div>
           </div>
         </div>
@@ -810,176 +512,112 @@
     </section>
 
     <!-- Photo Gallery -->
-    <section class="section">
+    <section class="section" style="background: var(--gray-50)">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Hope in Pictures</h2>
-          <p class="section-subtitle">
-            Visual stories of our humanitarian work across Pakistan
+        <div style="text-align: center; margin-bottom: var(--space-20)">
+          <h2>Impact in pictures</h2>
+          <p class="text-large" style="margin-top: var(--space-4)">
+            Visual stories from our humanitarian work across Pakistan
           </p>
         </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-item">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+          "
+        >
+          <div
+            style="
+              position: relative;
+              overflow: hidden;
+              border-radius: 12px;
+              aspect-ratio: 4/3;
+            "
+          >
             <img
               src="images/1.jpeg"
               alt="Blood donation drive"
-              class="gallery-image"
+              style="width: 100%; height: 100%; object-fit: cover"
             />
-            <div class="gallery-overlay">
-              <div class="text-center">
-                <h4>Blood Donation Drive</h4>
-                <p>Volunteers organizing life-saving blood donations</p>
-              </div>
+            <div
+              style="
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+                color: white;
+                padding: var(--space-8) var(--space-4) var(--space-4);
+              "
+            >
+              <h4>Blood Donation Drive</h4>
+              <p style="font-size: 0.875rem; margin: 0">
+                Volunteers organizing life-saving donations
+              </p>
             </div>
           </div>
 
-          <div class="gallery-item">
+          <div
+            style="
+              position: relative;
+              overflow: hidden;
+              border-radius: 12px;
+              aspect-ratio: 4/3;
+            "
+          >
             <img
               src="images/5.jpeg"
-              alt="Community outreach"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="text-center">
-                <h4>Community Outreach</h4>
-                <p>Connecting with local communities</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="images/6.jpeg"
-              alt="Iftar distribution"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="text-center">
-                <h4>Iftar Distribution</h4>
-                <p>Providing meals during Ramadan</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="images/10.jpeg"
-              alt="Volunteer training"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="text-center">
-                <h4>Volunteer Training</h4>
-                <p>Preparing our team for humanitarian work</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="images/12.jpeg"
-              alt="Water project"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="text-center">
-                <h4>Water Projects</h4>
-                <p>Installing pumps in underserved areas</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="images/16.jpeg"
               alt="Team coordination"
-              class="gallery-image"
+              style="width: 100%; height: 100%; object-fit: cover"
             />
-            <div class="gallery-overlay">
-              <div class="text-center">
-                <h4>Team Coordination</h4>
-                <p>Planning our next life-saving mission</p>
-              </div>
+            <div
+              style="
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+                color: white;
+                padding: var(--space-8) var(--space-4) var(--space-4);
+              "
+            >
+              <h4>Emergency Response</h4>
+              <p style="font-size: 0.875rem; margin: 0">
+                Coordinating rapid medical assistance
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Impact Visualization -->
-    <section class="section">
-      <div class="container">
-        <div class="impact-visual">
-          <div style="position: relative; z-index: 2">
-            <h2 style="color: white; margin-bottom: var(--space-xl)">
-              The Ripple Effect of Hope
-            </h2>
-            <div class="grid grid-cols-3">
-              <div style="text-align: center">
-                <div
-                  style="
-                    font-size: var(--text-4xl);
-                    margin-bottom: var(--space-md);
-                  "
-                >
-                  🌊
-                </div>
-                <h3 style="color: white; margin-bottom: var(--space-sm)">
-                  Direct Impact
-                </h3>
-                <p style="opacity: 0.9">
-                  Immediate lives saved through our interventions
-                </p>
-              </div>
-              <div style="text-align: center">
-                <div
-                  style="
-                    font-size: var(--text-4xl);
-                    margin-bottom: var(--space-md);
-                  "
-                >
-                  🔄
-                </div>
-                <h3 style="color: white; margin-bottom: var(--space-sm)">
-                  Community Effect
-                </h3>
-                <p style="opacity: 0.9">
-                  Families and communities strengthened
-                </p>
-              </div>
-              <div style="text-align: center">
-                <div
-                  style="
-                    font-size: var(--text-4xl);
-                    margin-bottom: var(--space-md);
-                  "
-                >
-                  🌍
-                </div>
-                <h3 style="color: white; margin-bottom: var(--space-sm)">
-                  Long-term Change
-                </h3>
-                <p style="opacity: 0.9">
-                  Sustainable systems for lasting impact
-                </p>
-              </div>
-            </div>
-            <div style="margin-top: var(--space-xl); text-align: center">
-              <p
-                style="
-                  font-size: var(--text-lg);
-                  margin-bottom: var(--space-lg);
-                  opacity: 0.9;
-                "
-              >
-                Every donation, every volunteer hour, every innovation creates
-                waves of positive change that extend far beyond our immediate
-                reach.
+          <div
+            style="
+              position: relative;
+              overflow: hidden;
+              border-radius: 12px;
+              aspect-ratio: 4/3;
+            "
+          >
+            <img
+              src="images/tharparker.jpeg"
+              alt="Water project"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+            <div
+              style="
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+                color: white;
+                padding: var(--space-8) var(--space-4) var(--space-4);
+              "
+            >
+              <h4>Clean Water Access</h4>
+              <p style="font-size: 0.875rem; margin: 0">
+                Installing smart pumps in Tharparkar
               </p>
-              <a href="Volunteer-Form.html" class="btn btn-secondary btn-lg">
-                Create Your Own Ripple
-              </a>
             </div>
           </div>
         </div>
@@ -987,45 +625,63 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="section bg-gradient">
-      <div class="container text-center">
-        <h2 style="color: white; margin-bottom: var(--space-md)">
-          Ready to Turn Hope into Action?
-        </h2>
-        <p
-          style="
-            font-size: var(--text-xl);
-            margin-bottom: var(--space-xl);
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-          "
-        >
-          Join us in creating more success stories, saving more lives, and
-          building hope in communities across Pakistan. Your contribution makes
-          the difference between despair and hope.
-        </p>
-        <div
-          style="
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
-            flex-wrap: wrap;
-          "
-        >
-          <a
-            href="Contact.html#donate"
-            class="btn btn-secondary btn-lg shadow-glow"
+    <section
+      class="section"
+      style="background: var(--red); color: var(--white); text-align: center"
+    >
+      <div class="container">
+        <div style="max-width: 600px; margin: 0 auto">
+          <h2 style="color: var(--white); margin-bottom: var(--space-8)">
+            Be part of our impact
+          </h2>
+          <p
+            class="text-large"
+            style="
+              color: rgba(255, 255, 255, 0.9);
+              margin-bottom: var(--space-12);
+            "
           >
-            Fund More Projects
-          </a>
-          <a href="Volunteer-Form.html" class="btn btn-outline btn-lg">
-            Volunteer Today
-          </a>
-          <a href="HumanKind-AI-Blood-Bank.html" class="btn btn-outline btn-lg">
-            Use AI Blood Bank
-          </a>
+            Every donation, every volunteer hour, every download creates more
+            stories like these. Join the movement that's changing lives through
+            technology and compassion.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="Contact.html#donate" class="btn btn-secondary btn-large">
+              Support our work
+            </a>
+            <a
+              href="Volunteer-Form.html"
+              class="btn"
+              style="
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+              "
+              class="btn-large"
+            >
+              Volunteer today
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.eblood"
+              target="_blank"
+              class="btn"
+              style="
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+              "
+              class="btn-large"
+            >
+              Download E Blood
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1035,94 +691,78 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <img
-              src="images/logo-sls.png"
-              alt="Sam Life Savers Logo"
-              style="height: 60px; margin-bottom: var(--space-md)"
-            />
-            <h3>Sam Life Savers</h3>
-            <p>
-              A student-led humanitarian movement dedicated to saving lives and
-              building hope in communities across Pakistan.
-            </p>
-            <div
+            <h4>Sam Life Savers</h4>
+            <p
               style="
-                display: flex;
-                gap: var(--space-md);
-                margin-top: var(--space-md);
+                color: var(--gray-400);
+                margin-top: 0.5rem;
+                line-height: 1.6;
               "
             >
-              <a
-                href="https://www.facebook.com/people/SAM-Life-Savers/100090587816616/"
-                target="_blank"
-                style="color: #b5b5b5; font-size: var(--text-xl)"
-                >📘</a
-              >
-              <a
-                href="https://www.instagram.com/samlife_savers/"
-                target="_blank"
-                style="color: #b5b5b5; font-size: var(--text-xl)"
-                >📷</a
-              >
-            </div>
+              A student-led movement revolutionizing humanitarian aid through
+              technology and compassion.
+            </p>
           </div>
 
           <div class="footer-section">
-            <h3>Our Projects</h3>
-            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Bank</a><br />
-            <a href="Contact.html#donate">Water Projects</a><br />
-            <a href="Contact.html#donate">Iftar Drives</a><br />
-            <a href="Contact.html#donate">Orphan Care</a><br />
-            <a href="Contact.html#donate">Emergency Relief</a>
-          </div>
-
-          <div class="footer-section">
-            <h3>Quick Links</h3>
-            <a href="/">Home</a><br />
-            <a href="About.html">About Us</a><br />
-            <a href="Hope-In-Action.html">Hope In Action</a><br />
-            <a href="Volunteer-Form.html">Volunteer</a><br />
+            <h4>Navigation</h4>
+            <a href="/">Home</a>
+            <a href="About.html">About</a>
+            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Bank</a>
+            <a href="Hope-In-Action.html">Impact</a>
+            <a href="Volunteer-Form.html">Volunteer</a>
             <a href="Contact.html">Contact</a>
           </div>
 
           <div class="footer-section">
-            <h3>Get Involved</h3>
-            <p>📧 hope@samlifesavers.org</p>
-            <p>📱 +92 XXX XXXXXXX</p>
-            <p>📍 Islamabad, Pakistan</p>
-            <a
-              href="files/SAMLifeSaversPortfolio_compressed.pdf"
-              target="_blank"
-              class="btn btn-primary btn-sm"
-              style="margin-top: var(--space-md)"
+            <h4>Our Projects</h4>
+            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Network</a>
+            <a href="Contact.html#donate">Water Projects</a>
+            <a href="Contact.html#donate">Emergency Response</a>
+            <a href="Contact.html#donate">Student Programs</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>Get Involved</h4>
+            <p
+              style="
+                color: var(--gray-400);
+                margin-bottom: 1rem;
+                line-height: 1.6;
+              "
             >
-              View Full Portfolio
+              Join our mission to save lives through technology and compassion.
+            </p>
+            <a
+              href="Volunteer-Form.html"
+              class="btn btn-primary"
+              style="padding: 0.5rem 1rem; font-size: 0.875rem"
+            >
+              Volunteer Now
             </a>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p>
-            &copy; 2024 Sam Life Savers. All rights reserved. | Hope in Action,
-            Lives Transformed.
+            &copy; 2024 Sam Life Savers. Real impact through technology and
+            compassion.
           </p>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-      // Navigation scroll effect
+      // Navigation and animations
       window.addEventListener("scroll", () => {
-        const navbar = document.getElementById("navbar");
+        const nav = document.getElementById("nav");
         if (window.scrollY > 100) {
-          navbar.classList.add("scrolled");
+          nav.classList.add("scrolled");
         } else {
-          navbar.classList.remove("scrolled");
+          nav.classList.remove("scrolled");
         }
       });
 
-      // Mobile navigation toggle
       const navToggle = document.getElementById("nav-toggle");
       const navMenu = document.getElementById("nav-menu");
 
@@ -1130,115 +770,46 @@
         navMenu.classList.toggle("active");
       });
 
-      // Close mobile menu when clicking on a link
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", () => {
-          navMenu.classList.remove("active");
-        });
-      });
-
       // Counter animation
-      function animateCounter(element, target) {
-        let current = 0;
-        const increment = target / 100;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
-          if (target > 1000) {
-            element.textContent = Math.floor(current).toLocaleString() + "+";
-          } else {
-            element.textContent = Math.floor(current);
-          }
-        }, 30);
-      }
+      const animateCounters = () => {
+        const counters = document.querySelectorAll("[data-count]");
 
-      // Intersection Observer for animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-count"));
+          let current = 0;
+          const increment = target / 60;
+
+          const updateCounter = () => {
+            if (current < target) {
+              current += increment;
+              counter.textContent = Math.ceil(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          updateCounter();
+        });
       };
 
+      // Trigger counter animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-
-            // Animate counters
-            if (entry.target.hasAttribute("data-count")) {
-              const target = parseInt(entry.target.getAttribute("data-count"));
-              animateCounter(entry.target, target);
-            }
-          }
-        });
-      }, observerOptions);
-
-      // Observe all animated elements
-      document
-        .querySelectorAll(".animate-fade-in-up, [data-count]")
-        .forEach((el) => {
-          if (!el.hasAttribute("data-count")) {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(30px)";
-          }
-          observer.observe(el);
-        });
-
-      // Gallery interaction
-      document.querySelectorAll(".gallery-item").forEach((item) => {
-        item.addEventListener("click", function () {
-          const img = this.querySelector(".gallery-image");
-          const alt = img.alt;
-
-          // Simple modal effect (you could enhance this with a proper modal)
-          const modal = document.createElement("div");
-          modal.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    height: 100vh;
-                    background: rgba(0,0,0,0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 9999;
-                    cursor: pointer;
-                `;
-
-          const modalImg = img.cloneNode(true);
-          modalImg.style.cssText = `
-                    max-width: 90vw;
-                    max-height: 90vh;
-                    object-fit: contain;
-                    border-radius: 12px;
-                `;
-
-          modal.appendChild(modalImg);
-          document.body.appendChild(modal);
-
-          modal.addEventListener("click", () => {
-            document.body.removeChild(modal);
-          });
-        });
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+          if (
+            entry.isIntersecting &&
+            entry.target.querySelector("[data-count]")
+          ) {
+            animateCounters();
+            observer.unobserve(entry.target);
           }
         });
       });
+
+      const statsSection = document.querySelector(".stats");
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
     </script>
   </body>
 </html>
