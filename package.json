@@ -1,0 +1,17 @@
+{
+  "name": "sam-life-savers-website",
+  "version": "1.0.0",
+  "description": "Sam Life Savers organization website - static HTML site",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000 || python -m http.server 3000",
+    "start": "python3 -m http.server 3000 || python -m http.server 3000"
+  },
+  "keywords": [
+    "static",
+    "html",
+    "website"
+  ],
+  "author": "Sam Life Savers",
+  "license": "ISC"
+}
