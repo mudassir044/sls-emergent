@@ -426,7 +426,24 @@
           </div>
 
           <div>
-            <form class="feature-card" style="text-align: left">
+            <form
+              class="feature-card"
+              style="text-align: left"
+              action="https://formsubmit.co/info@samlifesavers.org"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission - Sam Life Savers"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://samlifesavers.org/Contact.html?success=true"
+              />
+
               <div style="margin-bottom: var(--space-4)">
                 <label
                   style="
@@ -438,6 +455,7 @@
                 >
                 <input
                   type="text"
+                  name="name"
                   required
                   style="
                     width: 100%;
@@ -460,6 +478,7 @@
                 >
                 <input
                   type="email"
+                  name="email"
                   required
                   style="
                     width: 100%;
@@ -481,6 +500,7 @@
                   >Subject *</label
                 >
                 <select
+                  name="subject"
                   required
                   style="
                     width: 100%;
@@ -509,6 +529,7 @@
                   >Message *</label
                 >
                 <textarea
+                  name="message"
                   required
                   rows="5"
                   placeholder="Tell us how we can help you..."
@@ -625,9 +646,9 @@
 
           <div class="footer-section">
             <h4>Emergency Contact</h4>
-            <p style="color: var(--gray-400)">🚨 Emergency: +92 XXX XXXXXXX</p>
+            <p style="color: var(--gray-400)">🚨 Emergency: +92 336 0863545</p>
             <p style="color: var(--gray-400)">📧 info@samlifesavers.org</p>
-            <p style="color: var(--gray-400)">📍 Islamabad, Pakistan</p>
+            <p style="color: var(--gray-400)">📍 Rawalpindi, Pakistan</p>
           </div>
         </div>
 
