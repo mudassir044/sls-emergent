@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="global.css" />
 
     <style>
+      /* Humanity-focused animations */
       @keyframes heartbeat {
         0%,
         100% {
@@ -39,7 +40,9 @@
           box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
         }
         50% {
-          box-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+          box-shadow:
+            0 0 40px rgba(220, 38, 38, 0.6),
+            0 0 60px rgba(220, 38, 38, 0.4);
         }
       }
 
@@ -53,6 +56,77 @@
         100% {
           box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
         }
+      }
+
+      @keyframes kindnessWave {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .heartbeat-animation {
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      .gentle-float {
+        animation: gentleFloat 4s ease-in-out infinite;
+      }
+
+      .compassion-glow {
+        animation: compassionGlow 3s ease-in-out infinite;
+      }
+
+      .hope-ripple::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background: rgba(220, 38, 38, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        animation: hopeRipple 2s infinite;
+      }
+
+      .kindness-wave {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .kindness-wave::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(220, 38, 38, 0.6),
+          transparent
+        );
+        animation: kindnessWave 3s infinite;
+      }
+
+      /* Enhanced button effects */
+      .btn {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: scale(1.2) rotate(5deg);
       }
     </style>
   </head>
@@ -93,7 +167,7 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero" style="min-height: 70vh">
+    <section class="hero" style="min-height: 80vh">
       <div
         style="
           position: absolute;
@@ -101,16 +175,21 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(135deg, #dc2626 0%, #000 100%);
+          background: linear-gradient(135deg, #000 0%, #dc2626 100%);
           z-index: -1;
         "
       ></div>
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title">Get in touch</h1>
-          <p class="hero-subtitle text-large">
-            Ready to save lives? Contact us or make a donation that directly
-            impacts communities across Pakistan.
+          <h1 class="hero-title" style="color: var(--white)">
+            Get in touch & donate
+          </h1>
+          <p
+            class="hero-subtitle text-large"
+            style="color: rgba(255, 255, 255, 0.9)"
+          >
+            Support our life-saving work or reach out for partnerships,
+            volunteering, or emergency assistance.
           </p>
         </div>
       </div>
@@ -393,9 +472,12 @@
         </div>
 
         <div class="grid grid-4">
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
-              📧
+          <div class="feature-card kindness-wave">
+            <div
+              style="font-size: 2.5rem; margin-bottom: var(--space-8)"
+              class="heartbeat-animation"
+            >
+              ����
             </div>
             <h4>Email</h4>
             <p style="margin-bottom: var(--space-4)">Send us a message</p>
@@ -407,8 +489,11 @@
             </a>
           </div>
 
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
+          <div class="feature-card gentle-float">
+            <div
+              style="font-size: 2.5rem; margin-bottom: var(--space-8)"
+              class="compassion-glow"
+            >
               📱
             </div>
             <h4>Phone</h4>
@@ -421,8 +506,11 @@
             </a>
           </div>
 
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
+          <div class="feature-card hope-ripple" style="position: relative">
+            <div
+              style="font-size: 2.5rem; margin-bottom: var(--space-8)"
+              class="gentle-float"
+            >
               📍
             </div>
             <h4>Location</h4>
@@ -434,8 +522,11 @@
             </p>
           </div>
 
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: var(--space-8)">
+          <div class="feature-card compassion-glow">
+            <div
+              style="font-size: 2.5rem; margin-bottom: var(--space-8)"
+              class="heartbeat-animation"
+            >
               🌐
             </div>
             <h4>Social Media</h4>
