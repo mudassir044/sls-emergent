@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hope In Action - Our orphanage project providing love, care, and hope to children in need. Join us in building a brighter future."
+    />
+    <title>Hope In Action — Sam Life Savers</title>
+
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #dc2626 0%,
+          #3b82f6 50%,
+          #f59e0b 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .floating-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .impact-number {
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #dc2626 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+      }
+
+      .pulse-dot {
+        width: 12px;
+        height: 12px;
+        background: #dc2626;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .parallax-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #dc2626 100%);
+      }
+
+      .parallax-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://images.pexels.com/photos/8205100/pexels-photo-8205100.jpeg")
+          center/cover;
+        opacity: 0.2;
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .neon-border {
+        position: relative;
+        border-radius: 15px;
+        background: linear-gradient(45deg, #dc2626, #3b82f6, #f59e0b);
+        padding: 2px;
+      }
+
+      .neon-border::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 15px;
+        background: linear-gradient(45deg, #dc2626, #3b82f6, #f59e0b);
+        filter: blur(10px);
+        opacity: 0.7;
+        z-index: -1;
+      }
+
+      .neon-content {
+        background: var(--black);
+        border-radius: 13px;
+        padding: 2rem;
+        color: white;
+      }
+
+      .story-card {
+        background: linear-gradient(
+          135deg,
+          rgba(220, 38, 38, 0.1) 0%,
+          rgba(59, 130, 246, 0.1) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .story-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .impact-number {
+          font-size: 2.5rem;
+        }
+
+        .floating-card {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">
+          <img src="images/logo-sls.png" alt="Sam Life Savers" />
+          <span>Sam Life Savers</span>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li>
+            <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
+              >AI Blood Bank</a
+            >
+          </li>
+          <li><a href="Hope-In-Action.html" class="nav-link">Impact</a></li>
+          <li>
+            <a href="Hope-In-Action.html" class="nav-link active"
+              >Hope In Action</a
+            >
+          </li>
+          <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+          <li class="mobile-only">
+            <a href="Gallery.html" class="nav-link">Gallery</a>
+          </li>
+          <li>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.pakistan.Ebloodpakistan&pcampaignid=web_share"
+              target="_blank"
+              class="nav-cta"
+              >📱 Get E Blood App</a
+            >
+          </li>
+        </ul>
+
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Revolutionary Hero -->
+    <section class="parallax-hero">
+      <div class="container">
+        <div class="hero-content">
+          <div style="text-align: center">
+            <h1
+              style="
+                font-size: 4rem;
+                font-weight: 900;
+                margin-bottom: 2rem;
+                color: white;
+              "
+            >
+              <span class="gradient-text">Hope</span>
+              <span style="color: white">In</span>
+              <span class="gradient-text">Action</span>
+            </h1>
+            <p
+              style="
+                font-size: 1.5rem;
+                color: rgba(255, 255, 255, 0.9);
+                margin-bottom: 3rem;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+              "
+            >
+              Our biggest project yet - Building Pakistan's first student-led
+              orphanage home where love, technology, and compassion create new
+              beginnings.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-bottom: 4rem;
+              "
+            >
+              <div class="floating-card">
+                <div class="impact-number">25+</div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-weight: 600">
+                  Children in our care
+                </div>
+              </div>
+
+              <div class="floating-card" style="animation-delay: 0.5s">
+                <div class="impact-number">24/7</div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-weight: 600">
+                  Love & support
+                </div>
+              </div>
+
+              <div class="floating-card" style="animation-delay: 1s">
+                <div class="impact-number">100%</div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-weight: 600">
+                  Hope restored
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                href="#mission"
+                class="btn btn-primary btn-large"
+                style="
+                  background: linear-gradient(135deg, #dc2626 0%, #3b82f6 100%);
+                  border: none;
+                "
+              >
+                🏠 Our Mission
+              </a>
+              <a
+                href="#support"
+                class="btn btn-secondary btn-large"
+                style="border-color: rgba(255, 255, 255, 0.3)"
+              >
+                💝 Support Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Purpose -->
+    <section class="section" id="mission" style="background: var(--gray-50)">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem">
+            <span class="gradient-text">Why We're Building</span>
+            <span style="color: var(--black)">This Home</span>
+          </h2>
+          <p class="text-large" style="max-width: 700px; margin: 0 auto">
+            Every child deserves love, education, and a future. In Pakistan,
+            thousands of orphaned children lack basic care and opportunities.
+          </p>
+        </div>
+
+        <div class="grid grid-3" style="gap: 2rem">
+          <div class="neon-border">
+            <div class="neon-content">
+              <div style="text-align: center; margin-bottom: 2rem">
+                <div style="font-size: 4rem; margin-bottom: 1rem">💔</div>
+                <h3 style="color: #dc2626; margin-bottom: 1rem">The Problem</h3>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0">
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot"></div>
+                  <span>Over 4.2 million orphaned children in Pakistan</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot"></div>
+                  <span
+                    >Limited access to quality education and healthcare</span
+                  >
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot"></div>
+                  <span>Lack of emotional support and family structure</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot"></div>
+                  <span>No pathway to sustainable futures</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="neon-border">
+            <div class="neon-content">
+              <div style="text-align: center; margin-bottom: 2rem">
+                <div style="font-size: 4rem; margin-bottom: 1rem">🏠</div>
+                <h3 style="color: #3b82f6; margin-bottom: 1rem">
+                  Our Solution
+                </h3>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0">
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #3b82f6"></div>
+                  <span>Modern, tech-enabled orphanage home</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #3b82f6"></div>
+                  <span>24/7 care with trained student volunteers</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #3b82f6"></div>
+                  <span>World-class education and skill development</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #3b82f6"></div>
+                  <span>Technology training for future careers</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="neon-border">
+            <div class="neon-content">
+              <div style="text-align: center; margin-bottom: 2rem">
+                <div style="font-size: 4rem; margin-bottom: 1rem">🌟</div>
+                <h3 style="color: #f59e0b; margin-bottom: 1rem">The Impact</h3>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0">
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #f59e0b"></div>
+                  <span>Self-sustaining community of love and growth</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #f59e0b"></div>
+                  <span>Future leaders and change-makers</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #f59e0b"></div>
+                  <span>Breaking cycles of poverty and despair</span>
+                </li>
+                <li
+                  style="
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <div class="pulse-dot" style="background: #f59e0b"></div>
+                  <span>Model for orphan care across Pakistan</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Stories -->
+    <section
+      class="section"
+      style="
+        background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+        color: white;
+      "
+    >
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem; color: white">
+            <span class="gradient-text">Stories</span>
+            <span>That Drive Us</span>
+          </h2>
+          <p class="text-large" style="color: rgba(255, 255, 255, 0.8)">
+            Real children whose lives we're already transforming
+          </p>
+        </div>
+
+        <div class="grid grid-2" style="gap: 2rem">
+          <div class="story-card">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+              "
+            >
+              <div
+                style="
+                  width: 60px;
+                  height: 60px;
+                  background: linear-gradient(135deg, #dc2626 0%, #3b82f6 100%);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 2rem;
+                "
+              >
+                👦
+              </div>
+              <div>
+                <h4 style="margin: 0; color: white">Ahmed, Age 8</h4>
+                <p
+                  style="
+                    margin: 0;
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 0.875rem;
+                  "
+                >
+                  Lost parents in flood, now in our care
+                </p>
+              </div>
+            </div>
+            <blockquote
+              style="
+                border-left: 4px solid #dc2626;
+                padding-left: 1rem;
+                margin: 0;
+                font-style: italic;
+                color: rgba(255, 255, 255, 0.9);
+              "
+            >
+              "Before Sam Life Savers, I slept on streets. Now I have friends,
+              teachers, and dreams. I want to become a doctor to help people
+              like my new family helped me."
+            </blockquote>
+            <div
+              style="
+                margin-top: 2rem;
+                padding: 1rem;
+                background: rgba(220, 38, 38, 0.1);
+                border-radius: 10px;
+                border: 1px solid rgba(220, 38, 38, 0.3);
+              "
+            >
+              <strong style="color: #dc2626">Current Status:</strong> Enrolled
+              in school, learning English and math, showing remarkable progress
+              in only 6 months.
+            </div>
+          </div>
+
+          <div class="story-card">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+              "
+            >
+              <div
+                style="
+                  width: 60px;
+                  height: 60px;
+                  background: linear-gradient(135deg, #3b82f6 0%, #f59e0b 100%);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 2rem;
+                "
+              >
+                👧
+              </div>
+              <div>
+                <h4 style="margin: 0; color: white">Fatima, Age 12</h4>
+                <p
+                  style="
+                    margin: 0;
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 0.875rem;
+                  "
+                >
+                  Orphaned at 5, with us for 2 years
+                </p>
+              </div>
+            </div>
+            <blockquote
+              style="
+                border-left: 4px solid #3b82f6;
+                padding-left: 1rem;
+                margin: 0;
+                font-style: italic;
+                color: rgba(255, 255, 255, 0.9);
+              "
+            >
+              "Sam Life Savers didn't just give me a home - they gave me a
+              future. I'm learning coding and want to build apps that help other
+              children like me."
+            </blockquote>
+            <div
+              style="
+                margin-top: 2rem;
+                padding: 1rem;
+                background: rgba(59, 130, 246, 0.1);
+                border-radius: 10px;
+                border: 1px solid rgba(59, 130, 246, 0.3);
+              "
+            >
+              <strong style="color: #3b82f6">Achievement:</strong> Top student
+              in her class, already building simple websites, mentoring younger
+              children.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Vision -->
+    <section class="section" style="background: var(--white)">
+      <div class="container">
+        <div class="content-two-column" style="align-items: center">
+          <div>
+            <h2 style="font-size: 3rem; margin-bottom: 2rem">
+              <span class="gradient-text">Building The Future</span>
+            </h2>
+            <p class="text-large" style="margin-bottom: 2rem">
+              Our orphanage home isn't just shelter - it's a launchpad for the
+              next generation of Pakistani leaders, innovators, and
+              changemakers.
+            </p>
+
+            <div style="margin-bottom: 3rem">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <div
+                  style="
+                    width: 20px;
+                    height: 20px;
+                    background: #dc2626;
+                    border-radius: 50%;
+                  "
+                ></div>
+                <h4 style="margin: 0; color: var(--black)">
+                  Modern Learning Facilities
+                </h4>
+              </div>
+              <p style="margin-left: 2rem; color: var(--gray-600)">
+                Smart classrooms with latest technology, computer labs, science
+                equipment, and digital libraries.
+              </p>
+            </div>
+
+            <div style="margin-bottom: 3rem">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <div
+                  style="
+                    width: 20px;
+                    height: 20px;
+                    background: #3b82f6;
+                    border-radius: 50%;
+                  "
+                ></div>
+                <h4 style="margin: 0; color: var(--black)">
+                  Student-Led Care Model
+                </h4>
+              </div>
+              <p style="margin-left: 2rem; color: var(--gray-600)">
+                Trained university students providing mentorship, emotional
+                support, and real family bonds.
+              </p>
+            </div>
+
+            <div style="margin-bottom: 3rem">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <div
+                  style="
+                    width: 20px;
+                    height: 20px;
+                    background: #f59e0b;
+                    border-radius: 50%;
+                  "
+                ></div>
+                <h4 style="margin: 0; color: var(--black)">
+                  Tech & Innovation Hub
+                </h4>
+              </div>
+              <p style="margin-left: 2rem; color: var(--gray-600)">
+                Coding bootcamps, AI workshops, app development, and
+                entrepreneurship training.
+              </p>
+            </div>
+
+            <a
+              href="#support"
+              class="btn btn-primary btn-large"
+              style="
+                background: linear-gradient(135deg, #dc2626 0%, #3b82f6 100%);
+                border: none;
+              "
+            >
+              🚀 Help Us Build This Vision
+            </a>
+          </div>
+
+          <div style="position: relative">
+            <div
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #dc2626 0%,
+                  #3b82f6 50%,
+                  #f59e0b 100%
+                );
+                padding: 3px;
+                border-radius: 20px;
+              "
+            >
+              <div
+                style="
+                  background: white;
+                  border-radius: 17px;
+                  padding: 2rem;
+                  text-align: center;
+                "
+              >
+                <div style="font-size: 6rem; margin-bottom: 1rem">🏠</div>
+                <h3 style="color: var(--black); margin-bottom: 1rem">
+                  Opening Soon
+                </h3>
+                <p style="color: var(--gray-600); margin-bottom: 2rem">
+                  Our permanent home for 50+ children with world-class
+                  facilities
+                </p>
+
+                <div
+                  style="
+                    background: var(--gray-50);
+                    padding: 1.5rem;
+                    border-radius: 15px;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <div
+                    style="
+                      font-size: 2rem;
+                      font-weight: 900;
+                      color: #dc2626;
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    PKR 5,000,000
+                  </div>
+                  <div style="color: var(--gray-600); font-size: 0.875rem">
+                    Total funding needed
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      #dc2626 0%,
+                      #dc2626 60%,
+                      var(--gray-200) 60%
+                    );
+                    height: 8px;
+                    border-radius: 4px;
+                    margin-bottom: 1rem;
+                  "
+                ></div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 0.875rem;
+                    color: var(--gray-600);
+                  "
+                >
+                  <span>60% funded</span>
+                  <span>40% remaining</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How You Can Help -->
+    <section
+      class="section"
+      id="support"
+      style="
+        background: linear-gradient(135deg, #dc2626 0%, #000 100%);
+        color: white;
+      "
+    >
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem; color: white">
+            <span style="color: white">Join The</span>
+            <span class="gradient-text">Hope Revolution</span>
+          </h2>
+          <p class="text-large" style="color: rgba(255, 255, 255, 0.9)">
+            Every contribution brings us closer to opening Pakistan's most
+            innovative orphanage home
+          </p>
+        </div>
+
+        <div class="grid grid-3" style="gap: 2rem">
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(20px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 20px;
+              padding: 2rem;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 4rem; margin-bottom: 1rem">💝</div>
+            <h3 style="color: white; margin-bottom: 1rem">Monthly Sponsor</h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
+              Provide ongoing support for a child's education, food, and care
+            </p>
+            <div
+              style="
+                font-size: 2rem;
+                font-weight: 900;
+                color: #f59e0b;
+                margin-bottom: 1rem;
+              "
+            >
+              PKR 5,000/month
+            </div>
+            <a
+              href="Contact.html#donate"
+              class="btn btn-secondary"
+              style="width: 100%"
+              >Become Sponsor</a
+            >
+          </div>
+
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(20px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 20px;
+              padding: 2rem;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 4rem; margin-bottom: 1rem">🏗️</div>
+            <h3 style="color: white; margin-bottom: 1rem">
+              Infrastructure Builder
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
+              Help us build classrooms, dormitories, and learning spaces
+            </p>
+            <div
+              style="
+                font-size: 2rem;
+                font-weight: 900;
+                color: #f59e0b;
+                margin-bottom: 1rem;
+              "
+            >
+              PKR 50,000+
+            </div>
+            <a
+              href="Contact.html#donate"
+              class="btn btn-secondary"
+              style="width: 100%"
+              >Fund Construction</a
+            >
+          </div>
+
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(20px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 20px;
+              padding: 2rem;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 4rem; margin-bottom: 1rem">🎓</div>
+            <h3 style="color: white; margin-bottom: 1rem">
+              Education Champion
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
+              Sponsor technology equipment, books, and educational resources
+            </p>
+            <div
+              style="
+                font-size: 2rem;
+                font-weight: 900;
+                color: #f59e0b;
+                margin-bottom: 1rem;
+              "
+            >
+              PKR 10,000+
+            </div>
+            <a
+              href="Contact.html#donate"
+              class="btn btn-secondary"
+              style="width: 100%"
+              >Support Education</a
+            >
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem">
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.8);
+              margin-bottom: 2rem;
+              max-width: 600px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            Can't contribute financially? You can still make a huge impact by
+            volunteering your time, skills, or spreading awareness.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="Volunteer-Form.html" class="btn btn-secondary"
+              >🤝 Volunteer With Us</a
+            >
+            <a
+              href="Contact.html"
+              class="btn"
+              style="
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+              "
+              >📞 Get In Touch</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <a
+              href="index.html"
+              class="footer-logo"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: var(--space-4);
+                text-decoration: none;
+              "
+            >
+              <img
+                src="images/logo-sls.png"
+                alt="Sam Life Savers"
+                style="height: 40px; width: auto"
+              />
+              <span
+                style="
+                  font-weight: 600;
+                  font-size: 1.125rem;
+                  color: var(--white);
+                "
+                >Sam Life Savers</span
+              >
+            </a>
+            <p
+              style="
+                color: var(--gray-400);
+                margin-top: 0.5rem;
+                line-height: 1.6;
+              "
+            >
+              Building Pakistan's first student-led orphanage home where
+              technology meets compassion.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Hope In Action</h4>
+            <a href="#mission">Our Mission</a>
+            <a href="#support">Support Now</a>
+            <a href="Volunteer-Form.html">Volunteer</a>
+            <a href="Contact.html">Contact Us</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>Other Projects</h4>
+            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Network</a>
+            <a href="Contact.html#donate">Water Projects</a>
+            <a href="Contact.html#donate">Emergency Response</a>
+            <a href="/">All Initiatives</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>Emergency Support</h4>
+            <p
+              style="
+                color: var(--gray-400);
+                margin-bottom: 1rem;
+                line-height: 1.6;
+              "
+            >
+              For urgent child care needs or emergency situations.
+            </p>
+            <p style="color: var(--gray-400)">📞 +92 336 0863545</p>
+            <p style="color: var(--gray-400)">📧 hope@samlifesavers.org</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Sam Life Savers Hope In Action. Every child deserves a
+            future.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Enhanced navigation and animations
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("nav");
+        if (window.scrollY > 100) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      if (navToggle && navMenu) {
+        function toggleMenu(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isActive = navMenu.classList.contains("active");
+
+          if (isActive) {
+            navMenu.style.animation = "slideOutUp 0.3s ease-out";
+            setTimeout(() => {
+              navMenu.classList.remove("active");
+              navMenu.style.animation = "";
+            }, 300);
+          } else {
+            navMenu.classList.add("active");
+          }
+
+          navToggle.textContent = isActive ? "☰" : "✕";
+          document.body.style.overflow = isActive ? "auto" : "hidden";
+        }
+
+        navToggle.addEventListener("click", toggleMenu);
+        navToggle.addEventListener("touchstart", toggleMenu, {
+          passive: false,
+        });
+
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            navToggle.textContent = "☰";
+            document.body.style.overflow = "auto";
+          });
+        });
+      }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector(".parallax-hero::before");
+        const speed = scrolled * 0.5;
+
+        if (parallax) {
+          parallax.style.transform = `translateY(${speed}px)`;
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe story cards
+      document.querySelectorAll(".story-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>

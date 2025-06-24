@@ -29,6 +29,158 @@
     <meta property="og:url" content="https://www.samlifesavers.org/" />
 
     <style>
+      /* Humanity-focused animations */
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes gentleFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes compassionGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+        }
+        50% {
+          box-shadow:
+            0 0 40px rgba(220, 38, 38, 0.6),
+            0 0 60px rgba(220, 38, 38, 0.4);
+        }
+      }
+
+      @keyframes hopeRipple {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      @keyframes kindnessWave {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .heartbeat-animation {
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      .gentle-float {
+        animation: gentleFloat 4s ease-in-out infinite;
+      }
+
+      .compassion-glow {
+        animation: compassionGlow 3s ease-in-out infinite;
+      }
+
+      .hope-ripple::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background: rgba(220, 38, 38, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        animation: hopeRipple 2s infinite;
+      }
+
+      .kindness-wave {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .kindness-wave::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(220, 38, 38, 0.6),
+          transparent
+        );
+        animation: kindnessWave 3s infinite;
+      }
+
+      /* Compassionate Button Effects */
+      .btn {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.6s,
+          height 0.6s;
+      }
+
+      .btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      /* Scroll Animation Enhancements */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Humanity Icons Animation */
+      .feature-icon {
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: scale(1.2) rotate(5deg);
+      }
+
       .hope-popup {
         position: fixed;
         top: 0;
@@ -153,7 +305,7 @@
           class="btn btn-secondary"
           style="margin-bottom: 1rem"
         >
-          View Impact Stories
+          Hope In Action
         </a>
         <div class="hope-popup-timer" id="popupTimer">
           Auto-close in <span id="countdown">10</span>s
@@ -172,12 +324,10 @@
         <ul class="nav-menu" id="nav-menu">
           <li><a href="/" class="nav-link active">Home</a></li>
           <li><a href="About.html" class="nav-link">About</a></li>
-          <li>
-            <a href="HumanKind-AI-Blood-Bank.html" class="nav-link"
-              >AI Blood Bank</a
-            >
-          </li>
           <li><a href="Hope-In-Action.html" class="nav-link">Impact</a></li>
+          <li>
+            <a href="Hope-In-Action.html" class="nav-link">Hope In Action</a>
+          </li>
           <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
           <li><a href="Contact.html" class="nav-link">Contact</a></li>
           <li class="mobile-only">
@@ -208,8 +358,10 @@
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-title">
-            Saving lives through<br />
-            technology and compassion
+            <span style="color: white">Saving lives through</span><br />
+            <span style="color: #3b82f6">technology</span>
+            <span style="color: white">and</span>
+            <span style="color: #dc2626">compassion</span>
           </h1>
           <p
             class="hero-subtitle text-large"
@@ -223,10 +375,10 @@
               Save a life today
             </a>
             <a
-              href="HumanKind-AI-Blood-Bank.html"
+              href="Hope-In-Action-Orphanage.html"
               class="btn btn-secondary btn-large"
             >
-              AI Blood Bank
+              Hope In Action
             </a>
           </div>
         </div>
@@ -237,19 +389,19 @@
     <section class="stats">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat">
+          <div class="stat heartbeat-animation">
             <span class="stat-number" data-count="247">247</span>
             <span class="stat-label">Lives saved</span>
           </div>
-          <div class="stat">
+          <div class="stat gentle-float">
             <span class="stat-number" data-count="127">127</span>
-            <span class="stat-label">AI blood matches</span>
+            <span class="stat-label">Blood donations coordinated</span>
           </div>
-          <div class="stat">
+          <div class="stat compassion-glow">
             <span class="stat-number" data-count="89">89</span>
             <span class="stat-label">Emergency responses</span>
           </div>
-          <div class="stat">
+          <div class="stat hope-ripple" style="position: relative">
             <span class="stat-number" data-count="52">52</span>
             <span class="stat-label">Active volunteers</span>
           </div>
@@ -262,11 +414,11 @@
       <div class="container">
         <div class="content-two-column">
           <div>
-            <h2>The future of blood donation</h2>
+            <h2>Supporting blood donation innovation</h2>
             <p class="text-large">
-              Our AI system matches blood donors with patients in critical need.
-              What used to take hours now takes minutes. Technology saving lives
-              in real-time.
+              Through our partnership with E-Blood, we help connect blood donors
+              with patients in critical need. Supporting technology that saves
+              lives in real-time.
             </p>
             <div style="margin: 2rem 0">
               <div style="display: flex; gap: 2rem; margin-bottom: 1rem">
@@ -327,19 +479,17 @@
         </div>
 
         <div class="grid grid-3">
-          <div class="feature-card animate-on-scroll">
-            <span class="feature-icon">🩸</span>
-            <h3 class="feature-title">AI Blood Network</h3>
+          <div class="feature-card animate-on-scroll kindness-wave">
+            <span class="feature-icon heartbeat-animation">🩸</span>
+            <h3 class="feature-title">Blood Donation Support</h3>
             <p class="feature-description">
-              Revolutionary matching system connecting donors with patients. 127
-              successful matches and counting.
+              Partnering with E-Blood to help connect donors with patients in
+              need. Supporting 127+ successful matches and counting.
             </p>
-            <a href="HumanKind-AI-Blood-Bank.html" class="btn btn-primary"
-              >Learn more</a
-            >
+            <a href="Hope-In-Action.html" class="btn btn-primary">Learn more</a>
           </div>
 
-          <div class="feature-card animate-on-scroll">
+          <div class="feature-card animate-on-scroll gentle-float">
             <span class="feature-icon">💧</span>
             <h3 class="feature-title">Clean Water Project</h3>
             <p class="feature-description">
@@ -349,22 +499,25 @@
             <a href="Contact.html#donate" class="btn btn-primary">Donate now</a>
           </div>
 
-          <div class="feature-card animate-on-scroll">
+          <div class="feature-card animate-on-scroll compassion-glow">
             <span class="feature-icon">🏠</span>
             <h3 class="feature-title">Orphan Support</h3>
             <p class="feature-description">
               Providing shelter, education, and care for orphaned children.
               Monthly support for 25+ children.
             </p>
-            <a href="Contact.html#donate" class="btn btn-primary"
+            <a href="Hope-In-Action.html" class="btn btn-primary"
               >Support children</a
             >
           </div>
         </div>
 
         <div class="grid grid-3" style="margin-top: var(--space-12)">
-          <div class="feature-card animate-on-scroll">
-            <span class="feature-icon">🌙</span>
+          <div
+            class="feature-card animate-on-scroll hope-ripple"
+            style="position: relative"
+          >
+            <span class="feature-icon gentle-float">🌙</span>
             <h3 class="feature-title">Iftar Distribution</h3>
             <p class="feature-description">
               Distributing iftar meals during Ramadan to families in need. 1000+
@@ -375,7 +528,7 @@
             >
           </div>
 
-          <div class="feature-card animate-on-scroll">
+          <div class="feature-card animate-on-scroll kindness-wave">
             <span class="feature-icon">🌱</span>
             <h3 class="feature-title">Plant a Tree Initiative</h3>
             <p class="feature-description">
@@ -387,8 +540,8 @@
             >
           </div>
 
-          <div class="feature-card animate-on-scroll">
-            <span class="feature-icon">📚</span>
+          <div class="feature-card animate-on-scroll compassion-glow">
+            <span class="feature-icon heartbeat-animation">📚</span>
             <h3 class="feature-title">Education Programs</h3>
             <p class="feature-description">
               Supporting underprivileged students with educational resources and
@@ -459,53 +612,6 @@
             <a href="Hope-In-Action.html" class="btn btn-primary"
               >See more stories</a
             >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- E Blood App Spotlight -->
-    <section class="content-block">
-      <div class="container">
-        <div class="content-two-column">
-          <div>
-            <h2>E Blood App</h2>
-            <p class="text-large">
-              Download Pakistan's most advanced blood donation app. Real-time
-              matching, emergency notifications, and seamless coordination.
-            </p>
-            <p style="margin-top: var(--space-4)">
-              Join thousands of donors who are using technology to save lives
-              every day.
-            </p>
-            <div style="margin-top: var(--space-8)">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.pakistan.Ebloodpakistan&pcampaignid=web_share"
-                target="_blank"
-                class="btn btn-primary"
-              >
-                📱 Get E Blood App
-              </a>
-            </div>
-          </div>
-          <div style="text-align: center">
-            <div
-              style="
-                background: var(--gray-50);
-                padding: var(--space-12);
-                border-radius: 12px;
-              "
-            >
-              <div style="font-size: 4rem; margin-bottom: var(--space-4)">
-                📱
-              </div>
-              <h4 style="margin-bottom: var(--space-4)">
-                Available on Play Store
-              </h4>
-              <p style="color: var(--gray-600)">
-                Instant notifications • AI matching • Real-time tracking
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -621,7 +727,7 @@
           </div>
 
           <div class="footer-section">
-            <h4>Get E Blood</h4>
+            <h4>Partner Apps</h4>
             <p
               style="
                 color: var(--gray-400);
@@ -629,7 +735,7 @@
                 line-height: 1.6;
               "
             >
-              Download Pakistan's most advanced blood donation app.
+              Download E-Blood, our partner app for blood donation needs.
             </p>
             <a
               href="https://play.google.com/store/apps/details?id=com.pakistan.Ebloodpakistan&pcampaignid=web_share"
@@ -679,8 +785,8 @@
         }
       }
 
-      // Show popup after 2 seconds
-      setTimeout(showHopePopup, 2000);
+      // Show popup after 30 seconds
+      setTimeout(showHopePopup, 30000);
 
       // Smooth navigation behavior
       window.addEventListener("scroll", () => {
