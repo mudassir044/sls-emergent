@@ -5,12 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Hope In Action - See Sam Life Savers' real impact through stories, projects, and measurable change in communities across Pakistan."
+      content="Hope In Action - Sam Life Savers' comprehensive humanitarian campaign covering orphan care, emergency response, and community development across Pakistan."
     />
-    <title>Impact — Sam Life Savers</title>
+    <title>Hope In Action — Sam Life Savers</title>
 
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="global.css" />
+
+    <style>
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #dc2626 0%,
+          #3b82f6 50%,
+          #f59e0b 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .campaign-card {
+        background: linear-gradient(
+          135deg,
+          rgba(220, 38, 38, 0.05) 0%,
+          rgba(59, 130, 246, 0.05) 100%
+        );
+        border: 1px solid rgba(220, 38, 38, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .campaign-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          #dc2626 0%,
+          #3b82f6 50%,
+          #f59e0b 100%
+        );
+      }
+
+      .campaign-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+      }
+
+      .floating-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 3rem;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(5deg);
+        }
+      }
+
+      .impact-metric {
+        background: linear-gradient(135deg, #dc2626 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background: #dc2626;
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 0 0 4px #dc2626;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        left: 9px;
+        top: 20px;
+        width: 2px;
+        height: calc(100% + 1rem);
+        background: linear-gradient(180deg, #dc2626 0%, transparent 100%);
+      }
+
+      .timeline-item:last-child::after {
+        display: none;
+      }
+
+      .parallax-section {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+      }
+
+      .stats-counter {
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #dc2626 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+      }
+
+      @media (max-width: 768px) {
+        .campaign-card {
+          padding: 1.5rem;
+        }
+
+        .impact-metric {
+          font-size: 2rem;
+        }
+
+        .stats-counter {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -31,10 +186,9 @@
             >
           </li>
           <li>
-            <a href="Hope-In-Action.html" class="nav-link active">Impact</a>
-          </li>
-          <li>
-            <a href="Hope-In-Action.html" class="nav-link">Hope In Action</a>
+            <a href="Hope-In-Action.html" class="nav-link active"
+              >Hope In Action</a
+            >
           </li>
           <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
           <li><a href="Contact.html" class="nav-link">Contact</a></li>
@@ -55,520 +209,903 @@
       </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-      <img
-        src="images/tharparker.jpeg"
-        alt="Our impact in communities"
-        class="hero-background"
-      />
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title" style="color: var(--white)">
-            Real impact.<br />Real change.
+    <!-- Revolutionary Hero -->
+    <section
+      class="hero"
+      style="
+        min-height: 100vh;
+        background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #dc2626 100%);
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url(&quot;https://images.pexels.com/photos/8205100/pexels-photo-8205100.jpeg&quot;)
+            center/cover;
+          opacity: 0.15;
+          z-index: 0;
+        "
+      ></div>
+      <div class="container" style="position: relative; z-index: 1">
+        <div class="hero-content" style="text-align: center; color: white">
+          <h1 style="font-size: 4rem; font-weight: 900; margin-bottom: 2rem">
+            <span class="gradient-text">Hope</span>
+            <span style="color: white">In</span>
+            <span class="gradient-text">Action</span>
           </h1>
           <p
-            class="hero-subtitle text-large"
-            style="color: rgba(255, 255, 255, 0.9)"
+            style="
+              font-size: 1.5rem;
+              color: rgba(255, 255, 255, 0.9);
+              margin-bottom: 3rem;
+              max-width: 800px;
+              margin-left: auto;
+              margin-right: auto;
+            "
           >
-            Every project, every life saved, every community transformed. See
-            how student leadership and technology are changing Pakistan.
+            Our comprehensive humanitarian initiative transforming lives across
+            Pakistan through strategic campaigns, innovative solutions, and
+            unwavering compassion.
           </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- Impact Numbers -->
-    <section class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat">
-            <span class="stat-number" data-count="247">247</span>
-            <span class="stat-label">Lives directly saved</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" data-count="127">127</span>
-            <span class="stat-label">AI blood matches</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" data-count="890">890</span>
-            <span class="stat-label">People served daily</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" data-count="89">89</span>
-            <span class="stat-label">Emergency responses</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects -->
-    <section class="content-block">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: var(--space-20)">
-          <h2>Our life-changing projects</h2>
-          <p class="text-large" style="margin-top: var(--space-4)">
-            Every initiative designed to create lasting impact through
-            innovation and compassion
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          <div class="feature-card animate-on-scroll">
-            <img
-              src="images/1.jpeg"
-              alt="AI Blood Bank Launch"
-              class="content-image"
-              style="margin-bottom: var(--space-8)"
-            />
-            <div
-              style="
-                background: var(--red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                font-size: 0.875rem;
-                font-weight: 600;
-                display: inline-block;
-                margin-bottom: var(--space-4);
-              "
-            >
-              AI Technology
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 2rem;
+              margin-bottom: 4rem;
+            "
+          >
+            <div class="glass-card">
+              <div class="stats-counter" data-count="25000">25,000+</div>
+              <div style="color: rgba(255, 255, 255, 0.8); font-weight: 600">
+                Lives Impacted
+              </div>
             </div>
-            <h3 class="feature-title">AI Blood Bank Launch</h3>
-            <p class="feature-description">
-              Revolutionary AI system launched in 2025, matching donors with
-              patients in under 5 seconds. Currently serving 10,000+ lives with
-              96% success rate.
-            </p>
-            <div
-              style="
-                background: var(--gray-50);
-                padding: var(--space-4);
-                border-radius: 8px;
-                margin-bottom: var(--space-8);
-              "
-            >
-              <strong>Impact:</strong> 127 matches made, 24/7 active monitoring
+
+            <div class="glass-card">
+              <div class="stats-counter" data-count="15">15+</div>
+              <div style="color: rgba(255, 255, 255, 0.8); font-weight: 600">
+                Active Campaigns
+              </div>
             </div>
-            <a href="HumanKind-AI-Blood-Bank.html" class="btn btn-primary"
-              >Explore AI System</a
-            >
+
+            <div class="glass-card">
+              <div class="stats-counter" data-count="50">50+</div>
+              <div style="color: rgba(255, 255, 255, 0.8); font-weight: 600">
+                Cities Reached
+              </div>
+            </div>
           </div>
 
-          <div class="feature-card animate-on-scroll">
-            <img
-              src="images/5.jpeg"
-              alt="Rural Donor Mobilization"
-              class="content-image"
-              style="margin-bottom: var(--space-8)"
-            />
-            <div
-              style="
-                background: var(--red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                font-size: 0.875rem;
-                font-weight: 600;
-                display: inline-block;
-                margin-bottom: var(--space-4);
-              "
-            >
-              Community Outreach
-            </div>
-            <h3 class="feature-title">Rural Donor Mobilization</h3>
-            <p class="feature-description">
-              Mobilizing blood donors in remote areas of Pakistan through
-              community engagement. Established permanent donor networks in 15+
-              rural districts.
-            </p>
-            <div
-              style="
-                background: var(--gray-50);
-                padding: var(--space-4);
-                border-radius: 8px;
-                margin-bottom: var(--space-8);
-              "
-            >
-              <strong>Reach:</strong> 850+ active rural donors registered
-            </div>
-            <a href="Volunteer-Form.html" class="btn btn-primary"
-              >Join Campaign</a
-            >
-          </div>
-
-          <div class="feature-card animate-on-scroll">
-            <img
-              src="images/tharparker.jpeg"
-              alt="Smart Donor Tracker App"
-              class="content-image"
-              style="margin-bottom: var(--space-8)"
-            />
-            <div
-              style="
-                background: var(--red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                font-size: 0.875rem;
-                font-weight: 600;
-                display: inline-block;
-                margin-bottom: var(--space-4);
-              "
-            >
-              Mobile Technology
-            </div>
-            <h3 class="feature-title">Smart Donor Tracker App</h3>
-            <p class="feature-description">
-              E Blood Pakistan app with GPS tracking and instant notifications
-              for emergency blood needs. Zero-cost model connecting donors and
-              patients nationwide.
-            </p>
-            <div
-              style="
-                background: var(--gray-50);
-                padding: var(--space-4);
-                border-radius: 8px;
-                margin-bottom: var(--space-8);
-              "
-            >
-              <strong>Downloads:</strong> 25,000+ active users across Pakistan
-            </div>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
             <a
-              href="https://play.google.com/store/apps/details?id=com.pakistan.Ebloodpakistan&pcampaignid=web_share"
-              target="_blank"
-              class="btn btn-primary"
-              >📱 Get App</a
-            >
-          </div>
-
-          <div class="feature-card animate-on-scroll">
-            <img
-              src="images/6.jpeg"
-              alt="Emergency Medical Response"
-              class="content-image"
-              style="margin-bottom: var(--space-8)"
-            />
-            <div
+              href="#campaigns"
+              class="btn btn-primary btn-large"
               style="
-                background: var(--red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                font-size: 0.875rem;
-                font-weight: 600;
-                display: inline-block;
-                margin-bottom: var(--space-4);
+                background: linear-gradient(135deg, #dc2626 0%, #3b82f6 100%);
+                border: none;
               "
             >
-              Emergency Care
-            </div>
-            <h3 class="feature-title">Emergency Medical Response</h3>
-            <p class="feature-description">
-              24/7 emergency response team providing critical medical aid and
-              blood delivery. Coordinated 89 successful emergency interventions
-              saving 247 lives.
-            </p>
-            <div
-              style="
-                background: var(--gray-50);
-                padding: var(--space-4);
-                border-radius: 8px;
-                margin-bottom: var(--space-8);
-              "
-            >
-              <strong>Response Time:</strong> Average 3.2 hours nationwide
-            </div>
-            <a href="Contact.html" class="btn btn-primary">Emergency Hotline</a>
-          </div>
-
-          <div class="feature-card animate-on-scroll">
-            <img
-              src="images/3.jpeg"
-              alt="Water Infrastructure Project"
-              class="content-image"
-              style="margin-bottom: var(--space-8)"
-            />
-            <div
-              style="
-                background: var(--red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                font-size: 0.875rem;
-                font-weight: 600;
-                display: inline-block;
-                margin-bottom: var(--space-4);
-              "
-            >
-              Infrastructure
-            </div>
-            <h3 class="feature-title">Smart Water Infrastructure</h3>
-            <p class="feature-description">
-              IoT-enabled water pumps in Tharparkar providing clean water access
-              to underserved communities. Real-time monitoring ensures 99.7%
-              uptime and sustainable water supply.
-            </p>
-            <div
-              style="
-                background: var(--gray-50);
-                padding: var(--space-4);
-                border-radius: 8px;
-                margin-bottom: var(--space-8);
-              "
-            >
-              <strong>Beneficiaries:</strong> 890+ people served daily
-            </div>
-            <a href="Contact.html#donate" class="btn btn-primary"
-              >Support Project</a
-            >
+              🚀 Our Campaigns
+            </a>
+            <a href="#support" class="btn btn-secondary btn-large">
+              💝 Join the Movement
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Real Story -->
+    <!-- Our Plan & Vision -->
     <section class="section" style="background: var(--gray-50)">
       <div class="container">
-        <div class="content-two-column">
-          <div>
-            <h2>A life saved in 90 seconds</h2>
-            <p class="text-large" style="margin-bottom: var(--space-8)">
-              When Ahmed Hassan collapsed from blood loss at PIMS Hospital, our
-              AI system found a compatible O+ donor in 90 seconds.
-            </p>
-            <p style="margin-bottom: var(--space-8)">
-              The donor, just 3 kilometers away, received an instant
-              notification. Within 2 hours, Ahmed was receiving the blood that
-              saved his life. This is the power of technology meeting
-              compassion.
-            </p>
-            <blockquote
-              style="
-                border-left: 4px solid var(--red);
-                padding-left: var(--space-4);
-                margin: var(--space-8) 0;
-                font-style: italic;
-                color: var(--gray-600);
-              "
-            >
-              "I got the notification while having lunch. In that moment, I knew
-              someone's life depended on me. I dropped everything and went to
-              help."
-              <br /><br />
-              <strong style="color: var(--black)"
-                >— Sarah Ahmed, Blood Donor</strong
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem">
+            <span class="gradient-text">The Master Plan</span>
+          </h2>
+          <p class="text-large" style="max-width: 700px; margin: 0 auto">
+            Hope In Action isn't just a campaign—it's our blueprint for
+            systematic change across Pakistan's most pressing humanitarian
+            challenges.
+          </p>
+        </div>
+
+        <div class="grid grid-3" style="gap: 2rem">
+          <div class="campaign-card">
+            <div class="floating-icon">🎯</div>
+            <h3 style="color: #dc2626; margin-bottom: 1rem; font-size: 1.5rem">
+              Phase 1: Foundation
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
               >
-            </blockquote>
+                <span style="color: #dc2626">●</span> Establish orphan care
+                infrastructure
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #dc2626">●</span> Launch emergency response
+                teams
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #dc2626">●</span> Build community
+                partnerships
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #dc2626">●</span> Technology platform
+                development
+              </li>
+            </ul>
           </div>
-          <div>
-            <div
-              style="
-                background: var(--black);
-                color: white;
-                padding: var(--space-8);
-                border-radius: 12px;
-                font-family: monospace;
-                font-size: 0.875rem;
-                line-height: 1.6;
-              "
-            >
-              <div style="color: #ff6b6b; margin-bottom: 0.5rem">
-                🚨 CRITICAL: O+ blood needed at PIMS
-              </div>
-              <div style="color: #51cf66; margin-bottom: 0.5rem">
-                PATIENT: Ahmed Hassan | Critical condition
-              </div>
-              <div style="color: #ffd43b; margin-bottom: 0.5rem">
-                AI_SCAN: Checking 847 registered donors...
-              </div>
-              <div style="color: #51cf66; margin-bottom: 0.5rem">
-                MATCH: Sarah Ahmed | O+ | 3.2km away
-              </div>
-              <div style="color: #ff6b6b; margin-bottom: 0.5rem">
-                ALERT_SENT: Emergency notification dispatched
-              </div>
-              <div style="color: #51cf66; margin-bottom: 0.5rem">
-                RESPONSE: Donor confirmed | ETA 25 minutes
-              </div>
-              <div style="color: #51cf66">
-                SUCCESS: Blood transfusion complete | Life saved ✓
-              </div>
-              <div style="margin-top: 1rem; color: #ffd43b; font-size: 0.75rem">
-                Total time: 90 seconds to match, 2 hours to save a life
-              </div>
-            </div>
+
+          <div class="campaign-card">
+            <div class="floating-icon">📈</div>
+            <h3 style="color: #3b82f6; margin-bottom: 1rem; font-size: 1.5rem">
+              Phase 2: Scale
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #3b82f6">●</span> Multi-city expansion
+                program
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #3b82f6">●</span> Sustainable funding models
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #3b82f6">●</span> Advanced AI integration
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #3b82f6">●</span> Youth leadership
+                development
+              </li>
+            </ul>
+          </div>
+
+          <div class="campaign-card">
+            <div class="floating-icon">🌍</div>
+            <h3 style="color: #f59e0b; margin-bottom: 1rem; font-size: 1.5rem">
+              Phase 3: Transform
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #f59e0b">●</span> National policy influence
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #f59e0b">●</span> International partnerships
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #f59e0b">●</span> Self-sustaining ecosystems
+              </li>
+              <li
+                style="
+                  padding: 0.5rem 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <span style="color: #f59e0b">●</span> Model replication
+                framework
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Our Journey Timeline -->
-    <section class="content-block">
+    <!-- Our Campaigns -->
+    <section class="section" id="campaigns" style="background: var(--white)">
       <div class="container">
-        <div style="text-align: center; margin-bottom: var(--space-20)">
-          <h2>Started in 2022</h2>
-          <p class="text-large" style="margin-top: var(--space-4)">
-            Making impact through iftar drives, food drives, flood campaigns,
-            Palestine campaigns, and our biggest project - Orphan Care
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem">
+            <span class="gradient-text">Active Campaigns</span>
+          </h2>
+          <p class="text-large">
+            Each campaign under Hope In Action addresses critical needs with
+            measurable impact and sustainable solutions.
+          </p>
+        </div>
+
+        <div class="grid grid-2" style="gap: 2rem">
+          <!-- Orphan Care Campaign -->
+          <div class="campaign-card" style="grid-column: 1 / -1">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+              "
+            >
+              <div style="flex: 1; min-width: 300px">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <div style="font-size: 3rem">🏠</div>
+                  <div>
+                    <h3 style="color: #dc2626; margin: 0; font-size: 2rem">
+                      Orphan Care Revolution
+                    </h3>
+                    <p style="margin: 0; color: var(--gray-600)">
+                      Our flagship initiative
+                    </p>
+                  </div>
+                </div>
+                <p style="margin-bottom: 2rem; line-height: 1.6">
+                  Building Pakistan's first student-led orphanage home with
+                  world-class facilities, technology integration, and
+                  family-based care model. Currently supporting 25+ children
+                  with plans for our permanent facility opening soon.
+                </p>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                    gap: 1rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <div style="text-align: center">
+                    <div class="impact-metric">25+</div>
+                    <div style="color: var(--gray-600); font-size: 0.875rem">
+                      Children in care
+                    </div>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="impact-metric">PKR 5M</div>
+                    <div style="color: var(--gray-600); font-size: 0.875rem">
+                      Facility budget
+                    </div>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="impact-metric">100%</div>
+                    <div style="color: var(--gray-600); font-size: 0.875rem">
+                      Success rate
+                    </div>
+                  </div>
+                </div>
+                <a href="#support" class="btn btn-primary"
+                  >Support This Campaign</a
+                >
+              </div>
+              <div style="flex: 1; min-width: 250px">
+                <img
+                  src="https://images.pexels.com/photos/8205100/pexels-photo-8205100.jpeg"
+                  alt="Orphan care"
+                  style="
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                    border-radius: 15px;
+                  "
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Emergency Response Campaign -->
+          <div class="campaign-card">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+              "
+            >
+              <div style="font-size: 2.5rem">🚨</div>
+              <h3 style="color: #dc2626; margin: 0">24/7 Emergency Response</h3>
+            </div>
+            <p style="margin-bottom: 2rem">
+              Rapid deployment teams for medical emergencies, natural disasters,
+              and crisis situations across Pakistan.
+            </p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin-bottom: 2rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <span style="font-weight: 600">Response Time:</span>
+                <span style="color: #dc2626; font-weight: 700"
+                  >3.2 hours avg</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-top: 0.5rem;
+                "
+              >
+                <span style="font-weight: 600">Lives Saved:</span>
+                <span style="color: #dc2626; font-weight: 700">247+</span>
+              </div>
+            </div>
+            <a href="Contact.html" class="btn btn-secondary"
+              >Emergency Hotline</a
+            >
+          </div>
+
+          <!-- Food Security Campaign -->
+          <div class="campaign-card">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+              "
+            >
+              <div style="font-size: 2.5rem">🍽️</div>
+              <h3 style="color: #dc2626; margin: 0">
+                Food Security Initiative
+              </h3>
+            </div>
+            <p style="margin-bottom: 2rem">
+              Monthly iftar distributions, emergency food packages, and
+              sustainable nutrition programs for vulnerable families.
+            </p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin-bottom: 2rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <span style="font-weight: 600">Monthly Meals:</span>
+                <span style="color: #dc2626; font-weight: 700">1,000+</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-top: 0.5rem;
+                "
+              >
+                <span style="font-weight: 600">Families Served:</span>
+                <span style="color: #dc2626; font-weight: 700">150+</span>
+              </div>
+            </div>
+            <a href="Contact.html#donate" class="btn btn-secondary"
+              >Sponsor Meals</a
+            >
+          </div>
+
+          <!-- Disaster Relief Campaign -->
+          <div class="campaign-card">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+              "
+            >
+              <div style="font-size: 2.5rem">🌊</div>
+              <h3 style="color: #dc2626; margin: 0">
+                Disaster Relief Operations
+              </h3>
+            </div>
+            <p style="margin-bottom: 2rem">
+              Coordinated response to floods, earthquakes, and natural disasters
+              with shelter, medical aid, and rehabilitation support.
+            </p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin-bottom: 2rem;
+              "
+            >
+              <div style="margin-bottom: 0.5rem">
+                <strong>2022 Floods:</strong> 5,000+ people assisted
+              </div>
+              <div style="margin-bottom: 0.5rem">
+                <strong>Emergency Shelters:</strong> 12 locations
+              </div>
+              <div><strong>Relief Packages:</strong> 2,500+ distributed</div>
+            </div>
+            <a href="Volunteer-Form.html" class="btn btn-secondary"
+              >Join Response Team</a
+            >
+          </div>
+
+          <!-- International Support Campaign -->
+          <div class="campaign-card">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+              "
+            >
+              <div style="font-size: 2.5rem">🇵🇸</div>
+              <h3 style="color: #dc2626; margin: 0">Global Solidarity</h3>
+            </div>
+            <p style="margin-bottom: 2rem">
+              Supporting Palestinian families and other international
+              humanitarian crises through fundraising and awareness campaigns.
+            </p>
+            <div
+              style="
+                background: var(--gray-50);
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin-bottom: 2rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <span style="font-weight: 600">Funds Raised:</span>
+                <span style="color: #dc2626; font-weight: 700">PKR 500K+</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-top: 0.5rem;
+                "
+              >
+                <span style="font-weight: 600">Families Helped:</span>
+                <span style="color: #dc2626; font-weight: 700">75+</span>
+              </div>
+            </div>
+            <a href="Contact.html#donate" class="btn btn-secondary"
+              >Contribute Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campaign Timeline -->
+    <section
+      class="section"
+      style="
+        background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+        color: white;
+      "
+    >
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem; color: white">
+            <span class="gradient-text">Campaign Journey</span>
+          </h2>
+          <p class="text-large" style="color: rgba(255, 255, 255, 0.8)">
+            From launch to impact - tracking our Hope In Action milestones
           </p>
         </div>
 
         <div style="max-width: 800px; margin: 0 auto">
-          <div class="grid grid-2" style="gap: var(--space-8)">
-            <div class="feature-card">
-              <h3 style="color: var(--red); margin-bottom: var(--space-4)">
-                🍽️ Iftar & Food Drives
-              </h3>
-              <p>
-                Providing iftar meals during Ramadan and regular food
-                distribution to families in need across Pakistan.
-              </p>
+          <div class="timeline-item">
+            <h3 style="color: white; margin-bottom: 1rem">
+              Q1 2024: Campaign Launch
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem">
+              Official launch of Hope In Action with orphan care as the flagship
+              initiative. Established first temporary care facility.
+            </p>
+            <div
+              style="
+                background: rgba(220, 38, 38, 0.1);
+                padding: 1rem;
+                border-radius: 10px;
+                border: 1px solid rgba(220, 38, 38, 0.3);
+              "
+            >
+              <strong style="color: #dc2626">Milestone:</strong> 10 children
+              welcomed into care program
             </div>
+          </div>
 
-            <div class="feature-card">
-              <h3 style="color: var(--red); margin-bottom: var(--space-4)">
-                🌊 Flood Campaigns
-              </h3>
-              <p>
-                Emergency response and relief operations during Pakistan's
-                devastating floods, providing shelter and aid.
-              </p>
+          <div class="timeline-item">
+            <h3 style="color: white; margin-bottom: 1rem">
+              Q2 2024: Emergency Response
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem">
+              Rapid deployment during spring flooding in Punjab. Coordinated
+              relief efforts for 2,000+ affected families.
+            </p>
+            <div
+              style="
+                background: rgba(59, 130, 246, 0.1);
+                padding: 1rem;
+                border-radius: 10px;
+                border: 1px solid rgba(59, 130, 246, 0.3);
+              "
+            >
+              <strong style="color: #3b82f6">Achievement:</strong> 48-hour
+              response time maintained
             </div>
+          </div>
 
-            <div class="feature-card">
-              <h3 style="color: var(--red); margin-bottom: var(--space-4)">
-                🇵🇸 Palestine Campaigns
-              </h3>
-              <p>
-                Supporting Palestinian families through fundraising and
-                awareness campaigns during critical times.
-              </p>
+          <div class="timeline-item">
+            <h3 style="color: white; margin-bottom: 1rem">
+              Q3 2024: Scale Operations
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem">
+              Expanded to 5 cities, launched Palestine support campaign, and
+              increased orphan care capacity to 25 children.
+            </p>
+            <div
+              style="
+                background: rgba(245, 158, 11, 0.1);
+                padding: 1rem;
+                border-radius: 10px;
+                border: 1px solid rgba(245, 158, 11, 0.3);
+              "
+            >
+              <strong style="color: #f59e0b">Impact:</strong> 15,000+ lives
+              touched across multiple campaigns
             </div>
+          </div>
 
-            <div class="feature-card">
-              <h3 style="color: var(--red); margin-bottom: var(--space-4)">
-                🏠 Orphan Care
-              </h3>
-              <p>
-                Our biggest project - providing comprehensive care for orphaned
-                children and starting our own orphanage home very soon.
-              </p>
+          <div class="timeline-item">
+            <h3 style="color: white; margin-bottom: 1rem">
+              Q4 2024: Infrastructure Development
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem">
+              Groundbreaking for permanent orphanage facility, technology
+              platform launch, and volunteer training program.
+            </p>
+            <div
+              style="
+                background: rgba(220, 38, 38, 0.1);
+                padding: 1rem;
+                border-radius: 10px;
+                border: 1px solid rgba(220, 38, 38, 0.3);
+              "
+            >
+              <strong style="color: #dc2626">Current:</strong> 60% funding
+              secured for permanent facility
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Photo Gallery -->
-    <section class="section" style="background: var(--gray-50)">
+    <!-- Goals & Targets -->
+    <section class="section" style="background: var(--white)">
       <div class="container">
-        <div style="text-align: center; margin-bottom: var(--space-20)">
-          <h2>Impact in pictures</h2>
-          <p class="text-large" style="margin-top: var(--space-4)">
-            Visual stories from our humanitarian work across Pakistan
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem">
+            <span class="gradient-text">2025 Goals</span>
+          </h2>
+          <p class="text-large">
+            Ambitious targets that will transform Hope In Action into Pakistan's
+            leading youth-driven humanitarian force.
           </p>
         </div>
 
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-8);
-          "
-        >
-          <div
-            style="
-              position: relative;
-              overflow: hidden;
-              border-radius: 12px;
-              aspect-ratio: 4/3;
-            "
-          >
-            <img
-              src="images/1.jpeg"
-              alt="Blood donation drive"
-              style="width: 100%; height: 100%; object-fit: cover"
-            />
-            <div
-              style="
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-                color: white;
-                padding: var(--space-8) var(--space-4) var(--space-4);
-              "
-            >
-              <h4>Blood Donation Drive</h4>
-              <p style="font-size: 0.875rem; margin: 0">
-                Volunteers organizing life-saving donations
+        <div class="grid grid-2" style="gap: 3rem; align-items: center">
+          <div>
+            <div style="margin-bottom: 3rem">
+              <h3
+                style="
+                  color: #dc2626;
+                  margin-bottom: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                "
+              >
+                <span style="font-size: 2rem">🏠</span> Orphanage Completion
+              </h3>
+              <p style="margin-bottom: 1rem">
+                Open our permanent 50-child capacity facility with world-class
+                education, healthcare, and technology resources.
               </p>
+              <div
+                style="
+                  background: var(--gray-100);
+                  height: 8px;
+                  border-radius: 4px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                <div
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      #dc2626 0%,
+                      #3b82f6 100%
+                    );
+                    height: 100%;
+                    width: 60%;
+                    border-radius: 4px;
+                  "
+                ></div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.875rem;
+                  color: var(--gray-600);
+                "
+              >
+                <span>60% Complete</span>
+                <span>Target: June 2025</span>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 3rem">
+              <h3
+                style="
+                  color: #3b82f6;
+                  margin-bottom: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                "
+              >
+                <span style="font-size: 2rem">🌍</span> National Expansion
+              </h3>
+              <p style="margin-bottom: 1rem">
+                Establish Hope In Action chapters in 10 major Pakistani cities
+                with local volunteer teams.
+              </p>
+              <div
+                style="
+                  background: var(--gray-100);
+                  height: 8px;
+                  border-radius: 4px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                <div
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      #3b82f6 0%,
+                      #f59e0b 100%
+                    );
+                    height: 100%;
+                    width: 30%;
+                    border-radius: 4px;
+                  "
+                ></div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.875rem;
+                  color: var(--gray-600);
+                "
+              >
+                <span>3 of 10 cities</span>
+                <span>Target: Dec 2025</span>
+              </div>
+            </div>
+
+            <div>
+              <h3
+                style="
+                  color: #f59e0b;
+                  margin-bottom: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                "
+              >
+                <span style="font-size: 2rem">💡</span> Technology Integration
+              </h3>
+              <p style="margin-bottom: 1rem">
+                Launch AI-powered impact tracking, mobile volunteer
+                coordination, and real-time resource allocation system.
+              </p>
+              <div
+                style="
+                  background: var(--gray-100);
+                  height: 8px;
+                  border-radius: 4px;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                <div
+                  style="
+                    background: linear-gradient(
+                      90deg,
+                      #f59e0b 0%,
+                      #dc2626 100%
+                    );
+                    height: 100%;
+                    width: 45%;
+                    border-radius: 4px;
+                  "
+                ></div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.875rem;
+                  color: var(--gray-600);
+                "
+              >
+                <span>45% Complete</span>
+                <span>Target: Mar 2025</span>
+              </div>
             </div>
           </div>
 
           <div
             style="
-              position: relative;
-              overflow: hidden;
-              border-radius: 12px;
-              aspect-ratio: 4/3;
+              background: var(--gray-50);
+              padding: 3rem;
+              border-radius: 20px;
             "
           >
-            <img
-              src="images/5.jpeg"
-              alt="Team coordination"
-              style="width: 100%; height: 100%; object-fit: cover"
-            />
-            <div
+            <h3
               style="
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-                color: white;
-                padding: var(--space-8) var(--space-4) var(--space-4);
+                text-align: center;
+                margin-bottom: 2rem;
+                color: var(--black);
               "
             >
-              <h4>Emergency Response</h4>
-              <p style="font-size: 0.875rem; margin: 0">
-                Coordinating rapid medical assistance
-              </p>
-            </div>
-          </div>
+              Impact Projections
+            </h3>
 
-          <div
-            style="
-              position: relative;
-              overflow: hidden;
-              border-radius: 12px;
-              aspect-ratio: 4/3;
-            "
-          >
-            <img
-              src="images/tharparker.jpeg"
-              alt="Water project"
-              style="width: 100%; height: 100%; object-fit: cover"
-            />
             <div
               style="
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-                color: white;
-                padding: var(--space-8) var(--space-4) var(--space-4);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-bottom: 2rem;
               "
             >
-              <h4>Clean Water Access</h4>
-              <p style="font-size: 0.875rem; margin: 0">
-                Installing smart pumps in Tharparkar
-              </p>
+              <div style="text-align: center">
+                <div style="font-size: 3rem; font-weight: 900; color: #dc2626">
+                  50K+
+                </div>
+                <div style="color: var(--gray-600)">
+                  Lives impacted annually
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 3rem; font-weight: 900; color: #3b82f6">
+                  100+
+                </div>
+                <div style="color: var(--gray-600)">Children in care</div>
+              </div>
+            </div>
+
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"
+            >
+              <div style="text-align: center">
+                <div style="font-size: 3rem; font-weight: 900; color: #f59e0b">
+                  500+
+                </div>
+                <div style="color: var(--gray-600)">Active volunteers</div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 3rem; font-weight: 900; color: #dc2626">
+                  24/7
+                </div>
+                <div style="color: var(--gray-600)">Emergency coverage</div>
+              </div>
             </div>
           </div>
         </div>
@@ -578,23 +1115,113 @@
     <!-- Call to Action -->
     <section
       class="section"
-      style="background: var(--red); color: var(--white); text-align: center"
+      id="support"
+      style="
+        background: linear-gradient(135deg, #dc2626 0%, #000 100%);
+        color: white;
+      "
     >
       <div class="container">
-        <div style="max-width: 600px; margin: 0 auto">
-          <h2 style="color: var(--white); margin-bottom: var(--space-8)">
-            Be part of our impact
+        <div style="text-align: center; margin-bottom: 4rem">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem; color: white">
+            <span style="color: white">Become Part of</span>
+            <span class="gradient-text">Hope In Action</span>
           </h2>
-          <p
-            class="text-large"
+          <p class="text-large" style="color: rgba(255, 255, 255, 0.9)">
+            Every campaign needs heroes. Every child needs hope. Every community
+            needs champions. Be the change Pakistan needs.
+          </p>
+        </div>
+
+        <div class="grid grid-3" style="gap: 2rem">
+          <div
             style="
-              color: rgba(255, 255, 255, 0.9);
-              margin-bottom: var(--space-12);
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(20px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 20px;
+              padding: 2rem;
+              text-align: center;
             "
           >
-            Every donation, every volunteer hour, every download creates more
-            stories like these. Join the movement that's changing lives through
-            technology and compassion.
+            <div style="font-size: 4rem; margin-bottom: 1rem">💝</div>
+            <h3 style="color: white; margin-bottom: 1rem">Fund a Campaign</h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
+              Choose a specific campaign to support with direct, measurable
+              impact on the cause you care about most.
+            </p>
+            <a
+              href="Contact.html#donate"
+              class="btn btn-secondary"
+              style="width: 100%"
+              >Choose Campaign</a
+            >
+          </div>
+
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(20px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 20px;
+              padding: 2rem;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 4rem; margin-bottom: 1rem">🤝</div>
+            <h3 style="color: white; margin-bottom: 1rem">
+              Volunteer Your Skills
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
+              Join our growing team of changemakers. We need your unique skills
+              to scale our impact across Pakistan.
+            </p>
+            <a
+              href="Volunteer-Form.html"
+              class="btn btn-secondary"
+              style="width: 100%"
+              >Join Team</a
+            >
+          </div>
+
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(20px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 20px;
+              padding: 2rem;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 4rem; margin-bottom: 1rem">📢</div>
+            <h3 style="color: white; margin-bottom: 1rem">Spread Awareness</h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
+              Share our campaigns with your network and help us reach more
+              people who need support and more hearts ready to help.
+            </p>
+            <a href="Contact.html" class="btn btn-secondary" style="width: 100%"
+              >Get Resources</a
+            >
+          </div>
+        </div>
+
+        <div
+          style="
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+          "
+        >
+          <h3 style="color: white; margin-bottom: 1rem">
+            Emergency Support Needed?
+          </h3>
+          <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
+            If you or someone you know needs immediate assistance from any of
+            our campaigns, reach out 24/7.
           </p>
           <div
             style="
@@ -604,34 +1231,19 @@
               flex-wrap: wrap;
             "
           >
-            <a href="Contact.html#donate" class="btn btn-secondary btn-large">
-              Support our work
-            </a>
+            <a href="tel:+923360863545" class="btn btn-primary"
+              >📞 Emergency: +92 336 0863545</a
+            >
             <a
-              href="Volunteer-Form.html"
+              href="mailto:hope@samlifesavers.org"
               class="btn"
               style="
                 background: rgba(255, 255, 255, 0.2);
                 color: white;
                 border: 1px solid rgba(255, 255, 255, 0.3);
               "
-              class="btn-large"
+              >📧 hope@samlifesavers.org</a
             >
-              Volunteer today
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.pakistan.Ebloodpakistan&pcampaignid=web_share"
-              target="_blank"
-              class="btn"
-              style="
-                background: rgba(255, 255, 255, 0.2);
-                color: white;
-                border: 1px solid rgba(255, 255, 255, 0.3);
-              "
-              class="btn-large"
-            >
-              📱 Get E Blood App
-            </a>
           </div>
         </div>
       </div>
@@ -674,61 +1286,48 @@
                 line-height: 1.6;
               "
             >
-              A student-led movement revolutionizing humanitarian aid through
-              technology and compassion.
+              Hope In Action - Transforming lives through strategic humanitarian
+              campaigns across Pakistan.
             </p>
           </div>
 
           <div class="footer-section">
-            <h4>Navigation</h4>
-            <a href="/">Home</a>
-            <a href="About.html">About</a>
-            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Bank</a>
-            <a href="Hope-In-Action.html">Impact</a>
-            <a href="Volunteer-Form.html">Volunteer</a>
-            <a href="Contact.html">Contact</a>
-          </div>
-
-          <div class="footer-section">
-            <h4>Our Projects</h4>
-            <a href="HumanKind-AI-Blood-Bank.html">AI Blood Network</a>
-            <a href="Contact.html#donate">Water Projects</a>
-            <a href="Contact.html#donate">Emergency Response</a>
-            <a href="Contact.html#donate">Student Programs</a>
+            <h4>Active Campaigns</h4>
+            <a href="#campaigns">Orphan Care Revolution</a>
+            <a href="#campaigns">Emergency Response</a>
+            <a href="#campaigns">Food Security</a>
+            <a href="#campaigns">Disaster Relief</a>
           </div>
 
           <div class="footer-section">
             <h4>Get Involved</h4>
-            <p
-              style="
-                color: var(--gray-400);
-                margin-bottom: 1rem;
-                line-height: 1.6;
-              "
-            >
-              Join our mission to save lives through technology and compassion.
+            <a href="#support">Fund a Campaign</a>
+            <a href="Volunteer-Form.html">Volunteer</a>
+            <a href="Contact.html">Partnership</a>
+            <a href="Contact.html#donate">Donate</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>24/7 Emergency</h4>
+            <p style="color: var(--gray-400); margin-bottom: 1rem">
+              For urgent assistance or crisis situations.
             </p>
-            <a
-              href="Volunteer-Form.html"
-              class="btn btn-primary"
-              style="padding: 0.5rem 1rem; font-size: 0.875rem"
-            >
-              Volunteer Now
-            </a>
+            <p style="color: var(--gray-400)">📞 +92 336 0863545</p>
+            <p style="color: var(--gray-400)">📧 hope@samlifesavers.org</p>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p>
-            &copy; 2024 Sam Life Savers. Real impact through technology and
-            compassion.
+            &copy; 2024 Sam Life Savers Hope In Action. Every campaign saves
+            lives.
           </p>
         </div>
       </div>
     </footer>
 
     <script>
-      // Navigation and animations
+      // Enhanced navigation and animations
       window.addEventListener("scroll", () => {
         const nav = document.getElementById("nav");
         if (window.scrollY > 100) {
@@ -792,7 +1391,7 @@
               counter.textContent = Math.ceil(current);
               requestAnimationFrame(updateCounter);
             } else {
-              counter.textContent = target;
+              counter.textContent = target + "+";
             }
           };
 
@@ -800,23 +1399,53 @@
         });
       };
 
-      // Trigger counter animation
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            entry.target.querySelector("[data-count]")
-          ) {
-            animateCounters();
-            observer.unobserve(entry.target);
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+            if (entry.target.querySelector("[data-count]")) {
+              animateCounters();
+              observer.unobserve(entry.target);
+            }
           }
         });
+      }, observerOptions);
+
+      // Observe cards and counter sections
+      document.querySelectorAll(".campaign-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(card);
       });
 
-      const statsSection = document.querySelector(".stats");
+      // Observe stats section for counter animation
+      const statsSection = document.querySelector(".hero");
       if (statsSection) {
         observer.observe(statsSection);
       }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
     </script>
   </body>
 </html>

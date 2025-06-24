@@ -415,7 +415,13 @@
         </div>
 
         <div style="max-width: 600px; margin: 0 auto">
-          <form class="feature-card" style="text-align: left">
+          <form
+            class="feature-card"
+            style="text-align: left"
+            netlify
+            name="volunteer-application"
+            method="POST"
+          >
             <!-- Personal Information -->
             <div style="margin-bottom: var(--space-12)">
               <h3 style="margin-bottom: var(--space-8)">
@@ -441,6 +447,7 @@
                   >
                   <input
                     type="text"
+                    name="firstName"
                     required
                     style="
                       width: 100%;
