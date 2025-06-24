@@ -31,9 +31,7 @@
             >
           </li>
           <li><a href="Hope-In-Action.html" class="nav-link">Impact</a></li>
-          <li>
-            <a href="Hope-In-Action.html" class="nav-link">Hope In Action</a>
-          </li>
+          <li><a href="Hope-In-Action.html" class="nav-link">Hope In Action</a></li>
           <li><a href="Volunteer-Form.html" class="nav-link">Volunteer</a></li>
           <li><a href="Contact.html" class="nav-link active">Contact</a></li>
           <li class="mobile-only">
@@ -433,31 +431,15 @@
 
           <div>
             <form
-              class="feature-card"
-              style="text-align: left"
-              action="https://formsubmit.co/info@samlifesavers.org"
-              method="POST"
-            >
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Contact Form Submission - Sam Life Savers"
-              />
-              <input type="hidden" name="_captcha" value="false" />
-              <input
-                type="hidden"
-                name="_next"
-                value="https://samlifesavers.org/Contact.html?success=true"
-              />
-
-              <div style="margin-bottom: var(--space-4)">
+            <form class="feature-card" style="text-align: left" netlify name="contact" method="POST">
+              <div style="margin-bottom: var(--space-8)">
                 <label
                   style="
                     display: block;
                     margin-bottom: 0.5rem;
                     font-weight: 600;
                   "
-                  >Full Name *</label
+                  >Your Name *</label
                 >
                 <input
                   type="text"
@@ -473,10 +455,28 @@
                 />
               </div>
 
-              <div style="margin-bottom: var(--space-4)">
+              <div style="margin-bottom: var(--space-8)">
                 <label
                   style="
                     display: block;
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                  "
+                  >Email Address *</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  style="
+                    width: 100%;
+                    padding: 0.75rem;
+                    border: 1px solid var(--gray-300);
+                    border-radius: 6px;
+                    font-size: 1rem;
+                  "
+                />
+              </div>
                     margin-bottom: 0.5rem;
                     font-weight: 600;
                   "
