@@ -504,6 +504,11 @@
             name="volunteer-application"
             method="POST"
           >
+            <input
+              type="hidden"
+              name="form-name"
+              value="volunteer-application"
+            />
             <!-- Personal Information -->
             <div style="margin-bottom: var(--space-12)">
               <h3 style="margin-bottom: var(--space-8)">
@@ -1131,23 +1136,23 @@
         observer.observe(statsSection);
       }
 
-      // Form submission
+      // Form validation before submission
       document.querySelector("form").addEventListener("submit", function (e) {
-        e.preventDefault();
-
         // Check if at least one interest is selected
         const interests = document.querySelectorAll(
           'input[name="interests"]:checked',
         );
         if (interests.length === 0) {
+          e.preventDefault();
           alert("Please select at least one area of interest.");
           return;
         }
 
-        alert(
-          "Thank you for your application! We will review it and contact you within 48 hours.",
-        );
-        this.reset();
+        // If validation passes, let the form submit naturally to Netlify
+        // Show a brief loading message
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.textContent = "Submitting...";
+        submitBtn.disabled = true;
       });
     </script>
   </body>
