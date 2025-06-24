@@ -39,6 +39,37 @@
           box-shadow 0.3s ease;
         position: relative;
         overflow: hidden;
+        animation: gentleFloat 6s ease-in-out infinite;
+      }
+
+      @keyframes gentleFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      @keyframes compassionPulse {
+        0%,
+        100% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes hopeGlow {
+        0%,
+        100% {
+          filter: brightness(1);
+        }
+        50% {
+          filter: brightness(1.1);
+        }
       }
 
       .campaign-card::before {

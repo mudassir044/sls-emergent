@@ -98,24 +98,80 @@
           </p>
         </div>
         <div class="stats-grid">
-          <div class="stat">
+          <div
+            class="stat"
+            style="animation: heartbeat 2s ease-in-out infinite"
+          >
             <span class="stat-number" data-count="247">247</span>
             <span class="stat-label">Lives saved by volunteers</span>
           </div>
-          <div class="stat">
+          <div
+            class="stat"
+            style="animation: gentleFloat 4s ease-in-out infinite"
+          >
             <span class="stat-number" data-count="52">52</span>
             <span class="stat-label">Active volunteers</span>
           </div>
-          <div class="stat">
+          <div
+            class="stat"
+            style="animation: compassionGlow 3s ease-in-out infinite"
+          >
             <span class="stat-number">24/7</span>
             <span class="stat-label">Emergency response</span>
           </div>
-          <div class="stat">
+          <div
+            class="stat"
+            style="animation: hopeRipple 2s infinite; position: relative"
+          >
             <span class="stat-number" data-count="5">5</span>
             <span class="stat-label">Cities we serve</span>
           </div>
         </div>
       </div>
+
+      <style>
+        @keyframes heartbeat {
+          0%,
+          100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
+        @keyframes gentleFloat {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+
+        @keyframes compassionGlow {
+          0%,
+          100% {
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+          }
+        }
+
+        @keyframes hopeRipple {
+          0% {
+            box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+          }
+        }
+      </style>
     </section>
 
     <!-- Volunteer Areas -->
